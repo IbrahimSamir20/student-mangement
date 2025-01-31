@@ -14,10 +14,11 @@ public class CustomInput extends VBox {
         private Label label ;
         private Text errorMessage;
 
-        CustomInput(String placeholder,String labelText, String errorText){
+        public CustomInput(String placeholder, String labelText, String errorText, Boolean show){
               
                 //declare var
-                this.input = new TextField(placeholder);
+                this.input = new TextField();
+                this.input.setPromptText(placeholder);
                 this.label = new Label(labelText);
                 this.errorMessage = new Text(errorText);
         
@@ -27,19 +28,9 @@ public class CustomInput extends VBox {
                 this.label.setTextFill(AppStyle.textColor);
                 this.label.setFont(Font.font(AppStyle.font18.getFamily(), FontWeight.BOLD, AppStyle.font18.getSize()));
                 this.errorMessage.setFill(AppStyle.errorColor);
-                this.input.textProperty().addListener((obs, oldValue , newValue)-> validate(newValue));
+                this.errorMessage.setVisible(show);
+                this.getChildren().addAll(label, input, errorMessage);
+                this.setSpacing(5);
         
         }
-        
-        private void validate(String newValue) {
-                if (newValue == null || newValue.trim().isEmpty()) {
-                        errorMessage.setText("Input cannot be empty");
-                        errorMessage.setVisible(true);
-                } else {
-                        errorMessage.setVisible(false);
-                }
-        }
-
-        
-
 }
