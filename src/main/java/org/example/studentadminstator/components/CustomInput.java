@@ -14,7 +14,7 @@ public class CustomInput extends VBox {
         private Label label ;
         private Text errorMessage;
 
-        public CustomInput(String placeholder, String labelText, String errorText, Boolean show){
+        public CustomInput(String placeholder, String labelText, String errorText){
               
                 //declare var
                 this.input = new TextField();
@@ -28,9 +28,17 @@ public class CustomInput extends VBox {
                 this.label.setTextFill(AppStyle.textColor);
                 this.label.setFont(Font.font(AppStyle.font18.getFamily(), FontWeight.BOLD, AppStyle.font18.getSize()));
                 this.errorMessage.setFill(AppStyle.errorColor);
-                this.errorMessage.setVisible(show);
+                this.errorMessage.setVisible(false);
                 this.getChildren().addAll(label, input, errorMessage);
                 this.setSpacing(5);
         
+        }
+
+        public boolean isValid(){
+                if(this.input.getText().trim().equals("")){
+                        return false;
+                }else{
+                        return true;
+                }
         }
 }
