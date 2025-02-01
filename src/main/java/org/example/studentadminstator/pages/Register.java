@@ -27,10 +27,11 @@ public class Register extends VBox {
     private String errorUsername = "";
     private String errorPassword = "";
     private String errorCourse = "";
+    private Boolean isVisible = false;
     private GridPane grid = new GridPane();
-    private CustomInput usernameInput = new CustomInput("Enter your username", "Username", errorUsername);
-    private CustomInput passwordInput = new CustomInput("Enter Password","Password",errorPassword);
-    private CustomInput courseInput = new CustomInput("Enter Course","Course",errorCourse);
+    private CustomInput usernameInput = new CustomInput("Enter your username", "Username");
+    private CustomInput passwordInput = new CustomInput("Enter Password","Password");
+    private CustomInput courseInput = new CustomInput("Enter Course","Course");
     private CustomSelect jobGroup = new CustomSelect("Job:", "Student", "Instructor");
     private CustomSelect genderGroup = new CustomSelect("Gender", "Male", "Female");
     private Button loginButton = new Button();
@@ -57,24 +58,20 @@ public class Register extends VBox {
         grid.add(genderGroup, 0, 4, 1, 1);
         grid.add(loginButton, 0, 5, 1, 1);
 
-        EventHandler<ActionEvent> buttonEvent = e -> {
-            if(usernameInput.isValid() && passwordInput.isValid() && courseInput.isValid()){
-                //Should Go to the next page
-            }else {
-                errorUsername = "Username cannot be empty";
-                errorPassword = "Password cannot be empty";
-                errorCourse = "Course cannot be empty";
-                //This is a replacement to error text TODO(IbrahimSamir): Check this
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Empty Field");
-                alert.setHeaderText(null);
-                alert.setContentText("Please fill all the fields correctly");
-                alert.showAndWait();
-
+        EventHandler<ActionEvent> any = e -> {
+            Boolean usernameValid =  usernameInput.getIsValid();
+            Boolean passwordValid =  passwordInput.getIsValid();
+            Boolean courseValid =  courseInput.getIsValid();
+            Boolean genderValid = genderGroup.isValid();
+            Boolean jobValid = jobGroup.isValid();
+            System.out.println("Username valid: " + usernameValid.toString() + ", Password valid: " + passwordValid.toString());
+            //Register
+            if(usernameValid && passwordValid && courseValid && genderValid && jobValid ) {
+                System.out.println("submitted successful"+ usernameInput.getInputValue());
             }
         };
 
-        loginButton.setOnAction(buttonEvent);
+        loginButton.setOnAction(any);
 
     }
     public GridPane getGrid(){
