@@ -26,8 +26,8 @@ public class Login extends VBox {
     private String errorPassword = "";
     private Boolean isVisible = false;
     private GridPane grid = new GridPane();
-    private CustomInput usernameInput = new CustomInput("Enter your username", "Username", errorUsername,isVisible);
-    private CustomInput passwordInput = new CustomInput("Enter Password","Password",errorPassword,isVisible);
+    private CustomInput usernameInput = new CustomInput("Enter your username", "Username", errorUsername);
+    private CustomInput passwordInput = new CustomInput("Enter Password","Password",errorPassword);
     private Button loginButton = new Button();
 
     public Login(Stage primaryStage) {
@@ -48,12 +48,23 @@ public class Login extends VBox {
         grid.add(usernameInput, 0, 0, 1, 1);
         grid.add(passwordInput, 0, 1, 1, 1);
         grid.add(loginButton, 0, 4, 1, 1);
-        
-        EventHandler<ActionEvent> any = e -> {
-            // Your code here
+
+        EventHandler<ActionEvent> buttonEvent = e -> {
+            if(usernameInput.isValid() && passwordInput.isValid()){
+                //Should Go to the next page
+            }else {
+                errorUsername = "Username cannot be empty";
+                errorPassword = "Password cannot be empty";
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Empty Field");
+                alert.setHeaderText(null);
+                alert.setContentText("Please fill all the fields correctly");
+                alert.showAndWait();
+
+            }
         };
 
-        loginButton.setOnAction(any);
+        loginButton.setOnAction(buttonEvent);
         
     }
     public GridPane getGrid(){
