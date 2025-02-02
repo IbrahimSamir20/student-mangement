@@ -1,22 +1,22 @@
 package org.example.studentadminstator.components;
-import Javafx.event.EventHandler;
-import javafx.scene.control.button;
-import javafx.scene.layout.VBox
+import org.example.studentadminstator.AppStyle;;
+import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+// import javafx.scene.control.button;
+// import javafx.scene.layout.VBox
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Font;
 
 public class CustomButton extends VBox {
+      private  Button button;
 
-public CustomButtontom(EventHandler<ActionEvent> eventHandler,String lapel){
-
-        this.button=new Button(label);
-
-        this.button.setonAction(eventHandler);
-
-        this.getchildren().add(this.button);
+public CustomButton(EventHandler<ActionEvent> eventHandler, String label) {
+        this.button = new Button(label);
+        this.button.setOnAction(eventHandler);
+        this.getChildren().add(this.button);
         
-
-
-   Button button;
-
         button.setTextFill(AppStyle.textColor);
         button.setFont(Font.font(AppStyle.font18.getFamily(), FontWeight.BOLD, AppStyle.font18.getSize()));
         button.setPrefWidth(100);
