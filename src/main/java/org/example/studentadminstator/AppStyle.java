@@ -27,6 +27,7 @@ public class AppStyle{
     public static final Font font32 = new Font("Arial", 32);
     
     public static final Color colorBlack = Color.BLACK;
+    public static final Color colorLight = Color.rgb(198, 33, 0);
     public static final Color textColor = Color.WHITE;
     public static final Color errorColor = Color.RED;
     public static final FontWeight textBold = FontWeight.BOLD;
@@ -34,7 +35,7 @@ public class AppStyle{
     public static final Border border = new Border(new BorderStroke(colorBlack, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT));
     public static final Background background = new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY));
     public static final BackgroundImage backgroundImage = new BackgroundImage(
-        new Image("file:src/main/resources/org/example/studentadminstator/images/background.jpg"),
+        new Image("file:src/main/resources/org/example/studentadminstator/images/bg.png"),
         BackgroundRepeat.NO_REPEAT,
         BackgroundRepeat.NO_REPEAT,
         BackgroundPosition.CENTER,

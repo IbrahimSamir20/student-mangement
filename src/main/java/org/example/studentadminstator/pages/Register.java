@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import javafx.scene.layout.Background;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 // import javafx.scene.text.Text;
 //use latter for controller
 import javafx.event.ActionEvent;
@@ -28,6 +29,7 @@ public class Register extends VBox {
     // private String errorPassword = "";
     // private String errorCourse = "";
     // private Boolean isVisible = false;
+    Text header = new Text();
     private GridPane grid = new GridPane();
     private CustomInput usernameInput = new CustomInput("Enter your username", "Username");
     private CustomInput passwordInput = new CustomInput("Enter Password","Password");
@@ -35,9 +37,9 @@ public class Register extends VBox {
     private CustomSelect jobGroup = new CustomSelect("Job:", "Student", "Instructor");
     private CustomSelect genderGroup = new CustomSelect("Gender", "Male", "Female");
     private Button loginButton = new Button();
-
+    
     public Register(Stage primaryStage) {
-
+        
         grid.setVgap(15);
         grid.setHgap(15);
         grid.setAlignment(Pos.CENTER);
@@ -45,20 +47,17 @@ public class Register extends VBox {
         Background background = new Background(AppStyle.backgroundImage);
         grid.setBackground(background);
 
-
-
+        header.setText("Register");
+        header.setFont(AppStyle.font32);
+        header.setFill(AppStyle.textColor);
+        
+        
         loginButton.setTextFill(AppStyle.textColor);
         loginButton.setFont(Font.font(AppStyle.font18.getFamily(), FontWeight.BOLD, AppStyle.font18.getSize()));
         loginButton.setPrefWidth(100);
         loginButton.setTextFill(AppStyle.textColor);
-        grid.add(usernameInput, 0, 0, 1, 1);
-        grid.add(passwordInput, 0, 1, 1, 1);
-        grid.add(courseInput, 0, 2, 1, 1);
-        grid.add(jobGroup, 0, 3, 1, 1);
-        grid.add(genderGroup, 0, 4, 1, 1);
-        grid.add(loginButton, 0, 5, 1, 1);
-
-        EventHandler<ActionEvent> any = e -> {
+        
+        EventHandler<ActionEvent> handelSubmit = e -> {
             Boolean usernameValid =  usernameInput.getIsValid();
             Boolean passwordValid =  passwordInput.getIsValid();
             Boolean courseValid =  courseInput.getIsValid();
@@ -70,8 +69,15 @@ public class Register extends VBox {
                 System.out.println("submitted successful"+ usernameInput.getInputValue());
             }
         };
-
-        loginButton.setOnAction(any);
+        
+        loginButton.setOnAction(handelSubmit);
+        grid.add(header, 0, 0, 1, 1);
+        grid.add(usernameInput, 0, 1, 1, 1);
+        grid.add(passwordInput, 0, 2, 1, 1);
+        grid.add(courseInput, 0, 3, 1, 1);
+        grid.add(jobGroup, 0, 4, 1, 1);
+        grid.add(genderGroup, 0, 5, 1, 1);
+        grid.add(loginButton, 0, 6, 1, 1);
 
     }
     public GridPane getGrid(){
