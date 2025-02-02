@@ -11,10 +11,11 @@ import org.example.studentadminstator.AppStyle;
 public class CustomSelect extends VBox{
     private Label label;
     private ToggleGroup toggleGroup;
+    private Label errorMessage;
 
     public CustomSelect(String groupLabel, String... options) {
         label = new Label(groupLabel);
-        label.setStyle("-fx-font-weight: bold;");
+        label.setFont(AppStyle.font18Bold);
         label.setTextFill(AppStyle.textColor);
         toggleGroup = new ToggleGroup();
         HBox optionsBox = new HBox(10);
@@ -24,12 +25,23 @@ public class CustomSelect extends VBox{
             RadioButton radioButton = new RadioButton(option);
             radioButton.setToggleGroup(toggleGroup);
             radioButton.setTextFill(AppStyle.textColor);
+            radioButton.setFont(AppStyle.font14Bold);
             optionsBox.getChildren().add(radioButton);
         }
-
+        errorMessage = new Label("You must select an option.");
+        errorMessage.setTextFill(AppStyle.errorColor);
+        errorMessage.setVisible(false);
+        errorMessage.setFont(AppStyle.font14);
+        toggleGroup.selectedToggleProperty().addListener((obs, oldVal, newVal) -> {
+            if(newVal != null) {
+                clearErrorMessage();
+            }else {
+                setErrorMessage();
+            }
+        });
         setSpacing(5);
         setPadding(new Insets(10));
-        getChildren().addAll(label, optionsBox);
+        getChildren().addAll(label, optionsBox, errorMessage);
     }
 
     public String getSelectedOption() {
@@ -49,6 +61,20 @@ public class CustomSelect extends VBox{
 
     public Label getLabel() {
         return label;
+    }
+    //Add Indication to show that he must select the option
+    public Boolean isValid() {
+        boolean isValid = toggleGroup.getSelectedToggle() != null;
+        errorMessage.setVisible(!isValid);
+        return isValid;
+    }
+    public void setErrorMessage(){
+        this.errorMessage.setVisible(true);
+    }
+
+    public void clearErrorMessage(){
+        this.errorMessage.setText("");
+        this.errorMessage.setVisible(false);
     }
 }
 

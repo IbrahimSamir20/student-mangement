@@ -50,7 +50,7 @@ public class Login extends VBox {
             Boolean usernameValid =  usernameInput.getIsValid();
             Boolean passwordValid =  passwordInput.getIsValid();
             System.out.println("Username valid: " + usernameValid.toString() + ", Password valid: " + passwordValid.toString());
-                // System.out.println("logined");
+                //Login
                 if(usernameValid && passwordValid){
                   System.out.println("submitted successful"+ usernameInput.getInputValue());
                 }
