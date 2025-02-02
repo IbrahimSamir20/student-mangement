@@ -12,6 +12,9 @@ module org.example.studentadminstator {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
+
+    opens org.example.studentadminstator.components to javafx.graphics;
     opens org.example.studentadminstator to javafx.fxml;
     exports org.example.studentadminstator;
 }
+
