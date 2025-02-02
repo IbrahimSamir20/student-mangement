@@ -46,6 +46,7 @@ public class Login extends VBox {
         grid.add(passwordInput, 0, 1, 1, 1);
         grid.add(loginButton, 0, 2, 1, 1);
 
+
         EventHandler<ActionEvent> buttonEvent = e -> {
             Boolean usernameValid =  usernameInput.getIsValid();
             Boolean passwordValid =  passwordInput.getIsValid();
