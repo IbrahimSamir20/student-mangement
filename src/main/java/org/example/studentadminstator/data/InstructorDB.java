@@ -3,11 +3,14 @@ package org.example.studentadminstator.data;
 import java.util.ArrayList;
 
 public class InstructorDB<T> {
-        
+        Instructor oneInstructor=new Instructor("ibrahim", "doaa",  "instructor");
        private ArrayList<Instructor> instructorDB = new ArrayList<>();
-        
-       public void createInstructor(Instructor instructor){
 
+       public InstructorDB() {
+           instructorDB.add(oneInstructor);
+       }
+
+       public void createInstructor(Instructor instructor){
                 instructorDB.add(instructor);
        }
 
@@ -19,7 +22,13 @@ public class InstructorDB<T> {
                 instructorDB.remove(index);
        }
 
-//        public ArrayList<Instructor> 
+       public ArrayList<Instructor> fetchInstructors(){
+        return instructorDB;
+       }
+
+       public Instructor fetchOneInstructor (int index){
+        return instructorDB.get(index);
+       }
 
 
 
