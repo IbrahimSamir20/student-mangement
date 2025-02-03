@@ -26,5 +26,6 @@ public class Sidebar extends VBox {
         sideBox.getChildren().add(sButton);
         sideBox.getChildren().add(cButton);
         this.getChildren().add(sideBox);
+        //Add Logout button
     }
 }

@@ -60,6 +60,7 @@ public class AdministerPage extends BorderPane {
                 courseContainer.getChildren().addAll(courseLabel, courseTable);
                 this.setCenter(courseContainer);
         }
+        //Edit Table
 
         public BorderPane getPage() {
                 return this;

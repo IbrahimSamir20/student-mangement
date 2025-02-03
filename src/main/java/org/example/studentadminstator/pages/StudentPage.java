@@ -43,6 +43,7 @@ public class StudentPage extends BorderPane {
             Label courseLabel = new Label("Course");
             studentContainer.getChildren().addAll(courseLabel, studentTable);
             this.setCenter(studentContainer);
+            //ADD Course button
         }
 
     public BorderPane getPage() {

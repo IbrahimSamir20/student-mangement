@@ -22,10 +22,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import org.example.studentadminstator.components.CustomSelect;
 import org.example.studentadminstator.components.Link;
-import org.example.studentadminstator.data.Instructor;
-import org.example.studentadminstator.data.InstructorDB;
-import org.example.studentadminstator.data.User;
-import org.example.studentadminstator.data.UsersDB;
+import org.example.studentadminstator.data.*;
 
 public class Register extends VBox {
     Text header = new Text();
@@ -38,6 +35,7 @@ public class Register extends VBox {
     private CustomButton loginButton;
     private UsersDB<User> usersDB = new UsersDB<User>();
     InstructorDB<Instructor> instructorDB = new InstructorDB<>();
+    StudentDB<Student> studentDB = new StudentDB<>();
     Text loginAlert = new Text();
     Stage primaryStage;
     Link link;
@@ -70,17 +68,20 @@ public class Register extends VBox {
                     loginAlert.setFont(AppStyle.font18Bold);
                     loginAlert.setFill(AppStyle.textColor);
                     System.out.println("Found user successful"+ usernameInput.getInputValue());
-                    //Navigate to login
                 }else{
                     usersDB.createUser(new User(usernameInput.getInputValue(), passwordInput.getInputValue(), jobGroup.getSelectedOption()));
                     System.out.println("Created successful"+ usernameInput.getInputValue());
                     if(jobGroup.getSelectedOption().equals("instructor")) {
+                        instructorDB.createInstructor(new Instructor(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption()));
                         int indexOfInstructor = instructorDB.getIndex(usernameInput.getInputValue());
                         Instructor instructor = instructorDB.fetchOneInstructor(indexOfInstructor);
                         primaryStage.setScene(new Scene(new InstructorPage(primaryStage,instructor).getGrid()));
 
                     }else {
-                        primaryStage.setScene(new Scene(new StudentPage(primaryStage).getPage()));
+                        studentDB.createStudent(new Student(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption()));
+                        int studentIndex = studentDB.getStudentIndex(usernameInput.getInputValue());
+                        Student student= studentDB.fetchOneStudent(studentIndex);
+                        primaryStage.setScene(new Scene(new StudentPage(primaryStage,student).getPage()));
                     }
                 }
 
