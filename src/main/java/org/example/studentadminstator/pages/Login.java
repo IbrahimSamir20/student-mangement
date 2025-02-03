@@ -54,7 +54,7 @@ public class Login extends VBox {
                 //Authorization
                     if(usernameInput.getInputValue().equals("IANEOP") && passwordInput.getInputValue().equals("IANEOP") ){
                         System.out.println("Login successfully");
-                        primaryStage.setScene(new Scene(administerPage.getGrid()));
+                        primaryStage.setScene(new Scene(administerPage.getPage()));
                     }else if(!userDb.searchUser(username, password)){
                         javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
                         alert.setTitle("Login Error");

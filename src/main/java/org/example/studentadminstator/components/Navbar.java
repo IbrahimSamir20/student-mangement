@@ -9,28 +9,28 @@ import javafx.geometry.Pos;
 
 public class Navbar extends HBox {
 
-        private String username ;
-        Text text;
-        Button button = new Button("Edit profille");
-        Button button2 = new Button("Back");
+    private String username ;
+    Text text;
+    Button button = new Button("Edit profille");
+    Button button2 = new Button("Back");
 
-    
+
     public Navbar(String username) {
         this.username = username;
         this.text= new Text("Hello,");
         HBox hbox = new HBox(button,button2);
         VBox vbox = new VBox();
-        
+
         hbox.setAlignment(Pos.TOP_RIGHT);
         hbox.setSpacing(10);
         hbox.setPadding(new Insets(20));
         vbox.getChildren().addAll(vbox,hbox);
     }
-   
-    
+
+
 
 // // public class Navbar extends HBox {
-       
+
 //         public void start(Stage primaryStage) {
 //         //     Scene scene = new Scene(hbox, 400, 400);
 //         //     primaryStage.setScene(scene);
@@ -44,5 +44,3 @@ public class Navbar extends HBox {
 
 
 }
-
-
