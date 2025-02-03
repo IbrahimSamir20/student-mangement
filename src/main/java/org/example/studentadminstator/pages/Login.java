@@ -94,7 +94,7 @@ public class Login extends VBox {
                     
                         }else{
                     
-                            primaryStage.setScene(new Scene(studentPage.getGrid()));
+                            primaryStage.setScene(new Scene(studentPage.getPage()));
                             System.out.println("from studentPage");
                     
                         }

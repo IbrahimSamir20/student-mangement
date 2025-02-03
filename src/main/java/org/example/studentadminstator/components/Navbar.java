@@ -17,7 +17,7 @@ public class Navbar extends HBox {
 
     public Navbar(String username) {
         this.username = username;
-        this.text = new Text("Hello,");
+        this.text = new Text("Hello," + username + "!");
         HBox hbox = new HBox(button, button2);
         // VBox vbox = new VBox();
 

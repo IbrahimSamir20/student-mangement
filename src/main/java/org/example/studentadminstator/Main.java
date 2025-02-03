@@ -13,8 +13,8 @@ public class Main extends Application {
         try {
            Login login = new Login(stage);
            Register register = new Register(stage);
-           StudentPage studentPage = new StudentPage(stage);
-           Scene scene = new Scene(studentPage.getGrid(),1024,900);
+           //StudentPage studentPage = new StudentPage(stage);
+           Scene scene = new Scene(login.getGrid(),1024,900);
            stage.setScene(scene);
            stage.setTitle("Student Administrator");
            stage.show();
