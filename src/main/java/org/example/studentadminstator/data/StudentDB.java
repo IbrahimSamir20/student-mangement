@@ -22,24 +22,21 @@ public class StudentDB<T> {
        }
 
        public Student fetchOneStudent(int index){
-        if (index >= 0 && index < studentDB.size()) { 
-            return studentDB.get(index); 
+        if (index >= 0 && index < studentDB.size()) {
+            return studentDB.get(index);
         } else {
-            
             System.out.println("User not found.");
             return null;
         }
        }
 
-       public int getStudentIndex(String studentName){
-              int indexOfStudent = -1;
+       public Integer getStudentIndex(String studentName){
               for(Student student : studentDB) {
-                    if(student.getName().equals(studentName)) {
-                        indexOfStudent = studentDB.indexOf(student);
-                        return indexOfStudent;
+                    if(student != null && student.getName().equals(studentName)) {
+                        return studentDB.indexOf(student);
                     }
               }
-              return indexOfStudent;
+              return -1;
        }
 
        

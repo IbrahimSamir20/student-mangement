@@ -51,13 +51,12 @@ public class UsersDB<T> {
         }
 
         public int getIndex(String username){
-                int indexOfUser= -1;
                 for(User user:userDB){
                         if(user.getUsername().equals(username)){
                                 return userDB.indexOf(user);
                         }
                 }
-              return indexOfUser;
+                return -1;
         }
 
         

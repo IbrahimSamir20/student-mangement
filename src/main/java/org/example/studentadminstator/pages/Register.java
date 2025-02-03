@@ -60,6 +60,7 @@ public class Register extends VBox {
             //Boolean courseValid =  courseInput.getIsValid();
             Boolean genderValid = genderGroup.isValid();
             Boolean jobValid = jobGroup.isValid();
+           
             System.out.println("Username valid: " + usernameValid.toString() + ", Password valid: " + passwordValid.toString());
             //Register
             if(usernameValid && passwordValid && genderValid && jobValid ) {
