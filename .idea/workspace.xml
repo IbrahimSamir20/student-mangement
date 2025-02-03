@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65cccb22-56ea-4854-95fb-b337dfd4daf2" name="Changes" comment="">
+    <list default="true" id="65cccb22-56ea-4854-95fb-b337dfd4daf2" name="Changes" comment="Editing Register">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Register.java" afterDir="false" />
@@ -36,22 +36,22 @@
     &quot;assignee&quot;: &quot;AGaafar7&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/IbrahimSamir20/student-mangement.git&quot;,
-    &quot;accountId&quot;: &quot;d337fe82-0e2f-4312-88a8-b9346207c561&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/IbrahimSamir20/student-mangement.git",
+    "accountId": "dd125937-2196-4a25-a92a-c5392ecffc31"
   },
-  &quot;recentNewPullRequestHead&quot;: {
-    &quot;server&quot;: {
-      &quot;useHttp&quot;: false,
-      &quot;host&quot;: &quot;github.com&quot;,
-      &quot;port&quot;: null,
-      &quot;suffix&quot;: null
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
     },
-    &quot;owner&quot;: &quot;IbrahimSamir20&quot;,
-    &quot;repository&quot;: &quot;student-mangement&quot;
+    "owner": "IbrahimSamir20",
+    "repository": "student-mangement"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -64,11 +64,15 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager" selected="Application.Main">
@@ -105,16 +109,25 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ff592a29-59fd-4dbb-8073-d2285cc47f1a" name="Changes" comment="" />
+      <changelist id="65cccb22-56ea-4854-95fb-b337dfd4daf2" name="Changes" comment="Editing Register" />
       <created>1738184163024</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1738184163024</updated>
       <workItem from="1738391672275" duration="1407000" />
       <workItem from="1738396273198" duration="1376000" />
+      <workItem from="1738607229942" duration="902000" />
     </task>
     <task id="LOCAL-00001" summary="Adding CustomSelect Component and Creating the Register Page">
       <option name="closed" value="true" />
@@ -124,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738392807699</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Editing Register">
+      <option name="closed" value="true" />
+      <created>1738605099500</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1738605099500</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +164,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding CustomSelect Component and Creating the Register Page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding CustomSelect Component and Creating the Register Page" />
+    <MESSAGE value="Editing Register" />
+    <option name="LAST_COMMIT_MESSAGE" value="Editing Register" />
   </component>
 </project>

@@ -69,8 +69,13 @@ public class Register extends VBox {
                     System.out.println("Found user successful"+ usernameInput.getInputValue());
                     //Navigate to login
                 }else{
-                    usersDB.createUser(new User(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption()));
+                    usersDB.createUser(new User(usernameInput.getInputValue(), passwordInput.getInputValue(), jobGroup.getSelectedOption()));
                     System.out.println("Created successful"+ usernameInput.getInputValue());
+                    if(jobGroup.getSelectedOption().equals("instructor")) {
+                        //primaryStage.setScene(new Scene(new InstructorPage(primaryStage).getGrid()));
+                    }else {
+                        primaryStage.setScene(new Scene(new StudentPage(primaryStage).getGrid()));
+                    }
                 }
 
 

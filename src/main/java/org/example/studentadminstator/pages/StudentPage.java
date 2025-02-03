@@ -2,6 +2,7 @@ package org.example.studentadminstator.pages;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -10,13 +11,13 @@ import org.example.studentadminstator.components.Navbar;
 import org.example.studentadminstator.data.Student;
 import org.example.studentadminstator.data.StudentDB;
 
-public class StudentPage extends VBox {
+public class StudentPage extends BorderPane {
        private GridPane gridPane = new GridPane();
        private Navbar navbar = new Navbar("Student");
        public StudentPage(Stage primaryStage){
-           gridPane.setVgap(15);
-           gridPane.setHgap(15);
-           gridPane.setPadding(new Insets(10, 10, 10, 10));
+          gridPane.setVgap(15);
+          gridPane.setHgap(15);
+          gridPane.setPadding(new Insets(10, 10, 10, 10));
            gridPane.getChildren().add(navbar);
 
             CustomTable<Student> studentTable = new CustomTable<Student>();
