@@ -27,7 +27,9 @@ public class Navbar extends HBox {
         vbox.getChildren().addAll(vbox,hbox);
     }
    
-    
+    public String getUsername(){
+        return username;
+    }
 
 // // public class Navbar extends HBox {
        

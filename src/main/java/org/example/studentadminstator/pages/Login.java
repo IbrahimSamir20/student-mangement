@@ -70,11 +70,6 @@ public class Login extends VBox {
                             System.out.println("from studentPage");
                         }
                     }
-                    
-                    
-                   
-
-
                 }
                 
             };

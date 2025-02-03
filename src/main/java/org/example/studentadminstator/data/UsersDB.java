@@ -3,12 +3,13 @@ package org.example.studentadminstator.data;
 import java.util.ArrayList;
 
 public class UsersDB<T> {
-       private ArrayList<User> userDB = new ArrayList<>();
+        private ArrayList<User> userDB = new ArrayList<>();
         
-      public UsersDB (){
-        userDB.add(new User("ibrahim", "abdelrahman aql", "instructor"));
-        userDB.add(new User("ibrahim", "ibrahim", "student"));
-      }
+        public UsersDB (){
+         userDB.add(new User("ibrahim", "abdelrahman aql", "instructor"));
+         userDB.add(new User("ibrahim", "ibrahim", "student"));
+        }
+
         public void createUser(User user){
                 userDB.add(user);
         }

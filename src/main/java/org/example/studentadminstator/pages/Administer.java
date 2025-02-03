@@ -19,20 +19,12 @@
 //     private BorderPane root;
 //     private Scene scene;
 
-<<<<<<< HEAD
 //     public Administer() {
 //         root = new BorderPane();
 //         root.setStyle("-fx-background-color: black;");
 
 //         // Navbar navbar = new Navbar();
 //         // root.setTop(navbar);
-=======
-        Navbar navbar = new Navbar();
-        root.setTop(navbar);
-        //TODO: (Nancy) Check the new SideBar Parameters
-        Sidebar sidebar = new Sidebar("Dashboard", new CustomButton(actionEvent -> {},"Instructor" ));
-        root.setLeft(sidebar);
->>>>>>> af1e66f66227d8f938786853045fa79ee6a7b4a6
 
 //         Sidebar sidebar = new Sidebar();
 //         // root.setLeft(sidebar);
