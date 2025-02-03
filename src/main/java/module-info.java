@@ -11,6 +11,7 @@ module org.example.studentadminstator {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.desktop;
 
 
     opens org.example.studentadminstator.components to javafx.graphics;

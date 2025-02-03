@@ -7,7 +7,9 @@
     <list default="true" id="ff592a29-59fd-4dbb-8073-d2285cc47f1a" name="Changes" comment="Adding CustomSelect Component and Creating the Register Page">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/components/Sidebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/components/Sidebar.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +40,9 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/IbrahimSamir20/student-mangement.git",
+
     "accountId": "d337fe82-0e2f-4312-88a8-b9346207c561"
+
   },
   "recentNewPullRequestHead": {
     "server": {
@@ -74,9 +78,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+
     "git-widget-placeholder": "peter",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Peter/Desktop/student-mangement",
+
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
