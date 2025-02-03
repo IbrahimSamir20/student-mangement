@@ -40,7 +40,7 @@ public class UsersDB<T> {
         }
 
         public String getType(String username){
-                String type = null; 
+                String type = ""; 
                 for(User user:userDB){
                         if(user.getUsername().equals(username)){
                                 type = user.getType();
@@ -50,8 +50,8 @@ public class UsersDB<T> {
                 return type; 
         }
 
-        public Number getIndex(String username){
-                Number indexOfUser= null;
+        public int getIndex(String username){
+                int indexOfUser= -1;
                 for(User user:userDB){
                         if(user.getUsername().equals(username)){
                                 return userDB.indexOf(user);

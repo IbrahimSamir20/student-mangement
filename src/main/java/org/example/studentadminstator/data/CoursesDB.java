@@ -1,6 +1,7 @@
 package org.example.studentadminstator.data;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CoursesDB<T> {
 //        private Course course;
@@ -40,5 +41,27 @@ public class CoursesDB<T> {
                 return courseIndex;
         }
 
+        public Course fetchOnCourseForStudent(String studentName){
+                Course oneCourseForStudent = null;
+                for(int i = 0; i < coursesDB.size(); i++){
+                        Course course = coursesDB.get(i);
+                        if(Arrays.stream(course.getStudents()).anyMatch(student -> student.getName().equals(studentName))){
+                                oneCourseForStudent = course;
+                                break;
+                        }
+                }
+                return oneCourseForStudent;
+        }
+
+        public Course fetchOnCourseForInstructor(String instructorName){
+                Course courseForInstructor = null;
+                for(Course course : coursesDB){
+                        if(course.getInstructor().getName().equals(instructorName)){
+                                courseForInstructor = course;
+                                break;
+                        }
+                }
+                return courseForInstructor;
+        }
         
 }
