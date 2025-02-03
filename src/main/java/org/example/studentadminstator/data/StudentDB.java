@@ -26,6 +26,17 @@ public class StudentDB<T> {
         return studentDB.get(index);
        }
 
+       public int getStudentIndex(String studentName){
+              int indexOfStudent = -1;
+              for(Student student : studentDB) {
+                    if(student.getName().equals(studentName)) {
+                        indexOfStudent = studentDB.indexOf(student);
+                        return indexOfStudent;
+                    }
+              }
+              return indexOfStudent;
+       }
+
        
       
 }
