@@ -49,5 +49,15 @@ public class UsersDB<T> {
                 return type; 
         }
 
+        public Number getIndex(String username){
+                Number indexOfUser= null;
+                for(User user:userDB){
+                        if(user.getUsername().equals(username)){
+                                return userDB.indexOf(user);
+                        }
+                }
+              return indexOfUser;
+        }
+
         
 }

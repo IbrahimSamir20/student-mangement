@@ -2,10 +2,15 @@ package org.example.studentadminstator.pages;
 
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class StudentPage extends VBox {
        private GridPane grid = new GridPane();
-       // System.out.println("page"); // Uncomment and place in a method or constructor if needed
+
+        StudentPage(Stage primaryStage){
+                
+        }
+
        public GridPane getGrid () {
 
 

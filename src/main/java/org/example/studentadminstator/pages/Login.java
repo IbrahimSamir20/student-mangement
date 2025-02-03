@@ -18,21 +18,21 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 public class Login extends VBox {
-    private GridPane grid = new GridPane();
+    private final GridPane grid = new GridPane();
     Text header = new Text("Login");
     String errorUsername = "";
     String errorPassword = "";
     Boolean isVisible = false;
-    StudentPage studentPage = new StudentPage();
-    InstructorPage instructorPage = new InstructorPage();
+    StudentPage studentPage ;
+    InstructorPage instructorPage ;
     AdministerPage administerPage = new AdministerPage();
     UsersDB<User> userDb = new UsersDB<>();
-    private CustomInput usernameInput = new CustomInput("Enter your username", "Username");
-    private CustomInput passwordInput = new CustomInput("Enter Password","Password");
-    private CustomButton button;
-    
+    private final CustomInput usernameInput = new CustomInput("Enter your username", "Username");
+    private final CustomInput passwordInput = new CustomInput("Enter Password","Password");
+
     public Login(Stage primaryStage) {
-        
+        this.instructorPage= new InstructorPage(primaryStage);
+       this.studentPage = new StudentPage(primaryStage);
         grid.setVgap(15);
         grid.setHgap(15);
         grid.setAlignment(Pos.CENTER);
@@ -79,7 +79,7 @@ public class Login extends VBox {
                 
             };
 
-            button = new CustomButton(onSubmit, "Login");
+        CustomButton button = new CustomButton(onSubmit, "Login");
             grid.add(header, 0, 0, 1, 1);
             grid.add(usernameInput, 0, 2, 1, 1);
             grid.add(passwordInput, 0, 3, 1, 1);
