@@ -1,17 +1,18 @@
 package org.example.studentadminstator.data;
 
 public class Course {
-    private String courseName;
+        String name;
+        String attendant;
+        int grade;
+        Instructor instructor;
+        Student[] students;
+        public Course (String name, String attendant,int grade, Instructor instructor,Student... students){
+                
+                this.name = name;
+                this.attendant = attendant;
+                this.grade = grade;
+                this.students = students;
+                this.instructor = instructor;
 
-    public Course(String courseName) {
-        this.courseName = courseName;
-    }
-
-    public String getCourseName() {
-        return courseName;
-    }
-
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
+        }
 }
