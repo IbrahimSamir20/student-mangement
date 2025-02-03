@@ -1,11 +1,10 @@
 package org.example.studentadminstator.components;
+
 import org.example.studentadminstator.AppStyle;
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-// import javafx.scene.control.button;
-// import javafx.scene.layout.VBox
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Font;
 import javafx.scene.layout.Background;

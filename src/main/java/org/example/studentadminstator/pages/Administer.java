@@ -24,7 +24,7 @@ public class Administer {
 
         Navbar navbar = new Navbar();
         root.setTop(navbar);
-
+        //TODO: (Nancy) Check the new SideBar Parameters
         Sidebar sidebar = new Sidebar("Dashboard", new CustomButton(actionEvent -> {},"Instructor" ));
         root.setLeft(sidebar);
 
