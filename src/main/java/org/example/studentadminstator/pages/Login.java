@@ -4,6 +4,12 @@ import org.example.studentadminstator.AppStyle;
 import org.example.studentadminstator.components.CustomButton;
 import org.example.studentadminstator.components.CustomInput;
 import org.example.studentadminstator.components.Link;
+import org.example.studentadminstator.data.Course;
+import org.example.studentadminstator.data.CoursesDB;
+import org.example.studentadminstator.data.Instructor;
+import org.example.studentadminstator.data.InstructorDB;
+import org.example.studentadminstator.data.Student;
+import org.example.studentadminstator.data.StudentDB;
 import org.example.studentadminstator.data.User;
 import org.example.studentadminstator.data.UsersDB;
 
@@ -20,23 +26,31 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 
 public class Login extends VBox {
+    //UI
     private final GridPane grid = new GridPane();
+    private Stage primaryStage;
+    private final CustomInput usernameInput = new CustomInput("Enter your username", "Username");
+    private final CustomInput passwordInput = new CustomInput("Enter Password","Password");
+    Link link ;
     Text header = new Text("Login");
     String errorUsername = "";
     String errorPassword = "";
     Boolean isVisible = false;
+    //pages
     StudentPage studentPage ;
     InstructorPage instructorPage ;
-    AdministerPage administerPage = new AdministerPage();
+    AdministerPage administerPage ;
+    //DB
+    CoursesDB<Course> coursesDB = new CoursesDB<>();
     UsersDB<User> userDb = new UsersDB<>();
-    private final CustomInput usernameInput = new CustomInput("Enter your username", "Username");
-    private final CustomInput passwordInput = new CustomInput("Enter Password","Password");
-    Link link ;
-    Stage primaryStage ;
-
+    InstructorDB<Instructor> instructorDB = new InstructorDB<>();
+    StudentDB<Student> studentDB = new StudentDB<>();
+    
+// Start Logic
     public Login(Stage primaryStage) {
+        this.primaryStage=primaryStage;
         this.instructorPage= new InstructorPage(primaryStage);
-       this.studentPage = new StudentPage(primaryStage);
+        this.studentPage = new StudentPage(primaryStage);
         grid.setVgap(15);
         grid.setHgap(15);
         grid.setAlignment(Pos.CENTER);
@@ -45,9 +59,9 @@ public class Login extends VBox {
         grid.setBackground(background);
         header.setFont(AppStyle.font32);
         header.setFill(AppStyle.textColor);
-        this.primaryStage=primaryStage;
         this.link= new Link("if you not have account", this::handleEvent, "Signup");
 
+    //Action
         EventHandler<ActionEvent> onSubmit = e -> {
             Boolean usernameValid =  usernameInput.getIsValid();
             Boolean passwordValid =  passwordInput.getIsValid();
@@ -60,20 +74,28 @@ public class Login extends VBox {
                 //Authorization
                     if(usernameInput.getInputValue().equals("IANEOP") && passwordInput.getInputValue().equals("IANEOP") ){
                         System.out.println("Login successfully");
-                        primaryStage.setScene(new Scene(administerPage.getPage()));
+                        primaryStage.setScene(new Scene(new AdministerPage(coursesDB,userDb,instructorDB,studentDB, primaryStage).getPage()));
+
                     }else if(!userDb.searchUser(username, password)){
+                        
                         javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
                         alert.setTitle("Login Error");
                         alert.setHeaderText("Invalid Credentials");
                         alert.setContentText("Username or password is incorrect.");
                         alert.showAndWait();
+                    
                     }else{
+                    
                         if(userDb.getType(username).equals("instructor")){
+                    
                             primaryStage.setScene(new Scene(instructorPage.getGrid()));
                             System.out.println("from instructorPage");
+                    
                         }else{
+                    
                             primaryStage.setScene(new Scene(studentPage.getGrid()));
                             System.out.println("from studentPage");
+                    
                         }
                     }
                 }

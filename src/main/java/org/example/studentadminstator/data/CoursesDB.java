@@ -25,4 +25,20 @@ public class CoursesDB<T> {
         public ArrayList<Course> fetch(){
                 return coursesDB;
         }
+
+        public Course fetchOnCourse(int index){
+               return coursesDB.get(index);
+        }
+
+        public int getIndex(String courseName){
+               int courseIndex = -1;
+                for(Course course: coursesDB){
+                        if(course.getName().equals(courseName)){
+                                return coursesDB.indexOf(course);
+                        }
+                }
+                return courseIndex;
+        }
+
+        
 }
