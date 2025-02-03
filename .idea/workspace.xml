@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65cccb22-56ea-4854-95fb-b337dfd4daf2" name="Changes" comment="StudentPage Fix">
+    <list default="true" id="65cccb22-56ea-4854-95fb-b337dfd4daf2" name="Changes" comment="StudentPage Fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/components/Sidebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/components/Sidebar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/AdministerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/AdministerPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/InstructorPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/InstructorPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/StudentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/StudentPage.java" afterDir="false" />
     </list>
@@ -37,22 +37,22 @@
     &quot;assignee&quot;: &quot;AGaafar7&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/IbrahimSamir20/student-mangement.git",
-    "accountId": "dd125937-2196-4a25-a92a-c5392ecffc31"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/IbrahimSamir20/student-mangement.git&quot;,
+    &quot;accountId&quot;: &quot;dd125937-2196-4a25-a92a-c5392ecffc31&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "IbrahimSamir20",
-    "repository": "student-mangement"
+    &quot;owner&quot;: &quot;IbrahimSamir20&quot;,
+    &quot;repository&quot;: &quot;student-mangement&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -62,20 +62,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="CustomTable$TestApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.studentadminstator.components.CustomTable$TestApp" />
@@ -128,7 +128,8 @@
       <updated>1738184163024</updated>
       <workItem from="1738391672275" duration="1407000" />
       <workItem from="1738396273198" duration="1376000" />
-      <workItem from="1738607229942" duration="3551000" />
+      <workItem from="1738607229942" duration="4012000" />
+      <workItem from="1738615606859" duration="746000" />
     </task>
     <task id="LOCAL-00001" summary="Adding CustomSelect Component and Creating the Register Page">
       <option name="closed" value="true" />
@@ -162,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738609490793</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="StudentPage Fixed">
+      <option name="closed" value="true" />
+      <created>1738610853747</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1738610853748</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +193,8 @@
     <MESSAGE value="Editing Register" />
     <MESSAGE value="Adding Student" />
     <MESSAGE value="StudentPage Fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="StudentPage Fix" />
+    <MESSAGE value="StudentPage Fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="StudentPage Fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

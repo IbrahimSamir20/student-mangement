@@ -88,9 +88,10 @@ public class Login extends VBox {
                     
                         if(userDb.getType(username).equals("instructor")){
                             int indexOfInstructor = instructorDB.getIndex(username);
+                            System.out.println("Index of instructor: " + indexOfInstructor);
                             Instructor instructor = instructorDB.fetchOneInstructor(indexOfInstructor);
-                            
-                            primaryStage.setScene(new Scene(new InstructorPage(primaryStage,instructor).getGrid()));
+                            System.out.println("Instructor: " + instructor.getUsername());
+                            primaryStage.setScene(new Scene(new InstructorPage(primaryStage,instructor).getPage()));
                             System.out.println("from instructorPage");
                     
                         }else{
