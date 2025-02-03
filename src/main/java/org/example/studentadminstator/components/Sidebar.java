@@ -10,7 +10,7 @@ public class Sidebar extends VBox {
     private  Label label;
         public Sidebar (String label,CustomButton... buttons){
             this.label = new Label(label);
-            this.label.setStyle("-fx-font-weight: bold; -fx-padding: 5;");
+            this.label.setFont(AppStyle.font14);
 
             this.getChildren().add(this.label);
 
