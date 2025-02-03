@@ -62,7 +62,7 @@ public class CustomSelect extends VBox{
     public Label getLabel() {
         return label;
     }
-    //Add Indication to show that he must select the option
+
     public Boolean isValid() {
         boolean isValid = toggleGroup.getSelectedToggle() != null;
         errorMessage.setVisible(!isValid);
