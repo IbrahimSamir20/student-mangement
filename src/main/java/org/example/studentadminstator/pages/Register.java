@@ -1,6 +1,9 @@
 package org.example.studentadminstator.pages;
 
+import javafx.event.Event;
+import javafx.scene.Scene;
 import org.example.studentadminstator.AppStyle;
+import org.example.studentadminstator.components.CustomButton;
 import org.example.studentadminstator.components.CustomInput;
 
 import javafx.scene.layout.VBox;
@@ -18,21 +21,24 @@ import javafx.scene.text.Text;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import org.example.studentadminstator.components.CustomSelect;
+import org.example.studentadminstator.components.Link;
+import org.example.studentadminstator.data.User;
+import org.example.studentadminstator.data.UsersDB;
 
 public class Register extends VBox {
-    // private String errorUsername = "";
-    // private String errorPassword = "";
-    // private String errorCourse = "";
-    // private Boolean isVisible = false;
     Text header = new Text();
     private GridPane grid = new GridPane();
     private CustomInput usernameInput = new CustomInput("Enter your username", "Username");
     private CustomInput passwordInput = new CustomInput("Enter Password","Password");
-    private CustomInput courseInput = new CustomInput("Enter Course","Course");
+    //private CustomInput courseInput = new CustomInput("Enter Course","Course");
     private CustomSelect jobGroup = new CustomSelect("Job:", "Student", "Instructor");
     private CustomSelect genderGroup = new CustomSelect("Gender", "Male", "Female");
-    private Button loginButton = new Button();
-    
+    private CustomButton loginButton;
+    private UsersDB<User> usersDB = new UsersDB<User>();
+    Text loginAlert = new Text();
+    Stage primaryStage;
+    Link link;
+
     public Register(Stage primaryStage) {
         
         grid.setVgap(15);
@@ -41,39 +47,53 @@ public class Register extends VBox {
         grid.setPadding(new Insets(10, 10, 10, 10));
         Background background = new Background(AppStyle.backgroundImage);
         grid.setBackground(background);
-
+        this.primaryStage=primaryStage;
         header.setText("Register");
         header.setFont(AppStyle.font32);
         header.setFill(AppStyle.textColor);
-        
-        
-        loginButton.setTextFill(AppStyle.textColor);
-        loginButton.setFont(Font.font(AppStyle.font18.getFamily(), FontWeight.BOLD, AppStyle.font18.getSize()));
-        loginButton.setPrefWidth(100);
-        loginButton.setTextFill(AppStyle.textColor);
-        
+        this.link= new Link("if you have an account", this::handleEvent, "Signin");
+
         EventHandler<ActionEvent> handelSubmit = e -> {
             Boolean usernameValid =  usernameInput.getIsValid();
             Boolean passwordValid =  passwordInput.getIsValid();
-            Boolean courseValid =  courseInput.getIsValid();
+            //Boolean courseValid =  courseInput.getIsValid();
             Boolean genderValid = genderGroup.isValid();
             Boolean jobValid = jobGroup.isValid();
             System.out.println("Username valid: " + usernameValid.toString() + ", Password valid: " + passwordValid.toString());
             //Register
-            if(usernameValid && passwordValid && courseValid && genderValid && jobValid ) {
-                System.out.println("submitted successful"+ usernameInput.getInputValue());
+            if(usernameValid && passwordValid && genderValid && jobValid ) {
+                if(usersDB.searchUser(usernameInput.getInputValue(), passwordInput.getInputValue())) {
+                    loginAlert.setText("User already exists Click on Sign in");
+                    loginAlert.setFont(AppStyle.font18Bold);
+                    loginAlert.setFill(AppStyle.textColor);
+                    System.out.println("Found user successful"+ usernameInput.getInputValue());
+                    //Navigate to login
+                }else{
+                    usersDB.createUser(new User(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption()));
+                    System.out.println("Created successful"+ usernameInput.getInputValue());
+                }
+
+
+
             }
         };
-        
-        loginButton.setOnAction(handelSubmit);
+
+        loginButton = new CustomButton(handelSubmit,"Submit");
         grid.add(header, 0, 0, 1, 1);
         grid.add(usernameInput, 0, 1, 1, 1);
         grid.add(passwordInput, 0, 2, 1, 1);
-        grid.add(courseInput, 0, 3, 1, 1);
+        //grid.add(courseInput, 0, 3, 1, 1);
         grid.add(jobGroup, 0, 4, 1, 1);
         grid.add(genderGroup, 0, 5, 1, 1);
-        grid.add(loginButton, 0, 6, 1, 1);
+        grid.add(loginAlert, 0, 6, 1, 1);
+        grid.add(loginButton, 0, 7, 1, 1);
+        grid.add(link, 0, 8, 1, 1);
 
+    }
+    public void handleEvent(Event e) {
+        primaryStage.setScene(new Scene(new Login(primaryStage).getGrid()));
+        primaryStage.setWidth(1024);
+        primaryStage.setHeight(900);
     }
     public GridPane getGrid(){
         return grid;
