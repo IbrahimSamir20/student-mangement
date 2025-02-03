@@ -22,6 +22,7 @@ public class AppStyle{
     public static final Font font18Bold = Font.font("Arial", FontWeight.BOLD, 18); // Bold 18pt font
     public static final Font font14 = Font.font("Arial", 14); // Regular 14pt font
     public static final Font font14Bold = Font.font("Arial", FontWeight.BOLD, 14); // Bold 14pt font
+    public static final Font font16Bold = Font.font("Arial", FontWeight.BOLD, 16); // Bold 14pt font
 
     public static final Font font24 = new Font("Arial", 24);
     public static final Font font32 = new Font("Arial", 32);

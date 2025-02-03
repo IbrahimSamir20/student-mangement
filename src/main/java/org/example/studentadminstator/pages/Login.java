@@ -3,6 +3,7 @@ package org.example.studentadminstator.pages;
 import org.example.studentadminstator.AppStyle;
 import org.example.studentadminstator.components.CustomButton;
 import org.example.studentadminstator.components.CustomInput;
+import org.example.studentadminstator.components.Link;
 import org.example.studentadminstator.data.User;
 import org.example.studentadminstator.data.UsersDB;
 
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Background;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 
 public class Login extends VBox {
@@ -29,6 +31,8 @@ public class Login extends VBox {
     UsersDB<User> userDb = new UsersDB<>();
     private final CustomInput usernameInput = new CustomInput("Enter your username", "Username");
     private final CustomInput passwordInput = new CustomInput("Enter Password","Password");
+    Link link ;
+    Stage primaryStage ;
 
     public Login(Stage primaryStage) {
         this.instructorPage= new InstructorPage(primaryStage);
@@ -41,6 +45,8 @@ public class Login extends VBox {
         grid.setBackground(background);
         header.setFont(AppStyle.font32);
         header.setFill(AppStyle.textColor);
+        this.primaryStage=primaryStage;
+        this.link= new Link("if you not have account", this::handleEvent, "Signup");
 
         EventHandler<ActionEvent> onSubmit = e -> {
             Boolean usernameValid =  usernameInput.getIsValid();
@@ -54,7 +60,7 @@ public class Login extends VBox {
                 //Authorization
                     if(usernameInput.getInputValue().equals("IANEOP") && passwordInput.getInputValue().equals("IANEOP") ){
                         System.out.println("Login successfully");
-                        primaryStage.setScene(new Scene(administerPage.getGrid()));
+                        primaryStage.setScene(new Scene(administerPage.getPage()));
                     }else if(!userDb.searchUser(username, password)){
                         javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
                         alert.setTitle("Login Error");
@@ -79,7 +85,13 @@ public class Login extends VBox {
             grid.add(usernameInput, 0, 2, 1, 1);
             grid.add(passwordInput, 0, 3, 1, 1);
             grid.add(button, 0, 4, 1, 1);
+            grid.add(link, 0, 5, 1, 1);
         
+    }
+    public void handleEvent(Event e) {
+        primaryStage.setScene(new Scene(new Register(primaryStage).getGrid()));
+        primaryStage.setWidth(1024);
+        primaryStage.setHeight(900);
     }
     public GridPane getGrid(){
         return grid;
