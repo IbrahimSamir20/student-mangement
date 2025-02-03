@@ -49,7 +49,7 @@ public class Login extends VBox {
 // Start Logic
     public Login(Stage primaryStage) {
         this.primaryStage=primaryStage;
-        this.instructorPage= new InstructorPage(primaryStage);
+        
         this.studentPage = new StudentPage(primaryStage);
         grid.setVgap(15);
         grid.setHgap(15);
@@ -87,8 +87,9 @@ public class Login extends VBox {
                     }else{
                     
                         if(userDb.getType(username).equals("instructor")){
-                    
-                            primaryStage.setScene(new Scene(instructorPage.getGrid()));
+                            int indexOfInstructor = instructorDB.getIndex(username);
+                            Instructor instructor = instructorDB.fetchOneInstructor(indexOfInstructor);
+                            primaryStage.setScene(new Scene(new InstructorPage(primaryStage,instructor).getGrid()));
                             System.out.println("from instructorPage");
                     
                         }else{

@@ -30,6 +30,15 @@ public class InstructorDB<T> {
        public Instructor fetchOneInstructor (int index){
         return instructorDB.get(index);
        }
+       public int getIndex(String instructorName){
+        int indexOfUser = -1;
+        for(Instructor instructor: instructorDB){
+                if(instructor.getUsername().equals(instructorName)){
+                        return instructorDB.indexOf(instructor);
+                }
+        }
+      return indexOfUser;
+}
 
 
 
