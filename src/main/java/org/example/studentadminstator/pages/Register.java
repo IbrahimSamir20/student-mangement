@@ -22,6 +22,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import org.example.studentadminstator.components.CustomSelect;
 import org.example.studentadminstator.components.Link;
+import org.example.studentadminstator.data.Instructor;
+import org.example.studentadminstator.data.InstructorDB;
 import org.example.studentadminstator.data.User;
 import org.example.studentadminstator.data.UsersDB;
 
@@ -35,6 +37,7 @@ public class Register extends VBox {
     private CustomSelect genderGroup = new CustomSelect("Gender", "Male", "Female");
     private CustomButton loginButton;
     private UsersDB<User> usersDB = new UsersDB<User>();
+    InstructorDB<Instructor> instructorDB = new InstructorDB<>();
     Text loginAlert = new Text();
     Stage primaryStage;
     Link link;
@@ -72,9 +75,12 @@ public class Register extends VBox {
                     usersDB.createUser(new User(usernameInput.getInputValue(), passwordInput.getInputValue(), jobGroup.getSelectedOption()));
                     System.out.println("Created successful"+ usernameInput.getInputValue());
                     if(jobGroup.getSelectedOption().equals("instructor")) {
-                        //primaryStage.setScene(new Scene(new InstructorPage(primaryStage).getGrid()));
+                        int indexOfInstructor = instructorDB.getIndex(usernameInput.getInputValue());
+                        Instructor instructor = instructorDB.fetchOneInstructor(indexOfInstructor);
+                        primaryStage.setScene(new Scene(new InstructorPage(primaryStage,instructor).getGrid()));
+
                     }else {
-                        primaryStage.setScene(new Scene(new StudentPage(primaryStage).getGrid()));
+                        primaryStage.setScene(new Scene(new StudentPage(primaryStage).getPage()));
                     }
                 }
 

@@ -50,7 +50,7 @@ public class Login extends VBox {
     public Login(Stage primaryStage) {
         this.primaryStage=primaryStage;
         
-        this.studentPage = new StudentPage(primaryStage);
+        
         grid.setVgap(15);
         grid.setHgap(15);
         grid.setAlignment(Pos.CENTER);
@@ -96,7 +96,7 @@ public class Login extends VBox {
                         }else{
                             int indexOfStudent = studentDB.getStudentIndex(username);
                             Student student = studentDB.fetchOneStudent(indexOfStudent);
-                            primaryStage.setScene(new Scene(new StudentPage(primaryStage, student).getGrid()));
+                            primaryStage.setScene(new Scene(new StudentPage(primaryStage, student).getPage()));
                             System.out.println("from studentPage");
                     
                         }
