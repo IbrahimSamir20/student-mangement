@@ -9,13 +9,13 @@ public class Navbar extends HBox {
         private String username ;
         Text text ;
 
-        public Navbar(String username){
-              this.username=username;
-              this.text=new Text("Hi, 👋");  
+        public Navbar(String username) {
+              this.username = username;
+              this.text = new Text("Hi, 👋");  
+              VBox vbox = new VBox();
+              vbox.getChildren().addAll(text);
         }
 
-        VBox vbox = new VBox();
-        vbox.getChildren()
 
 
 

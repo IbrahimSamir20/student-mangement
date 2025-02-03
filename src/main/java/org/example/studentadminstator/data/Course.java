@@ -5,5 +5,14 @@ public class Course {
         String attendant;
         int grade;
         Instructor instructor;
-        Student student;
+        Student[] students;
+        public Course (String name, String attendant,int grade, Instructor instructor,Student... students){
+                
+                this.name = name;
+                this.attendant = attendant;
+                this.grade = grade;
+                this.students = students;
+                this.instructor = instructor;
+
+        }
 }
