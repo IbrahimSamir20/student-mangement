@@ -1,7 +1,5 @@
 package org.example.studentadminstator.components;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
@@ -9,7 +7,7 @@ import org.example.studentadminstator.AppStyle;
 
 public class Sidebar extends VBox {
     private Label label;
-    public Sidebar(String title, EventHandler<ActionEvent>[] handler) {
+    public Sidebar(String title, CustomButton handler) {
         label = new Label(title);
         label.setFont(AppStyle.font18Bold);
         label.setTextFill(AppStyle.textColor);
