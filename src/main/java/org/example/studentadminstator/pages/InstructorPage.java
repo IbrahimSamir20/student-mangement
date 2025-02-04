@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 public class InstructorPage extends BorderPane {
         
         public InstructorPage(Stage primaryStage,Instructor instructor){
-                Navbar navbar = new Navbar(instructor.getName());
+                Navbar navbar = new Navbar("");
                 this.setTop(navbar);
                 this.setMinSize(1024,900);
 

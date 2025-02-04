@@ -4,22 +4,27 @@ public class Student extends User {
         private String name;
         private String gender;
         public Student(String username, String password, String type) {
-        super(username, password, type); 
+
+            super(username, password, type);
     }
 
     public String getName() {
-        return name;
+
+            return name;
     }
 
     public void setName(String name) {
-        this.name = name;
+
+            this.name = name;
     }
 
-    public String getGender() {
+    public String getGender()
+    {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(String gender)
+    {
         this.gender = gender;
     }
     

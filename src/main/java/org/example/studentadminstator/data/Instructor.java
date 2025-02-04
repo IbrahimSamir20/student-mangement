@@ -3,7 +3,7 @@ package org.example.studentadminstator.data;
 public class Instructor extends User {
        private String name;
        private String grade ;
-                   
+              
     public Instructor(String username, String password, String type) {
         super(username, password, type); 
         

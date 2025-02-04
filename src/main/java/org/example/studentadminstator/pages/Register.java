@@ -74,8 +74,7 @@ public class Register extends VBox {
                     System.out.println("Created successful"+ usernameInput.getInputValue());
                     if(jobGroup.getSelectedOption().equals("instructor")) {
                         instructorDB.createInstructor(new Instructor(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption()));
-                        int indexOfInstructor = instructorDB.getIndex(usernameInput.getInputValue());
-                        Instructor instructor = instructorDB.fetchOneInstructor(indexOfInstructor);
+                        Instructor instructor = instructorDB.fetchOneInstructor(usernameInput.getInputValue());
                         primaryStage.setScene(new Scene(new InstructorPage(primaryStage,instructor).getPage()));
 
                     }else {

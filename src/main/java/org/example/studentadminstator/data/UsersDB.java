@@ -3,7 +3,7 @@ package org.example.studentadminstator.data;
 import java.util.ArrayList;
 
 public class UsersDB<T> {
-        private ArrayList<User> userDB = new ArrayList<>();
+        private final ArrayList<User> userDB = new ArrayList<>();
         
         public UsersDB (){
          userDB.add(new User("ibrahim", "abdelrahman aql", "instructor"));
@@ -50,14 +50,14 @@ public class UsersDB<T> {
                 return type; 
         }
 
-        public int getIndex(String username){
-                for(User user:userDB){
-                        if(user.getUsername().equals(username)){
-                                return userDB.indexOf(user);
-                        }
-                }
-                return -1;
-        }
+//        public int getIndex(String username){
+//                for(User user:userDB){
+//                        if(user.getUsername().equals(username)){
+//                                return userDB.indexOf(user);
+//                        }
+//                }
+//                return -1;
+//        }
 
         
 }

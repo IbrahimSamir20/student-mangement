@@ -14,7 +14,6 @@ public class Navbar extends HBox {
     Button button = new Button("Edit profille");
     Button button2 = new Button("Back");
 
-
     public Navbar(String username) {
         this.username = username;
         this.text = new Text("Hello," + username + "!");
