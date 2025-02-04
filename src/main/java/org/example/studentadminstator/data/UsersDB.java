@@ -6,8 +6,6 @@ public class UsersDB<T> {
         private final ArrayList<User> userDB = new ArrayList<>();
         
         public UsersDB (){
-         userDB.add(new User("ibrahim", "abdelrahman aql", "instructor"));
-         userDB.add(new User("ibrahim", "ibrahim", "student"));
         }
 
         public void createUser(User user){
