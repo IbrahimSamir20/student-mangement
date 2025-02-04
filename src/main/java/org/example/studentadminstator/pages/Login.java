@@ -1,5 +1,6 @@
 package org.example.studentadminstator.pages;
 
+import org.example.studentadminstator.AppData;
 import org.example.studentadminstator.AppStyle;
 import org.example.studentadminstator.components.CustomButton;
 import org.example.studentadminstator.components.CustomInput;
@@ -25,6 +26,8 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 
+import java.util.ArrayList;
+
 public class Login extends VBox {
     //UI
     private final GridPane grid = new GridPane();
@@ -41,10 +44,11 @@ public class Login extends VBox {
     InstructorPage instructorPage ;
     AdministerPage administerPage ;
     //DB
-    CoursesDB<Course> coursesDB = new CoursesDB<>();
-    UsersDB<User> userDb = new UsersDB<>();
-    InstructorDB<Instructor> instructorDB = new InstructorDB<>();
-    StudentDB<Student> studentDB = new StudentDB<>();
+    AppData data = AppData.getInstance();
+    CoursesDB<Course> coursesDB = data.getCoursesDB();
+    UsersDB<User> userDb = data.getUsersDB();
+    InstructorDB<Instructor> instructorDB = data.getInstructorDB();
+    StudentDB<Student> studentDB = data.getStudentDB();
     
 // Start Logic
     public Login(Stage primaryStage) {
@@ -89,6 +93,8 @@ public class Login extends VBox {
                         if(userDb.getType(username).equals("instructor")){
                             int indexOfInstructor = instructorDB.getIndex(username);
                             System.out.println("Index of instructor: " + indexOfInstructor);
+                            ArrayList<Instructor> instructors = instructorDB.fetchInstructors();
+                            System.out.println("Number of instructors: " + instructors.size());
                             Instructor instructor = instructorDB.fetchOneInstructor(indexOfInstructor);
                             System.out.println("Instructor: " + instructor.getUsername());
                             primaryStage.setScene(new Scene(new InstructorPage(primaryStage,instructor).getPage()));

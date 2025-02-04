@@ -25,7 +25,7 @@ import javafx.event.EventHandler;
 
 
 public class AdministerPage extends BorderPane {
-        
+        //TODO: Get Databases from AppData
         private CoursesDB<Course> coursesDB;
         private UsersDB<User> userDb;
         private InstructorDB<Instructor> instructorDB;
@@ -33,7 +33,7 @@ public class AdministerPage extends BorderPane {
         private Stage primaryStage;
         
         @SuppressWarnings("unchecked") // Suppress unchecked conversion warning
-        EventHandler<ActionEvent>[] handlers = new EventHandler[3]; 
+        EventHandler<ActionEvent>[] handlers = new EventHandler[3];
 
         public AdministerPage(CoursesDB<Course> coursesDB, UsersDB<User> userDb, InstructorDB<Instructor> instructorDB, StudentDB<Student> studentDB, Stage primaryStage) {
                 this.coursesDB = coursesDB;
