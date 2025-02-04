@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff592a29-59fd-4dbb-8073-d2285cc47f1a" name="Changes" comment="Adding CustomSelect Component and Creating the Register Page">
+    <list default="true" id="65cccb22-56ea-4854-95fb-b337dfd4daf2" name="Changes" comment="StudentPage Fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/components/Navbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/components/Navbar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/components/Sidebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/components/Sidebar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Administer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/AdministerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/AdministerPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/InstructorPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/InstructorPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/StudentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/StudentPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +40,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/IbrahimSamir20/student-mangement.git&quot;,
-    &quot;accountId&quot;: &quot;d337fe82-0e2f-4312-88a8-b9346207c561&quot;
+    &quot;accountId&quot;: &quot;dd125937-2196-4a25-a92a-c5392ecffc31&quot;
   },
   &quot;recentNewPullRequestHead&quot;: {
     &quot;server&quot;: {
@@ -64,22 +64,15 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Application.CustomTable$TestApp.executor&quot;: &quot;Run&quot;,
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;nancy&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Peter/Desktop/student-mangement&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -117,16 +110,26 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ff592a29-59fd-4dbb-8073-d2285cc47f1a" name="Changes" comment="" />
+      <changelist id="65cccb22-56ea-4854-95fb-b337dfd4daf2" name="Changes" comment="Editing Register" />
       <created>1738184163024</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1738184163024</updated>
       <workItem from="1738391672275" duration="1407000" />
       <workItem from="1738396273198" duration="1376000" />
+      <workItem from="1738607229942" duration="4012000" />
+      <workItem from="1738615606859" duration="746000" />
     </task>
     <task id="LOCAL-00001" summary="Adding CustomSelect Component and Creating the Register Page">
       <option name="closed" value="true" />
@@ -136,7 +139,39 @@
       <option name="project" value="LOCAL" />
       <updated>1738392807699</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Editing Register">
+      <option name="closed" value="true" />
+      <created>1738605099500</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1738605099500</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adding Student">
+      <option name="closed" value="true" />
+      <created>1738608270761</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1738608270761</updated>
+    </task>
+    <task id="LOCAL-00004" summary="StudentPage Fix">
+      <option name="closed" value="true" />
+      <created>1738609490793</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1738609490793</updated>
+    </task>
+    <task id="LOCAL-00005" summary="StudentPage Fixed">
+      <option name="closed" value="true" />
+      <created>1738610853747</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1738610853748</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +190,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding CustomSelect Component and Creating the Register Page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding CustomSelect Component and Creating the Register Page" />
+    <MESSAGE value="Editing Register" />
+    <MESSAGE value="Adding Student" />
+    <MESSAGE value="StudentPage Fix" />
+    <MESSAGE value="StudentPage Fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="StudentPage Fixed" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

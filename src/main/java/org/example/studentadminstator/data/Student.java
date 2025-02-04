@@ -22,4 +22,5 @@ public class Student extends User {
     public void setGender(String gender) {
         this.gender = gender;
     }
+    
 }

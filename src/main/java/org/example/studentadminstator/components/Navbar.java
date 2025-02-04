@@ -2,7 +2,7 @@ package org.example.studentadminstator.components;
 
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+// import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -17,17 +17,19 @@ public class Navbar extends HBox {
 
     public Navbar(String username) {
         this.username = username;
-        this.text= new Text("Hello,");
-        HBox hbox = new HBox(button,button2);
-        VBox vbox = new VBox();
+        this.text = new Text("Hello," + username + "!");
+        HBox hbox = new HBox(button, button2);
+        // VBox vbox = new VBox();
 
         hbox.setAlignment(Pos.TOP_RIGHT);
         hbox.setSpacing(10);
         hbox.setPadding(new Insets(20));
-        vbox.getChildren().addAll(vbox,hbox);
+        this.getChildren().addAll(text, hbox);
     }
-
-
+   
+    public String getUsername(){
+        return username;
+    }
 
 // // public class Navbar extends HBox {
 
