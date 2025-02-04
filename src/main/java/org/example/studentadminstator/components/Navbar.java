@@ -31,7 +31,10 @@ public class Navbar extends HBox {
 
         };
         EventHandler<ActionEvent> onBack = e -> {
+            stage.setWidth(1024);
+            stage.setHeight(900);
             stage.setScene(new Scene(new Login(stage).getGrid()));
+
             stage.show();
         };
         editButton = new CustomButton(onEdit, "Edit");

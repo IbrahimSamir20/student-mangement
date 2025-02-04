@@ -6,6 +6,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 // import org.example.studentadminstator.components.CustomButton;
+import org.example.studentadminstator.AppStyle;
 import org.example.studentadminstator.components.CustomTable;
 import org.example.studentadminstator.components.Navbar;
 import org.example.studentadminstator.components.Sidebar;
@@ -41,7 +42,7 @@ public class AdministerPage extends BorderPane {
                 this.instructorDB = instructorDB;
                 this.studentDB = studentDB;
                 this.primaryStage = primaryStage;
-                this.setStyle("-fx-background-color: black;");
+                this.setBackground(AppStyle.background);
 
                 Navbar navbar = new Navbar("Admin Dashboard",primaryStage);
                 this.setTop(navbar);
