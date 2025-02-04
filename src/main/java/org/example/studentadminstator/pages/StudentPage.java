@@ -14,7 +14,7 @@ import org.example.studentadminstator.data.StudentDB;
 
 public class StudentPage extends BorderPane {
        public StudentPage(Stage primaryStage,Student student){
-           Navbar navbar = new Navbar(student.getName());
+           Navbar navbar = new Navbar(student.getName(), primaryStage);
            this.setTop(navbar);
            this.setMinSize(1024,900);
 

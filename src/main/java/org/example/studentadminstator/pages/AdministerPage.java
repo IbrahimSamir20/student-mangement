@@ -43,7 +43,7 @@ public class AdministerPage extends BorderPane {
                 this.primaryStage = primaryStage;
                 this.setStyle("-fx-background-color: black;");
 
-                Navbar navbar = new Navbar("Admin Dashboard");
+                Navbar navbar = new Navbar("Admin Dashboard",primaryStage);
                 this.setTop(navbar);
 
                 Sidebar sidebar = new Sidebar("das",handlers);
