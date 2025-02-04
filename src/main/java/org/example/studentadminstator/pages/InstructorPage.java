@@ -2,11 +2,14 @@ package org.example.studentadminstator.pages;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Insets;
 import org.example.studentadminstator.AppData;
+import org.example.studentadminstator.components.CustomButton;
 import org.example.studentadminstator.components.CustomTable;
 import org.example.studentadminstator.components.Navbar;
 import org.example.studentadminstator.data.*;
@@ -21,7 +24,7 @@ public class InstructorPage extends BorderPane {
         CoursesDB<Course> coursesDB = appData.getCoursesDB();
         InstructorDB<Instructor> instructorDB = appData.getInstructorDB();
         StudentDB<Student> studentDB = appData.getStudentDB();
-
+        private EventHandler<ActionEvent> onClick ;
         public InstructorPage(Stage primaryStage,Instructor instructor){
                 Navbar navbar = new Navbar("", primaryStage);
                 this.setTop(navbar);
@@ -33,6 +36,7 @@ public class InstructorPage extends BorderPane {
                 instructorTable.addColumn("Student", "student", 350);
                 instructorTable.addColumn("Attendance", "attendant", 350);
                 instructorTable.addColumn("Grade", "grade", 350);
+//                instructorTable.addColumn("Action", new CustomButton(this.onClick,"Edit"), 350);
                 ObservableList<Course> tableCourses = FXCollections.observableArrayList();
                 ArrayList<Course> courses= coursesDB.fetch();
                 //TODO: add the courses that this instructor teach
@@ -49,6 +53,9 @@ public class InstructorPage extends BorderPane {
                 this.setCenter(instructorContainer);
                 
         }
+//        this.onClick = e -> {
+//
+//        };
 
         public BorderPane getPage() {
                 return this;

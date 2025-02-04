@@ -22,29 +22,30 @@ public class StudentPage extends BorderPane {
     AppData appData = AppData.getInstance();
     CoursesDB<Course> coursesDB = appData.getCoursesDB();
     InstructorDB<Instructor> instructorDB = appData.getInstructorDB();
-       public StudentPage(Stage primaryStage,Student student){
-           Navbar navbar = new Navbar(student.getName(), primaryStage);
-           this.setTop(navbar);
-           this.setMinSize(1024,900);
+    public StudentPage(Stage primaryStage,Student student){
+        Navbar navbar = new Navbar(student.getName(), primaryStage);
+        this.setTop(navbar);
+        this.setMinSize(1024,900);
 
-            CustomTable<Course> studentTable = new CustomTable<Course>();
-            studentTable.addColumn("Course", "name", 250);
-            studentTable.addColumn("Attendance", "attendant", 250);
-            studentTable.addColumn("Grade", "grade", 250);
+        CustomTable<Course> studentTable = new CustomTable<Course>();
+        studentTable.addColumn("Name", "name", 250);
+        studentTable.addColumn("Attendance", "attendant", 250);
+        studentTable.addColumn("Grade", "grade", 250);
 
-           ObservableList<Course> tableCourses = FXCollections.observableArrayList();
-           ArrayList<Course> courses= coursesDB.fetch();
-           for(Course c : courses){
-               final var add = tableCourses.add(c);
-           }
-           studentTable.setTableData(tableCourses);
-           VBox studentContainer = new VBox();
-            studentContainer.setSpacing(10);
-           studentContainer.setPadding(new Insets(10));
-            this.setCenter(studentContainer);
-           studentContainer.getChildren().add(studentTable);
+        ObservableList<Course> tableCourses = FXCollections.observableArrayList();
+        ArrayList<Course> courses= coursesDB.fetch();
+        //Adding data to tableview list
+        for(Course c : courses){
+            tableCourses.add(c);
+        }
+        studentTable.setTableData(tableCourses);
+        VBox studentContainer = new VBox();
+        studentContainer.setSpacing(10);
+        studentContainer.setPadding(new Insets(10));
+        this.setCenter(studentContainer);
+        studentContainer.getChildren().add(studentTable);
 
-       }
+    }
 
     public BorderPane getPage() {
         return this;
