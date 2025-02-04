@@ -28,6 +28,8 @@ public class AppStyle{
     public static final Font font32 = new Font("Arial", 32);
     
     public static final Color colorBlack = Color.BLACK;
+
+    public static final Color colorLightGray = Color.LIGHTGRAY;
     public static final Color colorLight = Color.rgb(198, 33, 0);
     public static final Color textColor = Color.WHITE;
     public static final Color errorColor = Color.RED;

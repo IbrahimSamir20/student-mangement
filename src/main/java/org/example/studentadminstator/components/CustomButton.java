@@ -17,30 +17,42 @@ import javafx.scene.layout.CornerRadii;
 import javafx.geometry.Insets;
 
 public class CustomButton extends VBox {
-      private  Button button;
+    private Button button;
 
-public CustomButton(EventHandler<ActionEvent> eventHandler, String label) {
+    public CustomButton(EventHandler<ActionEvent> eventHandler, String label) {
         this.button = new Button(label);
         this.button.setOnAction(eventHandler);
         this.getChildren().add(this.button);
-        
-        button.setTextFill(AppStyle.textColor);
+
+        // Button Styling
+        button.setTextFill(AppStyle.colorBlack); // Black text
         button.setFont(Font.font(AppStyle.font18.getFamily(), FontWeight.BOLD, AppStyle.font18.getSize()));
-        button.setPrefWidth(100);
-        button.setBackground(new Background(new BackgroundFill(AppStyle.colorLight, CornerRadii.EMPTY, Insets.EMPTY)));
+        button.setPrefWidth(120); // Adjust width to fit the text properly
+        button.setPrefHeight(40); // Adjust height for better spacing
+        button.setBackground(new Background(new BackgroundFill(AppStyle.textColor, new CornerRadii(10), Insets.EMPTY)));
         button.setBorder(new Border(new BorderStroke(
-            AppStyle.colorBlack,  
-            BorderStrokeStyle.SOLID, 
-            new CornerRadii(10), 
-            new BorderWidths(2)  
+                AppStyle.colorBlack,
+                BorderStrokeStyle.SOLID,
+                new CornerRadii(10),
+                new BorderWidths(2)
         )));
 
-      button.setOnMousePressed(e -> button.setScaleX(0.9));
-      button.setOnMousePressed(e -> button.setScaleY(0.9));
-      button.setOnMouseReleased(e -> button.setScaleX(1.0));
-      button.setOnMouseReleased(e -> button.setScaleY(1.0));
+        // Hover Effect
+        button.setOnMouseEntered(e -> button.setBackground(
+                new Background(new BackgroundFill(AppStyle.colorLightGray, new CornerRadii(10), Insets.EMPTY))
+        ));
+        button.setOnMouseExited(e -> button.setBackground(
+                new Background(new BackgroundFill(AppStyle.textColor, new CornerRadii(10), Insets.EMPTY))
+        ));
 
-
-      }
+        // Pressed Effect
+        button.setOnMousePressed(e -> {
+            button.setScaleX(0.95);
+            button.setScaleY(0.95);
+        });
+        button.setOnMouseReleased(e -> {
+            button.setScaleX(1.0);
+            button.setScaleY(1.0);
+        });
+    }
 }
-
