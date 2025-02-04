@@ -3,11 +3,9 @@ package org.example.studentadminstator.data;
 import java.util.ArrayList;
 
 public class UsersDB<T> {
-        private ArrayList<User> userDB = new ArrayList<>();
+        private final ArrayList<User> userDB = new ArrayList<>();
         
         public UsersDB (){
-         userDB.add(new User("ibrahim", "abdelrahman aql", "instructor"));
-         userDB.add(new User("ibrahim", "ibrahim", "student"));
         }
 
         public void createUser(User user){
@@ -39,7 +37,7 @@ public class UsersDB<T> {
             return false;
         }
 
-        public String getType(String username){
+        public String getUserType(String username){
                 String type = ""; 
                 for(User user:userDB){
                         if(user.getUsername().equals(username)){
@@ -50,14 +48,14 @@ public class UsersDB<T> {
                 return type; 
         }
 
-        public int getIndex(String username){
-                for(User user:userDB){
-                        if(user.getUsername().equals(username)){
-                                return userDB.indexOf(user);
-                        }
-                }
-                return -1;
-        }
+//        public int getIndex(String username){
+//                for(User user:userDB){
+//                        if(user.getUsername().equals(username)){
+//                                return userDB.indexOf(user);
+//                        }
+//                }
+//                return -1;
+//        }
 
         
 }

@@ -1,5 +1,6 @@
 package org.example.studentadminstator.pages;
 
+import org.example.studentadminstator.AppData;
 import org.example.studentadminstator.AppStyle;
 import org.example.studentadminstator.components.CustomButton;
 import org.example.studentadminstator.components.CustomInput;
@@ -25,10 +26,12 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 
+import java.util.ArrayList;
+
 public class Login extends VBox {
     //UI
     private final GridPane grid = new GridPane();
-    private Stage primaryStage;
+    private final Stage primaryStage;
     private final CustomInput usernameInput = new CustomInput("Enter your username", "Username");
     private final CustomInput passwordInput = new CustomInput("Enter Password","Password");
     Link link ;
@@ -41,10 +44,11 @@ public class Login extends VBox {
     InstructorPage instructorPage ;
     AdministerPage administerPage ;
     //DB
-    CoursesDB<Course> coursesDB = new CoursesDB<>();
-    UsersDB<User> userDb = new UsersDB<>();
-    InstructorDB<Instructor> instructorDB = new InstructorDB<>();
-    StudentDB<Student> studentDB = new StudentDB<>();
+    AppData data = AppData.getInstance();
+    CoursesDB<Course> coursesDB = data.getCoursesDB();
+    UsersDB<User> userDb = data.getUsersDB();
+    InstructorDB<Instructor> instructorDB = data.getInstructorDB();
+    StudentDB<Student> studentDB = data.getStudentDB();
     
 // Start Logic
     public Login(Stage primaryStage) {
@@ -66,8 +70,8 @@ public class Login extends VBox {
             Boolean usernameValid =  usernameInput.getIsValid();
             Boolean passwordValid =  passwordInput.getIsValid();
             System.out.println("Username valid: " + usernameValid.toString() + ", Password valid: " + passwordValid.toString());
-            String username = usernameInput.getInputValue();
-            String password = passwordInput.getInputValue();
+//            String username = usernameInput.getInputValue();
+//            String password = passwordInput.getInputValue();
 
             if(usernameValid && passwordValid){
 
@@ -76,7 +80,7 @@ public class Login extends VBox {
                         System.out.println("Login successfully");
                         primaryStage.setScene(new Scene(new AdministerPage(coursesDB,userDb,instructorDB,studentDB, primaryStage).getPage()));
 
-                    }else if(!userDb.searchUser(username, password)){
+                    }else if(!userDb.searchUser(usernameInput.getInputValue(), passwordInput.getInputValue())){
                         
                         javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
                         alert.setTitle("Login Error");
@@ -86,17 +90,12 @@ public class Login extends VBox {
                     
                     }else{
                     
-                        if(userDb.getType(username).equals("instructor")){
-                            int indexOfInstructor = instructorDB.getIndex(username);
-                            System.out.println("Index of instructor: " + indexOfInstructor);
-                            Instructor instructor = instructorDB.fetchOneInstructor(indexOfInstructor);
-                            System.out.println("Instructor: " + instructor.getUsername());
-                            primaryStage.setScene(new Scene(new InstructorPage(primaryStage,instructor).getPage()));
-                            System.out.println("from instructorPage");
-                    
+                        if(userDb.getUserType(usernameInput.getInputValue()).equals("Instructor")){
+                            Instructor instructor = instructorDB.fetchOneInstructor(usernameInput.getInputValue());
+                            primaryStage.setScene(new Scene(new InstructorPage(primaryStage, instructor).getPage()));
+                            System.out.println(instructor);
                         }else{
-                            int indexOfStudent = studentDB.getStudentIndex(username);
-                            Student student = studentDB.fetchOneStudent(indexOfStudent);
+                             Student student = studentDB.fetchOneStudent(usernameInput.getInputValue().trim());
                             primaryStage.setScene(new Scene(new StudentPage(primaryStage, student).getPage()));
                             System.out.println("from studentPage");
                     

@@ -2,6 +2,7 @@ package org.example.studentadminstator.pages;
 
 import javafx.event.Event;
 import javafx.scene.Scene;
+import org.example.studentadminstator.AppData;
 import org.example.studentadminstator.AppStyle;
 import org.example.studentadminstator.components.CustomButton;
 import org.example.studentadminstator.components.CustomInput;
@@ -24,24 +25,26 @@ import org.example.studentadminstator.components.CustomSelect;
 import org.example.studentadminstator.components.Link;
 import org.example.studentadminstator.data.*;
 
+import java.util.ArrayList;
+
 public class Register extends VBox {
     Text header = new Text();
-    private GridPane grid = new GridPane();
-    private CustomInput usernameInput = new CustomInput("Enter your username", "Username");
-    private CustomInput passwordInput = new CustomInput("Enter Password","Password");
+    private final GridPane grid = new GridPane();
+    private final CustomInput usernameInput = new CustomInput("Enter your username", "Username");
+    private final CustomInput passwordInput = new CustomInput("Enter Password","Password");
     //private CustomInput courseInput = new CustomInput("Enter Course","Course");
-    private CustomSelect jobGroup = new CustomSelect("Job:", "Student", "Instructor");
-    private CustomSelect genderGroup = new CustomSelect("Gender", "Male", "Female");
-    private CustomButton loginButton;
-    private UsersDB<User> usersDB = new UsersDB<User>();
-    InstructorDB<Instructor> instructorDB = new InstructorDB<>();
-    StudentDB<Student> studentDB = new StudentDB<>();
+    private final CustomSelect jobGroup = new CustomSelect("Job:", "Student", "Instructor");
+    private final CustomSelect genderGroup = new CustomSelect("Gender", "Male", "Female");
+    AppData data = AppData.getInstance();
+    UsersDB<User> usersDB = data.getUsersDB();
+    InstructorDB<Instructor> instructorDB = data.getInstructorDB();
+    StudentDB<Student> studentDB = data.getStudentDB();
     Text loginAlert = new Text();
     Stage primaryStage;
     Link link;
 
     public Register(Stage primaryStage) {
-        
+
         grid.setVgap(15);
         grid.setHgap(15);
         grid.setAlignment(Pos.CENTER);
@@ -71,17 +74,17 @@ public class Register extends VBox {
                     System.out.println("Found user successful"+ usernameInput.getInputValue());
                 }else{
                     usersDB.createUser(new User(usernameInput.getInputValue(), passwordInput.getInputValue(), jobGroup.getSelectedOption()));
-                    System.out.println("Created successful"+ usernameInput.getInputValue());
-                    if(jobGroup.getSelectedOption().equals("instructor")) {
+                    System.out.println("Created successful"+ usernameInput.getInputValue() + "Created Type" + jobGroup.getSelectedOption());
+                    if(jobGroup.getSelectedOption().equals("Instructor")) {
                         instructorDB.createInstructor(new Instructor(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption()));
-                        int indexOfInstructor = instructorDB.getIndex(usernameInput.getInputValue());
-                        Instructor instructor = instructorDB.fetchOneInstructor(indexOfInstructor);
+                        Instructor instructor = instructorDB.fetchOneInstructor(usernameInput.getInputValue());
                         primaryStage.setScene(new Scene(new InstructorPage(primaryStage,instructor).getPage()));
 
                     }else {
                         studentDB.createStudent(new Student(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption()));
-                        int studentIndex = studentDB.getStudentIndex(usernameInput.getInputValue());
-                        Student student= studentDB.fetchOneStudent(studentIndex);
+                        //Here we need backup the student name form database after created
+
+                        Student student= studentDB.fetchOneStudent(usernameInput.getInputValue());
                         primaryStage.setScene(new Scene(new StudentPage(primaryStage,student).getPage()));
                     }
                 }
@@ -91,7 +94,7 @@ public class Register extends VBox {
             }
         };
 
-        loginButton = new CustomButton(handelSubmit,"Submit");
+        CustomButton loginButton = new CustomButton(handelSubmit, "Submit");
         grid.add(header, 0, 0, 1, 1);
         grid.add(usernameInput, 0, 1, 1, 1);
         grid.add(passwordInput, 0, 2, 1, 1);

@@ -3,11 +3,11 @@ package org.example.studentadminstator.data;
 import java.util.ArrayList;
 
 public class InstructorDB<T> {
-        Instructor oneInstructor=new Instructor("ibrahim", "doaa",  "instructor");
-       private ArrayList<Instructor> instructorDB = new ArrayList<>();
+         Instructor oneInstructor=new Instructor("abdelrahman aql", "ibrahim",  "instructor");
+       private final ArrayList<Instructor> instructorDB = new ArrayList<>();
 
        public InstructorDB() {
-           instructorDB.add(oneInstructor);
+            createInstructor(oneInstructor);
                 
         }
 
@@ -23,23 +23,38 @@ public class InstructorDB<T> {
                 instructorDB.remove(index);
        }
 
-       public ArrayList<Instructor> fetchInstructors(){
+    public ArrayList<Instructor> fetchInstructors() {
         return instructorDB;
-       }
+    }
 
-       public Instructor fetchOneInstructor (int index){
-        return instructorDB.get(index);
-       }
-       public int getIndex(String instructorName){
-        int indexOfUser = -1;
-        for(Instructor instructor: instructorDB){
-                if(instructor.getUsername().equals(instructorName)){
-                        return instructorDB.indexOf(instructor);
-                }
+    public Instructor fetchOneInstructor(String username) {
+        for (Instructor instructor : instructorDB) {
+            if (instructor.getUsername().equals(username)) {
+                return instructor;
+            }
         }
-      return indexOfUser;
-}
+        return null;
+    }
+
+
+//   public int getIndex (String username){
+//           for(Instructor  instructor:instructorDB){
+//
+//               if(instructor.getUsername().equals(username)){
+//                   return instructorDB.indexOf(instructor);
+//               }
+//
+//           }
+//    return -1;
+//       }
+       
+
+      
 
 
 
 }
+
+
+
+
