@@ -35,7 +35,7 @@ public class StudentPage extends BorderPane {
            ObservableList<Course> tableCourses = FXCollections.observableArrayList();
            ArrayList<Course> courses= coursesDB.fetch();
            for(Course c : courses){
-               tableCourses.add(c);
+               final var add = tableCourses.add(c);
            }
            studentTable.setTableData(tableCourses);
            VBox studentContainer = new VBox();

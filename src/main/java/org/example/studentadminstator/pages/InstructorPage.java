@@ -37,7 +37,7 @@ public class InstructorPage extends BorderPane {
                 ArrayList<Course> courses= coursesDB.fetch();
                 //TODO: add the courses that this instructor teach
                 for(Course c : courses){
-                        tableCourses.add(c);
+                      final var get =  tableCourses.add(c);
                 }
 
                 VBox instructorContainer = new VBox();
