@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<!-- <<<<<<< nancy
+    <list default="true" id="65cccb22-56ea-4854-95fb-b337dfd4daf2" name="Changes" comment="admin page">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/AppStyle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/AppStyle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/components/CustomButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/components/CustomButton.java" afterDir="false" />
+======= -->
     <list default="true" id="7dc0a360-3e0f-4273-b965-25f98e1520f8" name="Changes" comment="Adding hard coded users">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/InstructorPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/InstructorPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/StudentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/StudentPage.java" afterDir="false" />
+<!-- >>>>>>> main -->
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +67,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<!-- <<<<<<< nancy
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "nancy",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+======= -->
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
@@ -72,8 +93,9 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+<!-- >>>>>>> main -->
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="CustomTable$TestApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.studentadminstator.components.CustomTable$TestApp" />
@@ -263,11 +285,26 @@
     <MESSAGE value="Adding Student" />
     <MESSAGE value="StudentPage Fix" />
     <MESSAGE value="StudentPage Fixed" />
+<!-- <<<<<<< nancy
+    <MESSAGE value="admin page" />
+    <option name="LAST_COMMIT_MESSAGE" value="admin page" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+======= -->
     <MESSAGE value="Adding InstructorPage" />
     <MESSAGE value="Adding Back Button Functionality" />
     <MESSAGE value="Edited NavBar" />
     <MESSAGE value="Fixing Files and adding custom tableview with its data showing" />
     <MESSAGE value="Adding hard coded users" />
     <option name="LAST_COMMIT_MESSAGE" value="Adding hard coded users" />
+<!-- >>>>>>> main -->
   </component>
 </project>
