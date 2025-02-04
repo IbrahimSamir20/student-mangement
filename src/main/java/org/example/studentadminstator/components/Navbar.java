@@ -27,7 +27,6 @@ public class Navbar extends HBox {
         text.setFont(AppStyle.font18);
         text.setFill(AppStyle.textColor);
         HBox hbox = new HBox();
-        // VBox vbox = new VBox();
         EventHandler<ActionEvent> onEdit = e -> {
 
         };
