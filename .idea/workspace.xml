@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7dc0a360-3e0f-4273-b965-25f98e1520f8" name="Changes" comment="Fixing Files and adding custom tableview with its data showing">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/AppData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/AppData.java" afterDir="false" />
-    </list>
+    <list default="true" id="7dc0a360-3e0f-4273-b965-25f98e1520f8" name="Changes" comment="Adding hard coded users" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,7 +128,7 @@
       <workItem from="1738630037722" duration="2775000" />
       <workItem from="1738641617122" duration="3062000" />
       <workItem from="1738644710116" duration="118000" />
-      <workItem from="1738670349186" duration="93000" />
+      <workItem from="1738670349186" duration="189000" />
     </task>
     <task id="LOCAL-00001" summary="Adding CustomSelect Component and Creating the Register Page">
       <option name="closed" value="true" />
@@ -205,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738644669066</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Adding hard coded users">
+      <option name="closed" value="true" />
+      <created>1738670487292</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1738670487292</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,6 +237,7 @@
     <MESSAGE value="Adding Back Button Functionality" />
     <MESSAGE value="Edited NavBar" />
     <MESSAGE value="Fixing Files and adding custom tableview with its data showing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing Files and adding custom tableview with its data showing" />
+    <MESSAGE value="Adding hard coded users" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding hard coded users" />
   </component>
 </project>
