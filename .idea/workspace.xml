@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7dc0a360-3e0f-4273-b965-25f98e1520f8" name="Changes" comment="Adding hard coded users">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/data/StudentDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/data/StudentDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Register.java" afterDir="false" />
+    <list default="true" id="7dc0a360-3e0f-4273-b965-25f98e1520f8" name="Changes" comment="Reloading commits">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/StudentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/StudentPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +37,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/IbrahimSamir20/student-mangement.git",
-    "accountId": "833215d9-c580-4e4a-9708-71a73fc82ac9"
+    "accountId": "dd125937-2196-4a25-a92a-c5392ecffc31"
   },
   "recentNewPullRequestHead": {
     "server": {
@@ -106,6 +105,14 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -125,6 +132,7 @@
       <workItem from="1738641617122" duration="3062000" />
       <workItem from="1738644710116" duration="118000" />
       <workItem from="1738670349186" duration="189000" />
+      <workItem from="1738678756328" duration="64000" />
     </task>
     <task id="LOCAL-00001" summary="Adding CustomSelect Component and Creating the Register Page">
       <option name="closed" value="true" />
