@@ -83,8 +83,9 @@ public class Register extends VBox {
 
                     }else {
                         studentDB.createStudent(new Student(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption()));
-                        int studentIndex = studentDB.getStudentIndex(usernameInput.getInputValue());
-                        Student student= studentDB.fetchOneStudent(studentIndex);
+                        //Here we need backup the student name form database after created
+
+                        Student student= studentDB.fetchOneStudent(username);
                         primaryStage.setScene(new Scene(new StudentPage(primaryStage,student).getPage()));
                     }
                 }

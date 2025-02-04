@@ -3,7 +3,7 @@ package org.example.studentadminstator.data;
 import java.util.ArrayList;
 
 public class StudentDB<T> {
-       private ArrayList<Student> studentDB = new ArrayList<>();
+       private final ArrayList<Student> studentDB = new ArrayList<>();
 
        public void createStudent(Student student){
                 studentDB.add(student);
