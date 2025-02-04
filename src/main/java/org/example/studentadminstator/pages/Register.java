@@ -2,6 +2,7 @@ package org.example.studentadminstator.pages;
 
 import javafx.event.Event;
 import javafx.scene.Scene;
+import org.example.studentadminstator.AppData;
 import org.example.studentadminstator.AppStyle;
 import org.example.studentadminstator.components.CustomButton;
 import org.example.studentadminstator.components.CustomInput;
@@ -24,6 +25,8 @@ import org.example.studentadminstator.components.CustomSelect;
 import org.example.studentadminstator.components.Link;
 import org.example.studentadminstator.data.*;
 
+import java.util.ArrayList;
+
 public class Register extends VBox {
     Text header = new Text();
     private GridPane grid = new GridPane();
@@ -33,15 +36,16 @@ public class Register extends VBox {
     private CustomSelect jobGroup = new CustomSelect("Job:", "Student", "Instructor");
     private CustomSelect genderGroup = new CustomSelect("Gender", "Male", "Female");
     private CustomButton loginButton;
-    private UsersDB<User> usersDB = new UsersDB<User>();
-    InstructorDB<Instructor> instructorDB = new InstructorDB<>();
-    StudentDB<Student> studentDB = new StudentDB<>();
+    AppData data = AppData.getInstance();
+    UsersDB<User> usersDB = data.getUsersDB();
+    InstructorDB<Instructor> instructorDB = data.getInstructorDB();
+    StudentDB<Student> studentDB = data.getStudentDB();
     Text loginAlert = new Text();
     Stage primaryStage;
     Link link;
 
     public Register(Stage primaryStage) {
-        
+
         grid.setVgap(15);
         grid.setHgap(15);
         grid.setAlignment(Pos.CENTER);

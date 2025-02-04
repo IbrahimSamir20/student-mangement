@@ -4,8 +4,8 @@ public class Student extends User {
         private String name;
         private String gender;
         public Student(String username, String password, String type) {
-
-            super(username, password, type);
+        super(username, password, type);
+        this.name = username;
     }
 
     public String getName() {

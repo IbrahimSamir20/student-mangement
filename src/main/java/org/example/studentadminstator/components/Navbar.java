@@ -1,29 +1,43 @@
 package org.example.studentadminstator.components;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 // import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.stage.Stage;
+import org.example.studentadminstator.AppStyle;
+import org.example.studentadminstator.pages.Login;
 
 public class Navbar extends HBox {
 
     private String username ;
     Text text;
-    Button button = new Button("Edit profille");
-    Button button2 = new Button("Back");
+    CustomButton editButton;
+    CustomButton backButton;
+    Stage primaryStage;
 
     public Navbar(String username) {
         this.username = username;
         this.text = new Text("Hello," + username + "!");
-        HBox hbox = new HBox(button, button2);
+        text.setFont(AppStyle.font18);
+        text.setFill(AppStyle.textColor);
+        HBox hbox = new HBox();
         // VBox vbox = new VBox();
+        EventHandler<ActionEvent> onEdit = e -> {
 
+        };
+        EventHandler<ActionEvent> onBack = e -> new Login(primaryStage).getGrid();
+        editButton = new CustomButton(onEdit, "Edit");
+        backButton = new CustomButton(onBack, "Back");
         hbox.setAlignment(Pos.TOP_RIGHT);
         hbox.setSpacing(10);
         hbox.setPadding(new Insets(20));
-        this.getChildren().addAll(text, hbox);
+        hbox.getChildren().addAll(text, editButton, backButton);
+        this.getChildren().addAll(hbox);
     }
    
     public String getUsername(){

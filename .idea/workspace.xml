@@ -4,14 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65cccb22-56ea-4854-95fb-b337dfd4daf2" name="Changes" comment="StudentPage Fixed">
+    <list default="true" id="65cccb22-56ea-4854-95fb-b337dfd4daf2" name="Changes" comment="Adding InstructorPage">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/AppData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/components/Navbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/components/Navbar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/data/Instructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/data/Instructor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/data/InstructorDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/data/InstructorDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/data/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/data/Student.java" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/data/UsersDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/data/UsersDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/InstructorPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/InstructorPage.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/data/StudentDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/data/StudentDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/AdministerPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/AdministerPage.java" afterDir="false" />
+>>>>>>> e07bc37d51dff0986a96757704bc10e1f288c1c1
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Register.java" afterDir="false" />
     </list>
@@ -66,6 +72,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
@@ -80,6 +87,23 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+>>>>>>> e07bc37d51dff0986a96757704bc10e1f288c1c1
   }
 }]]></component>
   <component name="RunManager" selected="Application.Main">
@@ -126,8 +150,14 @@
       <workItem from="1738391672275" duration="1407000" />
       <workItem from="1738396273198" duration="1376000" />
       <workItem from="1738607229942" duration="4012000" />
+<<<<<<< HEAD
       <workItem from="1738615606859" duration="746000" />
       <workItem from="1738623789213" duration="174000" />
+=======
+      <workItem from="1738615606859" duration="10216000" />
+      <workItem from="1738627894712" duration="1512000" />
+      <workItem from="1738630037722" duration="2775000" />
+>>>>>>> e07bc37d51dff0986a96757704bc10e1f288c1c1
     </task>
     <task id="LOCAL-00001" summary="Adding CustomSelect Component and Creating the Register Page">
       <option name="closed" value="true" />
@@ -169,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738610853748</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Adding InstructorPage">
+      <option name="closed" value="true" />
+      <created>1738616515994</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1738616515994</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +230,7 @@
     <MESSAGE value="Adding Student" />
     <MESSAGE value="StudentPage Fix" />
     <MESSAGE value="StudentPage Fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="StudentPage Fixed" />
+    <MESSAGE value="Adding InstructorPage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding InstructorPage" />
   </component>
 </project>

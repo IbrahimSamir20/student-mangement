@@ -30,14 +30,14 @@ public class StudentDB<T> {
         }
        }
 
-       public Integer getStudentIndex(String studentName){
-              for(Student student : studentDB) {
-                    if(student != null && student.getName().equals(studentName)) {
-                        return studentDB.indexOf(student);
-                    }
-              }
-              return -1;
-       }
+    public Integer getStudentIndex(String studentName) {
+        for (Student student : studentDB) {
+            if (student != null && student.getName() != null && student.getName().equals(studentName)) { // Check for null!
+                return studentDB.indexOf(student);
+            }
+        }
+        return -1;
+    }
 
        
       

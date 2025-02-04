@@ -6,7 +6,7 @@ public class Instructor extends User {
               
     public Instructor(String username, String password, String type) {
         super(username, password, type); 
-        
+        this.name=username;
 
     }
     
