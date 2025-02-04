@@ -39,7 +39,7 @@ public class UsersDB<T> {
             return false;
         }
 
-        public String getType(String username){
+        public String getUserType(String username){
                 String type = ""; 
                 for(User user:userDB){
                         if(user.getUsername().equals(username)){

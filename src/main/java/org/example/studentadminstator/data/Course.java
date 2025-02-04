@@ -8,6 +8,7 @@ public class Course {
         private int grade;
         private Instructor instructor;
         private Student[] students;
+        //Course Data Structure
         public Course (String name, String attendant,int grade, Instructor instructor,Student... students){
                 
                 this.name = name;
@@ -15,6 +16,15 @@ public class Course {
                 this.grade = grade;
                 this.students = students;
                 this.instructor = instructor;
+
+        }
+        //Student Table View Data Structure
+        public Course (String name, String attendant,int grade){
+
+                this.name = name;
+                this.attendant = attendant;
+                this.grade = grade;
+                this.grade = grade;
 
         }
         
