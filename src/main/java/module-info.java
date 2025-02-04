@@ -15,6 +15,7 @@ module org.example.studentadminstator {
 
 
     opens org.example.studentadminstator.components to javafx.graphics;
+    opens org.example.studentadminstator.data to javafx.base;
     opens org.example.studentadminstator to javafx.fxml;
     exports org.example.studentadminstator;
 }

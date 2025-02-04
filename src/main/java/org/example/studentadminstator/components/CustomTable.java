@@ -11,6 +11,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.List;
+
 public class CustomTable<T> extends VBox {
     private TableView<T> tableView;
 
@@ -47,48 +49,6 @@ public class CustomTable<T> extends VBox {
 
     public TableView<T> getTableView() {
         return tableView;
-    }}
+    }
+}
 
-//    public static class TestApp extends Application {
-//        @Override
-//        public void start(Stage primaryStage) {
-//            CustomTable<Person> table = new CustomTable<>();
-//            table.addColumn("Name", "name", 150);
-//            table.addColumn("Age", "age", 100);
-//
-//            ObservableList<Person> data = FXCollections.observableArrayList(
-//                    new Person("Alice", 25),
-//                    new Person("Bob", 30)
-//            );
-//            table.setTableData(data);
-//
-//            VBox root = new VBox(table);
-//            Scene scene = new Scene(root, 400, 300);
-//            primaryStage.setScene(scene);
-//            primaryStage.setTitle("Custom Table Example");
-//            primaryStage.show();
-//        }
-//
-//        public static void main(String[] args) {
-//            launch(args);
-//        }
-//    }
-//
-//    public static class Person {
-//        private String name;
-//        private int age;
-//
-//        public Person(String name, int age) {
-//            this.name = name;
-//            this.age = age;
-//        }
-//
-//        public String getName() {
-//            return name;
-//        }
-//
-//        public int getAge() {
-//            return age;
-//        }
-//    }
-//}

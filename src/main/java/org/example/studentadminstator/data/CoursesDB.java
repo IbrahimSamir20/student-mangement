@@ -4,12 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CoursesDB<T> {
-//        private Course course;
        ArrayList<Course> coursesDB = new ArrayList<>();
-
-//        public CoursesDB(Course course) {
-//                this.course = course;
-//        }
 
         public void createCourse(Course course) {
                 coursesDB.add(course);

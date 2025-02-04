@@ -6,8 +6,6 @@ public class UsersDB<T> {
         private final ArrayList<User> userDB = new ArrayList<>();
         
         public UsersDB (){
-         userDB.add(new User("ibrahim", "abdelrahman aql", "instructor"));
-         userDB.add(new User("ibrahim", "ibrahim", "student"));
         }
 
         public void createUser(User user){
@@ -39,7 +37,7 @@ public class UsersDB<T> {
             return false;
         }
 
-        public String getType(String username){
+        public String getUserType(String username){
                 String type = ""; 
                 for(User user:userDB){
                         if(user.getUsername().equals(username)){

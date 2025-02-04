@@ -2,6 +2,7 @@ package org.example.studentadminstator.components;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 // import javafx.scene.layout.VBox;
@@ -18,19 +19,21 @@ public class Navbar extends HBox {
     Text text;
     CustomButton editButton;
     CustomButton backButton;
-    Stage primaryStage;
 
-    public Navbar(String username) {
+    public Navbar(String username, Stage stage) {
+
         this.username = username;
         this.text = new Text("Hello," + username + "!");
         text.setFont(AppStyle.font18);
         text.setFill(AppStyle.textColor);
         HBox hbox = new HBox();
-        // VBox vbox = new VBox();
         EventHandler<ActionEvent> onEdit = e -> {
 
         };
-        EventHandler<ActionEvent> onBack = e -> new Login(primaryStage).getGrid();
+        EventHandler<ActionEvent> onBack = e -> {
+            stage.setScene(new Scene(new Login(stage).getGrid()));
+            stage.show();
+        };
         editButton = new CustomButton(onEdit, "Edit");
         backButton = new CustomButton(onBack, "Back");
         hbox.setAlignment(Pos.TOP_RIGHT);
