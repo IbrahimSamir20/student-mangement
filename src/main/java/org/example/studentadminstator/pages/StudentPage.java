@@ -28,7 +28,7 @@ public class StudentPage extends BorderPane {
            this.setMinSize(1024,900);
 
             CustomTable<Course> studentTable = new CustomTable<Course>();
-            studentTable.addColumn("Name", "name", 250);
+            studentTable.addColumn("Course", "name", 250);
             studentTable.addColumn("Attendance", "attendant", 250);
             studentTable.addColumn("Grade", "grade", 250);
 
