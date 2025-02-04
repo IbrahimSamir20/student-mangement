@@ -70,8 +70,8 @@ public class Login extends VBox {
             Boolean usernameValid =  usernameInput.getIsValid();
             Boolean passwordValid =  passwordInput.getIsValid();
             System.out.println("Username valid: " + usernameValid.toString() + ", Password valid: " + passwordValid.toString());
-            String username = usernameInput.getInputValue();
-            String password = passwordInput.getInputValue();
+//            String username = usernameInput.getInputValue();
+//            String password = passwordInput.getInputValue();
 
             if(usernameValid && passwordValid){
 
@@ -80,7 +80,7 @@ public class Login extends VBox {
                         System.out.println("Login successfully");
                         primaryStage.setScene(new Scene(new AdministerPage(coursesDB,userDb,instructorDB,studentDB, primaryStage).getPage()));
 
-                    }else if(!userDb.searchUser(username, password)){
+                    }else if(!userDb.searchUser(usernameInput.getInputValue(), passwordInput.getInputValue())){
                         
                         javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
                         alert.setTitle("Login Error");
@@ -90,12 +90,12 @@ public class Login extends VBox {
                     
                     }else{
                     
-                        if(userDb.getUserType(username).equals("Instructor")){
-                            Instructor instructor = instructorDB.fetchOneInstructor(username);
+                        if(userDb.getUserType(usernameInput.getInputValue()).equals("Instructor")){
+                            Instructor instructor = instructorDB.fetchOneInstructor(usernameInput.getInputValue());
                             primaryStage.setScene(new Scene(new InstructorPage(primaryStage, instructor).getPage()));
                             System.out.println(instructor);
                         }else{
-                             Student student = studentDB.fetchOneStudent(username);
+                             Student student = studentDB.fetchOneStudent(usernameInput.getInputValue().trim());
                             primaryStage.setScene(new Scene(new StudentPage(primaryStage, student).getPage()));
                             System.out.println("from studentPage");
                     

@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7dc0a360-3e0f-4273-b965-25f98e1520f8" name="Changes" comment="Adding hard coded users">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/data/StudentDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/data/StudentDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/Register.java" afterDir="false" />

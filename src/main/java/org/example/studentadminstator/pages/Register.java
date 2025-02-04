@@ -29,13 +29,12 @@ import java.util.ArrayList;
 
 public class Register extends VBox {
     Text header = new Text();
-    private GridPane grid = new GridPane();
-    private CustomInput usernameInput = new CustomInput("Enter your username", "Username");
-    private CustomInput passwordInput = new CustomInput("Enter Password","Password");
+    private final GridPane grid = new GridPane();
+    private final CustomInput usernameInput = new CustomInput("Enter your username", "Username");
+    private final CustomInput passwordInput = new CustomInput("Enter Password","Password");
     //private CustomInput courseInput = new CustomInput("Enter Course","Course");
-    private CustomSelect jobGroup = new CustomSelect("Job:", "Student", "Instructor");
-    private CustomSelect genderGroup = new CustomSelect("Gender", "Male", "Female");
-    private CustomButton loginButton;
+    private final CustomSelect jobGroup = new CustomSelect("Job:", "Student", "Instructor");
+    private final CustomSelect genderGroup = new CustomSelect("Gender", "Male", "Female");
     AppData data = AppData.getInstance();
     UsersDB<User> usersDB = data.getUsersDB();
     InstructorDB<Instructor> instructorDB = data.getInstructorDB();
@@ -85,7 +84,7 @@ public class Register extends VBox {
                         studentDB.createStudent(new Student(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption()));
                         //Here we need backup the student name form database after created
 
-                        Student student= studentDB.fetchOneStudent(username);
+                        Student student= studentDB.fetchOneStudent(usernameInput.getInputValue());
                         primaryStage.setScene(new Scene(new StudentPage(primaryStage,student).getPage()));
                     }
                 }
@@ -95,7 +94,7 @@ public class Register extends VBox {
             }
         };
 
-        loginButton = new CustomButton(handelSubmit,"Submit");
+        CustomButton loginButton = new CustomButton(handelSubmit, "Submit");
         grid.add(header, 0, 0, 1, 1);
         grid.add(usernameInput, 0, 1, 1, 1);
         grid.add(passwordInput, 0, 2, 1, 1);

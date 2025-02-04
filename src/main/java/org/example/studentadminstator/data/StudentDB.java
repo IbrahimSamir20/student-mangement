@@ -21,25 +21,23 @@ public class StudentDB<T> {
         return studentDB;
        }
 
-    //    public Student fetchOneStudent(int index){
-    //     if (index >= 0 && index < studentDB.size()) {
-    //         return studentDB.get(index);
-    //     } else {
-    //         System.out.println("User not found.");
-    //         return null;
-    //     }
-    //    }
 
-       public Student fetchOneStudent (String username){
-        for(Student student:studentDB){
-            if(student.getUsername().equals(username)){
-                return student;
-            }
-        }
-        return null;    
-       }
+//       public Student fetchOneStudent (String username){
+//        for(Student student:studentDB){
+//            if(student.getUsername().equals(username)){
+//                return student;
+//            }
+//        }
+//        return null;
+//       }
 
-       
+        public T fetchOneStudent(String inputValue) {
+           for(Student student:studentDB){
+               if(student.getUsername().equals(inputValue)){
+                   return (T) student;
+               }
+           }
 
-      
+        return null;
+    }
 }
