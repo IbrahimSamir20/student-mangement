@@ -2,6 +2,9 @@ package org.example.studentadminstator.pages;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -23,7 +26,12 @@ public class InstructorPage extends BorderPane {
         StudentDB<Student> studentDB = appData.getStudentDB();
 
         public InstructorPage(Stage primaryStage,Instructor instructor){
-                Navbar navbar = new Navbar("", primaryStage);
+                EventHandler<ActionEvent> onEdit = event -> {};
+                EventHandler<ActionEvent> onBack = event -> {
+                        primaryStage.setScene(new Scene(new Login(primaryStage).getGrid()));
+                        primaryStage.show();
+                };
+                Navbar navbar = new Navbar(instructor.getName(), primaryStage, onEdit, onBack);
                 this.setTop(navbar);
                 this.setMinSize(1024,900);
 

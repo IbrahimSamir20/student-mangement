@@ -1,6 +1,7 @@
 package org.example.studentadminstator.pages;
 
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -42,8 +43,12 @@ public class AdministerPage extends BorderPane {
                 this.studentDB = studentDB;
                 this.primaryStage = primaryStage;
                 this.setStyle("-fx-background-color: black;");
-
-                Navbar navbar = new Navbar("Admin Dashboard",primaryStage);
+                EventHandler<ActionEvent> onEdit = event -> {};
+                EventHandler<ActionEvent> onBack = event -> {
+                        primaryStage.setScene(new Scene(new Login(primaryStage).getGrid()));
+                        primaryStage.show();
+                };
+                Navbar navbar = new Navbar("Admin Dashboard",primaryStage,onEdit, onBack);
                 this.setTop(navbar);
 
                 Sidebar sidebar = new Sidebar("das",handlers);

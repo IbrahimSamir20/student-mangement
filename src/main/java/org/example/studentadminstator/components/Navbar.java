@@ -20,20 +20,14 @@ public class Navbar extends HBox {
     CustomButton editButton;
     CustomButton backButton;
 
-    public Navbar(String username, Stage stage) {
+    public Navbar(String username, Stage stage, EventHandler<ActionEvent> onEdit, EventHandler<ActionEvent> onBack) {
 
         this.username = username;
         this.text = new Text("Hello," + username + "!");
         text.setFont(AppStyle.font18);
         text.setFill(AppStyle.textColor);
         HBox hbox = new HBox();
-        EventHandler<ActionEvent> onEdit = e -> {
 
-        };
-        EventHandler<ActionEvent> onBack = e -> {
-            stage.setScene(new Scene(new Login(stage).getGrid()));
-            stage.show();
-        };
         editButton = new CustomButton(onEdit, "Edit");
         backButton = new CustomButton(onBack, "Back");
         hbox.setAlignment(Pos.TOP_RIGHT);
@@ -45,6 +39,10 @@ public class Navbar extends HBox {
    
     public String getUsername(){
         return username;
+    }
+    public void updateStudentName(String newName) {
+        this.username = newName;
+        this.text.setText("Hello, " + newName + "!");
     }
 
 // // public class Navbar extends HBox {

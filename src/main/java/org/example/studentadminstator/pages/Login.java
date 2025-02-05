@@ -95,7 +95,9 @@ public class Login extends VBox {
                             primaryStage.setScene(new Scene(new InstructorPage(primaryStage, instructor).getPage()));
                             System.out.println(instructor);
                         }else{
-                             Student student = studentDB.fetchOneStudent(username);
+                            System.out.println(username);
+                            Student student = studentDB.fetchOneStudent(username);
+System.out.println(student.getName());
                             primaryStage.setScene(new Scene(new StudentPage(primaryStage, student).getPage()));
                             System.out.println("from studentPage");
                     
