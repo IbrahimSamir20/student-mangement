@@ -22,17 +22,19 @@ public class CustomButton extends VBox {
 public CustomButton(EventHandler<ActionEvent> eventHandler, String label) {
         this.button = new Button(label);
         this.button.setOnAction(eventHandler);
+    button.setText(label);
         this.getChildren().add(this.button);
-        
+
+
         button.setTextFill(AppStyle.textColor);
         button.setFont(Font.font(AppStyle.font18.getFamily(), FontWeight.BOLD, AppStyle.font18.getSize()));
         button.setPrefWidth(100);
         button.setBackground(new Background(new BackgroundFill(AppStyle.colorLight, CornerRadii.EMPTY, Insets.EMPTY)));
         button.setBorder(new Border(new BorderStroke(
-            AppStyle.colorBlack,  
-            BorderStrokeStyle.SOLID, 
-            new CornerRadii(10), 
-            new BorderWidths(2)  
+            AppStyle.colorBlack,
+            BorderStrokeStyle.SOLID,
+            new CornerRadii(10),
+            new BorderWidths(2)
         )));
 
       button.setOnMousePressed(e -> button.setScaleX(0.9));
@@ -42,5 +44,32 @@ public CustomButton(EventHandler<ActionEvent> eventHandler, String label) {
 
 
       }
+    //Constructor for nav bar usage
+    public CustomButton() {
+        this.button = new Button();
+        this.getChildren().add(this.button);
+
+
+        button.setTextFill(AppStyle.textColor);
+        button.setFont(Font.font(AppStyle.font18.getFamily(), FontWeight.BOLD, AppStyle.font18.getSize()));
+        button.setPrefWidth(100);
+        button.setBackground(new Background(new BackgroundFill(AppStyle.colorLight, CornerRadii.EMPTY, Insets.EMPTY)));
+        button.setBorder(new Border(new BorderStroke(
+                AppStyle.colorBlack,
+                BorderStrokeStyle.SOLID,
+                new CornerRadii(10),
+                new BorderWidths(2)
+        )));
+
+        button.setOnMousePressed(e -> button.setScaleX(0.9));
+        button.setOnMousePressed(e -> button.setScaleY(0.9));
+        button.setOnMouseReleased(e -> button.setScaleX(1.0));
+        button.setOnMouseReleased(e -> button.setScaleY(1.0));
+
+    }
+    public void setText(String label) {
+        this.button.setText(label);
+    }
+
 }
 

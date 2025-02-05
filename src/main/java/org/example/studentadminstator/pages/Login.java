@@ -78,7 +78,7 @@ public class Login extends VBox {
                 //Authorization
                     if(usernameInput.getInputValue().equals("IANEOP") && passwordInput.getInputValue().equals("IANEOP") ){
                         System.out.println("Login successfully");
-                        primaryStage.setScene(new Scene(new AdministerPage(coursesDB,userDb,instructorDB,studentDB, primaryStage).getPage()));
+                        primaryStage.setScene(new Scene(new AdministerPage(primaryStage).getPage()));
 
                     }else if(!userDb.searchUser(username, password)){
                         

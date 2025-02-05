@@ -40,7 +40,10 @@ public class StudentPage extends BorderPane {
                primaryStage.setScene(new Scene(new Login(primaryStage).getGrid()));
                primaryStage.show();
            };
-           Navbar navbar = new Navbar(student.getName(), primaryStage, onEdit, onBack);
+           String[] labels = {"Edit", "Back"};
+           EventHandler[] navHandlers = {onEdit, onBack};
+           CustomButton[] buttons = {new CustomButton(), new CustomButton()};
+           Navbar navbar = new Navbar(student.getName(), primaryStage, labels, buttons,navHandlers);
            this.setTop(navbar);
            this.setMinSize(1024,900);
             this.setBackground(AppStyle.background);

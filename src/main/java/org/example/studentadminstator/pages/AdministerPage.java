@@ -7,6 +7,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 // import org.example.studentadminstator.components.CustomButton;
+import org.example.studentadminstator.AppData;
+import org.example.studentadminstator.components.CustomButton;
 import org.example.studentadminstator.components.CustomTable;
 import org.example.studentadminstator.components.Navbar;
 import org.example.studentadminstator.components.Sidebar;
@@ -27,20 +29,16 @@ import javafx.event.EventHandler;
 
 public class AdministerPage extends BorderPane {
         //TODO: Get Databases from AppData
-        private CoursesDB<Course> coursesDB;
-        private UsersDB<User> userDb;
-        private InstructorDB<Instructor> instructorDB;
-        private StudentDB<Student> studentDB;
+        AppData data = AppData.getInstance();
+        UsersDB<User> usersDB = data.getUsersDB();
+        InstructorDB<Instructor> instructorDB = data.getInstructorDB();
+        StudentDB<Student> studentDB = data.getStudentDB();
+        CoursesDB<Course> coursesDB = data.getCoursesDB();
         private Stage primaryStage;
-        
-        @SuppressWarnings("unchecked") // Suppress unchecked conversion warning
-        EventHandler<ActionEvent>[] handlers = new EventHandler[3];
 
-        public AdministerPage(CoursesDB<Course> coursesDB, UsersDB<User> userDb, InstructorDB<Instructor> instructorDB, StudentDB<Student> studentDB, Stage primaryStage) {
-                this.coursesDB = coursesDB;
-                this.userDb = userDb;
-                this.instructorDB = instructorDB;
-                this.studentDB = studentDB;
+        private EventHandler[] handlers = new EventHandler[3];
+
+        public AdministerPage(Stage primaryStage) {
                 this.primaryStage = primaryStage;
                 this.setStyle("-fx-background-color: black;");
                 EventHandler<ActionEvent> onEdit = event -> {};
@@ -48,10 +46,13 @@ public class AdministerPage extends BorderPane {
                         primaryStage.setScene(new Scene(new Login(primaryStage).getGrid()));
                         primaryStage.show();
                 };
-                Navbar navbar = new Navbar("Admin Dashboard",primaryStage,onEdit, onBack);
+                String[] labels = {"Edit", "Back"};
+                EventHandler[] navHandlers = {onEdit, onBack};
+                CustomButton[] buttons = {new CustomButton(), new CustomButton()};
+                Navbar navbar = new Navbar("Admin Dashboard",primaryStage, labels, buttons,navHandlers);
                 this.setTop(navbar);
 
-                Sidebar sidebar = new Sidebar("das",handlers);
+                Sidebar sidebar = new Sidebar("dashboard",handlers);
                 this.setLeft(sidebar);
 
                 CustomTable<Course> courseTable = new CustomTable<>();
@@ -65,7 +66,7 @@ public class AdministerPage extends BorderPane {
                 courseContainer.getChildren().addAll(courseLabel, courseTable);
                 this.setCenter(courseContainer);
         }
-        //Edit Table
+        //TODO: Editable Table and Add Course Button
 
         public BorderPane getPage() {
                 return this;
