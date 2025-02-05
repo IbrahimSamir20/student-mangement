@@ -60,7 +60,7 @@ public class AdministerPage extends BorderPane {
                         }else if (index == 1){
                                 //Add in Student
                                 Scene previousScene = primaryStage.getScene();
-
+                                VBox studentAddBox = new VBox();
                                 CustomInput studentName = new CustomInput("Enter student name","Name:");
                                 CustomInput studentCourse= new CustomInput("Enter Course Name","Course:");
                                 CustomInput studentGrade= new CustomInput("Enter Grad","Grade:");
@@ -71,15 +71,21 @@ public class AdministerPage extends BorderPane {
                                 coursesDB.createCourse(new Course(studentCourse.getInputValue(), studentAttendance.getInputValue(),Integer.parseInt(studentGrade.getInputValue())));
                                 primaryStage.setScene(previousScene);
                                         },"Save");
+                                studentAddBox.getChildren().addAll(studentName,studentCourse,studentGrade,studentAttendance,button);
+                                primaryStage.setScene(new Scene(studentAddBox));
 
                         }else{
                                 //Add in Course
                                 Scene previousScene = primaryStage.getScene();
-                                CustomInput curseNameInput = new CustomInput("Enter Course Name","");
+                                VBox courseAddBox = new VBox();
+                                CustomInput courseNameInput = new CustomInput("Enter Course Name","");
+                                CustomInput courseInstructorInput = new CustomInput("Enter Course Name","");
+                                CustomButton button = new CustomButton(e->{
+                                        coursesDB.createCourse(new Course(courseNameInput.getInputValue(), new Instructor(courseInstructorInput.getInputValue(), courseInstructorInput.getInputValue(), "Instructor")));
+                                }, "Submit");
 
-
-
-
+                                courseAddBox.getChildren().addAll(courseNameInput,courseInstructorInput,button);
+                                primaryStage.setScene(new Scene(courseAddBox));
                         }
                 };
                 EventHandler<ActionEvent> onEdit = event -> {};
