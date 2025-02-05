@@ -1,0 +1,37 @@
+Index: src/main/java/org/example/studentadminstator/pages/Administer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// package org.example.studentadminstator.pages;\r\n\r\n// import javafx.collections.FXCollections;\r\n// import javafx.collections.ObservableList;\r\n// import javafx.geometry.Insets;\r\n// import javafx.scene.Scene;\r\n// import javafx.scene.control.Label;\r\n// import javafx.scene.layout.BorderPane;\r\n// import javafx.scene.layout.VBox;\r\n// import org.example.studentadminstator.components.CustomButton;\r\n// import org.example.studentadminstator.components.CustomTable;\r\n// import org.example.studentadminstator.components.Navbar;\r\n\r\n// import org.example.studentadminstator.components.Sidebar;\r\n// import org.example.studentadminstator.data.Course;\r\n// import org.example.studentadminstator.AppStyle;\r\n\r\n// public class Administer {\r\n//     private BorderPane root;\r\n//     private Scene scene;\r\n\r\n<<<<<<< HEAD\r\n//     public Administer() {\r\n//         root = new BorderPane();\r\n//         root.setStyle(\"-fx-background-color: black;\");\r\n\r\n//         // Navbar navbar = new Navbar();\r\n//         // root.setTop(navbar);\r\n=======\r\n        Navbar navbar = new Navbar();\r\n        root.setTop(navbar);\r\n        //TODO: (Nancy) Check the new SideBar Parameters\r\n        Sidebar sidebar = new Sidebar(\"Dashboard\", new CustomButton(actionEvent -> {},\"Instructor\" ));\r\n        root.setLeft(sidebar);\r\n>>>>>>> af1e66f66227d8f938786853045fa79ee6a7b4a6\r\n\r\n//         Sidebar sidebar = new Sidebar();\r\n//         // root.setLeft(sidebar);\r\n\r\n//         CustomTable<Course> courseTable = new CustomTable<>();\r\n//         courseTable.addColumn(\"Course Name\", \"name\", 400);\r\n//         courseTable.setTableData(getSampleData());\r\n\r\n//         VBox courseContainer = new VBox();\r\n//         courseContainer.setPadding(new Insets(10));\r\n//         courseContainer.setSpacing(10);\r\n\r\n//         Label courseLabel = new Label(\"Course\");\r\n//         courseLabel.setStyle(\"-fx-font-size: 16px; -fx-text-fill: white;\");\r\n\r\n\r\n//         courseContainer.getChildren().addAll(courseLabel,  courseTable);\r\n//         root.setCenter(courseContainer);\r\n\r\n//         // Scene\r\n//         scene = new Scene(root, 800, 600);\r\n//     }\r\n\r\n//     public Scene getScene() {\r\n//         return scene;\r\n//     }\r\n\r\n//     // private ObservableList<Course> getSampleData() {\r\n//     //     return FXCollections.observableArrayList(\r\n//     //             new Course(\"JavaFX Basics\"),\r\n//     //             new Course(\"Advanced Java\"),\r\n//     //             new Course(\"UI/UX Design\")\r\n//     //     );\r\n//     // }\r\n// }\r\n
+===================================================================
+diff --git a/src/main/java/org/example/studentadminstator/pages/Administer.java b/src/main/java/org/example/studentadminstator/pages/Administer.java
+--- a/src/main/java/org/example/studentadminstator/pages/Administer.java	(revision d18ce9f3fe3944b9225544781ddbe878640a407a)
++++ b/src/main/java/org/example/studentadminstator/pages/Administer.java	(date 1738589867420)
+@@ -19,20 +19,20 @@
+ //     private BorderPane root;
+ //     private Scene scene;
+ 
+-<<<<<<< HEAD
++//<<<<<<< HEAD
+ //     public Administer() {
+ //         root = new BorderPane();
+ //         root.setStyle("-fx-background-color: black;");
+ 
+ //         // Navbar navbar = new Navbar();
+ //         // root.setTop(navbar);
+-=======
+-        Navbar navbar = new Navbar();
+-        root.setTop(navbar);
+-        //TODO: (Nancy) Check the new SideBar Parameters
+-        Sidebar sidebar = new Sidebar("Dashboard", new CustomButton(actionEvent -> {},"Instructor" ));
+-        root.setLeft(sidebar);
+->>>>>>> af1e66f66227d8f938786853045fa79ee6a7b4a6
++//=======
++  //      Navbar navbar = new Navbar();
++    //    root.setTop(navbar);
++      //  //TODO: (Nancy) Check the new SideBar Parameters
++        ///Sidebar sidebar = new Sidebar("Dashboard", new CustomButton(actionEvent -> {},"Instructor" ));
++       // root.setLeft(sidebar);
++//>>>>>>> af1e66f66227d8f938786853045fa79ee6a7b4a6
+ 
+ //         Sidebar sidebar = new Sidebar();
+ //         // root.setLeft(sidebar);

@@ -46,7 +46,7 @@ public class CustomTable<T> extends VBox {
     public void setTableData(T[] dataArray) {
         this.tableView.setItems(FXCollections.observableArrayList(dataArray));
     }
-
+    public void deleteColumns(){ this.tableView.getColumns().clear(); }
     public TableView<T> getTableView() {
         return tableView;
     }

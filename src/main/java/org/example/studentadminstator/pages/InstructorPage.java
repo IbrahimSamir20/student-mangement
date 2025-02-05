@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -24,9 +25,17 @@ public class InstructorPage extends BorderPane {
         CoursesDB<Course> coursesDB = appData.getCoursesDB();
         InstructorDB<Instructor> instructorDB = appData.getInstructorDB();
         StudentDB<Student> studentDB = appData.getStudentDB();
-        private EventHandler<ActionEvent> onClick ;
+
         public InstructorPage(Stage primaryStage,Instructor instructor){
-                Navbar navbar = new Navbar("", primaryStage);
+                EventHandler<ActionEvent> onEdit = event -> {};
+                EventHandler<ActionEvent> onBack = event -> {
+                        primaryStage.setScene(new Scene(new Login(primaryStage).getGrid()));
+                        primaryStage.show();
+                };
+                String[] labels = {"Edit", "Back"};
+                EventHandler[] navHandlers = {onEdit, onBack};
+                CustomButton[] buttons = {new CustomButton(), new CustomButton()};
+                Navbar navbar = new Navbar(instructor.getName(), primaryStage, labels, buttons, navHandlers);
                 this.setTop(navbar);
                 this.setMinSize(1024,900);
 
@@ -36,12 +45,11 @@ public class InstructorPage extends BorderPane {
                 instructorTable.addColumn("Student", "student", 350);
                 instructorTable.addColumn("Attendance", "attendant", 350);
                 instructorTable.addColumn("Grade", "grade", 350);
-//                instructorTable.addColumn("Action", new CustomButton(this.onClick,"Edit"), 350);
                 ObservableList<Course> tableCourses = FXCollections.observableArrayList();
                 ArrayList<Course> courses= coursesDB.fetch();
                 //TODO: add the courses that this instructor teach
                 for(Course c : courses){
-                      final var get =  tableCourses.add(c);
+                        tableCourses.add(c);
                 }
 
                 VBox instructorContainer = new VBox();
@@ -53,9 +61,6 @@ public class InstructorPage extends BorderPane {
                 this.setCenter(instructorContainer);
                 
         }
-//        this.onClick = e -> {
-//
-//        };
 
         public BorderPane getPage() {
                 return this;
