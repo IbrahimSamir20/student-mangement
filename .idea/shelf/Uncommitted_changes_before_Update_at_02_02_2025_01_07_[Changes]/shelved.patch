@@ -1,0 +1,112 @@
+Index: src/main/java/org/example/studentadminstator/components/CustomSelect.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.studentadminstator.components;\r\nimport javafx.geometry.Insets;\r\nimport javafx.geometry.Pos;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.RadioButton;\r\nimport javafx.scene.control.ToggleGroup;\r\nimport javafx.scene.layout.HBox;\r\nimport javafx.scene.layout.VBox;\r\nimport org.example.studentadminstator.AppStyle;\r\n\r\npublic class CustomSelect extends VBox{\r\n    private Label label;\r\n    private ToggleGroup toggleGroup;\r\n\r\n    public CustomSelect(String groupLabel, String... options) {\r\n        label = new Label(groupLabel);\r\n        label.setStyle(\"-fx-font-weight: bold;\");\r\n        label.setTextFill(AppStyle.textColor);\r\n        toggleGroup = new ToggleGroup();\r\n        HBox optionsBox = new HBox(10);\r\n        optionsBox.setAlignment(Pos.CENTER_LEFT);\r\n\r\n        for (String option : options) {\r\n            RadioButton radioButton = new RadioButton(option);\r\n            radioButton.setToggleGroup(toggleGroup);\r\n            radioButton.setTextFill(AppStyle.textColor);\r\n            optionsBox.getChildren().add(radioButton);\r\n        }\r\n\r\n        setSpacing(5);\r\n        setPadding(new Insets(10));\r\n        getChildren().addAll(label, optionsBox);\r\n    }\r\n\r\n    public String getSelectedOption() {\r\n        RadioButton selectedRadioButton = (RadioButton) toggleGroup.getSelectedToggle();\r\n        return (selectedRadioButton != null) ? selectedRadioButton.getText() : null;\r\n    }\r\n\r\n    public void setSelectedOption(String option) {\r\n        for (javafx.scene.Node node : ((HBox)getChildren().get(1)).getChildren()) {\r\n            RadioButton radioButton = (RadioButton) node;\r\n            if (radioButton.getText().equals(option)) {\r\n                radioButton.setSelected(true);\r\n                break;\r\n            }\r\n        }\r\n    }\r\n\r\n    public Label getLabel() {\r\n        return label;\r\n    }\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/studentadminstator/components/CustomSelect.java b/src/main/java/org/example/studentadminstator/components/CustomSelect.java
+--- a/src/main/java/org/example/studentadminstator/components/CustomSelect.java	(revision 711301a4f64fbe000fac6115ac598cc1c2754a82)
++++ b/src/main/java/org/example/studentadminstator/components/CustomSelect.java	(date 1738451118176)
+@@ -14,7 +14,7 @@
+ 
+     public CustomSelect(String groupLabel, String... options) {
+         label = new Label(groupLabel);
+-        label.setStyle("-fx-font-weight: bold;");
++        label.setFont(AppStyle.font18Bold);
+         label.setTextFill(AppStyle.textColor);
+         toggleGroup = new ToggleGroup();
+         HBox optionsBox = new HBox(10);
+@@ -24,6 +24,7 @@
+             RadioButton radioButton = new RadioButton(option);
+             radioButton.setToggleGroup(toggleGroup);
+             radioButton.setTextFill(AppStyle.textColor);
++            radioButton.setFont(AppStyle.font14Bold);
+             optionsBox.getChildren().add(radioButton);
+         }
+ 
+Index: src/main/java/org/example/studentadminstator/pages/Register.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.studentadminstator.pages;\r\n\r\nimport org.example.studentadminstator.AppStyle;\r\nimport org.example.studentadminstator.components.CustomInput;\r\n\r\nimport javafx.scene.layout.VBox;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.scene.control.PasswordField;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.Label;\r\n\r\nimport javafx.scene.control.Alert;\r\nimport javafx.geometry.Pos;\r\nimport javafx.scene.layout.GridPane;\r\nimport javafx.geometry.Insets;\r\nimport javafx.stage.Stage;\r\nimport javafx.scene.layout.Background;\r\nimport javafx.scene.text.Font;\r\nimport javafx.scene.text.FontWeight;\r\nimport javafx.scene.text.Text;\r\n//use latter for controller\r\nimport javafx.event.ActionEvent;\r\nimport javafx.event.EventHandler;\r\nimport org.example.studentadminstator.components.CustomSelect;\r\n\r\npublic class Register extends VBox {\r\n    private String errorUsername = \"\";\r\n    private String errorPassword = \"\";\r\n    private String errorCourse = \"\";\r\n    private Boolean isVisible = false;\r\n    private GridPane grid = new GridPane();\r\n    private CustomInput usernameInput = new CustomInput(\"Enter your username\", \"Username\", errorUsername,isVisible);\r\n    private CustomInput passwordInput = new CustomInput(\"Enter Password\",\"Password\",errorPassword,isVisible);\r\n    private CustomInput courseInput = new CustomInput(\"Enter Course\",\"Course\",errorCourse,isVisible);\r\n    private CustomSelect jobGroup = new CustomSelect(\"Job:\", \"Student\", \"Instructor\");\r\n    private CustomSelect genderGroup = new CustomSelect(\"Gender\", \"Male\", \"Female\");\r\n    private Button loginButton = new Button();\r\n\r\n    public Register(Stage primaryStage) {\r\n\r\n        grid.setVgap(15);\r\n        grid.setHgap(15);\r\n        grid.setAlignment(Pos.CENTER);\r\n        grid.setPadding(new Insets(10, 10, 10, 10));\r\n        Background background = new Background(AppStyle.backgroundImage);\r\n        grid.setBackground(background);\r\n\r\n\r\n\r\n        loginButton.setTextFill(AppStyle.textColor);\r\n        loginButton.setFont(Font.font(AppStyle.font18.getFamily(), FontWeight.BOLD, AppStyle.font18.getSize()));\r\n        loginButton.setPrefWidth(100);\r\n        loginButton.setTextFill(AppStyle.textColor);\r\n        grid.add(usernameInput, 0, 0, 1, 1);\r\n        grid.add(passwordInput, 0, 1, 1, 1);\r\n        grid.add(courseInput, 0, 2, 1, 1);\r\n        grid.add(jobGroup, 0, 3, 1, 1);\r\n        grid.add(genderGroup, 0, 4, 1, 1);\r\n        grid.add(loginButton, 0, 5, 1, 1);\r\n\r\n        EventHandler<ActionEvent> any = e -> {\r\n            // Your code here\r\n        };\r\n\r\n        loginButton.setOnAction(any);\r\n\r\n    }\r\n    public GridPane getGrid(){\r\n        return grid;\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/studentadminstator/pages/Register.java b/src/main/java/org/example/studentadminstator/pages/Register.java
+--- a/src/main/java/org/example/studentadminstator/pages/Register.java	(revision 711301a4f64fbe000fac6115ac598cc1c2754a82)
++++ b/src/main/java/org/example/studentadminstator/pages/Register.java	(date 1738451221814)
+@@ -27,11 +27,11 @@
+     private String errorUsername = "";
+     private String errorPassword = "";
+     private String errorCourse = "";
+-    private Boolean isVisible = false;
+     private GridPane grid = new GridPane();
++    private Boolean isVisible = false;
+     private CustomInput usernameInput = new CustomInput("Enter your username", "Username", errorUsername,isVisible);
+-    private CustomInput passwordInput = new CustomInput("Enter Password","Password",errorPassword,isVisible);
+-    private CustomInput courseInput = new CustomInput("Enter Course","Course",errorCourse,isVisible);
++    private CustomInput passwordInput = new CustomInput("Enter Password","Password",errorPassword, isVisible);
++    private CustomInput courseInput = new CustomInput("Enter Course","Course",errorCourse, isVisible);
+     private CustomSelect jobGroup = new CustomSelect("Job:", "Student", "Instructor");
+     private CustomSelect genderGroup = new CustomSelect("Gender", "Male", "Female");
+     private Button loginButton = new Button();
+@@ -58,11 +58,24 @@
+         grid.add(genderGroup, 0, 4, 1, 1);
+         grid.add(loginButton, 0, 5, 1, 1);
+ 
+-        EventHandler<ActionEvent> any = e -> {
+-            // Your code here
++        EventHandler<ActionEvent> buttonEvent = e -> {
++            if(usernameInput.isValid() && passwordInput.isValid() && courseInput.isValid()){
++                //Should Go to the next page
++            }else {
++                errorUsername = "Username cannot be empty";
++                errorPassword = "Password cannot be empty";
++                errorCourse = "Course cannot be empty";
++                //This is a replacement to error text TODO(IbrahimSamir): Check this
++                Alert alert = new Alert(Alert.AlertType.ERROR);
++                alert.setTitle("Empty Field");
++                alert.setHeaderText(null);
++                alert.setContentText("Please fill all the fields correctly");
++                alert.showAndWait();
++
++            }
+         };
+ 
+-        loginButton.setOnAction(any);
++        loginButton.setOnAction(buttonEvent);
+ 
+     }
+     public GridPane getGrid(){
+Index: src/main/java/org/example/studentadminstator/AppStyle.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.studentadminstator;\r\n\r\nimport javafx.scene.paint.Color;\r\nimport javafx.scene.text.Font;\r\nimport javafx.scene.layout.Border;\r\nimport javafx.scene.layout.BorderStroke;\r\nimport javafx.scene.layout.BorderStrokeStyle;\r\nimport javafx.scene.layout.CornerRadii;\r\nimport javafx.scene.layout.BorderWidths;\r\nimport javafx.scene.layout.Background;\r\nimport javafx.scene.layout.BackgroundFill;\r\nimport javafx.scene.layout.BackgroundImage;\r\nimport javafx.geometry.Insets;\r\nimport javafx.scene.layout.BackgroundRepeat;\r\nimport javafx.scene.layout.BackgroundSize;\r\nimport javafx.scene.layout.BackgroundPosition;\r\nimport javafx.scene.image.Image;\r\n\r\npublic class AppStyle{\r\n    public static final Font font18 = new Font(\"Arial\", 18);\r\n    public static final Font font24 = new Font(\"Arial\", 24);\r\n    public static final Font font32 = new Font(\"Arial\", 32);\r\n    \r\n    public static final Color colorBlack = Color.BLACK;\r\n    public static final Color textColor = Color.WHITE;\r\n    public static final Color errorColor = Color.RED;\r\n    \r\n    public static final Border border = new Border(new BorderStroke(colorBlack, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT));\r\n    public static final Background background = new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY));\r\n    public static final BackgroundImage backgroundImage = new BackgroundImage(\r\n        new Image(\"file:src/main/resources/org/example/studentadminstator/images/background.jpg\"),\r\n        BackgroundRepeat.NO_REPEAT,\r\n        BackgroundRepeat.NO_REPEAT,\r\n        BackgroundPosition.CENTER,\r\n        BackgroundSize.DEFAULT\r\n    );\r\n    \r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/studentadminstator/AppStyle.java b/src/main/java/org/example/studentadminstator/AppStyle.java
+--- a/src/main/java/org/example/studentadminstator/AppStyle.java	(revision 711301a4f64fbe000fac6115ac598cc1c2754a82)
++++ b/src/main/java/org/example/studentadminstator/AppStyle.java	(date 1738451146958)
+@@ -15,15 +15,21 @@
+ import javafx.scene.layout.BackgroundSize;
+ import javafx.scene.layout.BackgroundPosition;
+ import javafx.scene.image.Image;
++import javafx.scene.text.FontWeight;
+ 
+ public class AppStyle{
+     public static final Font font18 = new Font("Arial", 18);
++    public static final Font font18Bold = Font.font("Arial", FontWeight.BOLD, 18); // Bold 18pt font
++    public static final Font font14 = Font.font("Arial", 14); // Regular 14pt font
++    public static final Font font14Bold = Font.font("Arial", FontWeight.BOLD, 14); // Bold 14pt font
++
+     public static final Font font24 = new Font("Arial", 24);
+     public static final Font font32 = new Font("Arial", 32);
+     
+     public static final Color colorBlack = Color.BLACK;
+     public static final Color textColor = Color.WHITE;
+     public static final Color errorColor = Color.RED;
++    public static final FontWeight textBold = FontWeight.BOLD;
+     
+     public static final Border border = new Border(new BorderStroke(colorBlack, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT));
+     public static final Background background = new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY));

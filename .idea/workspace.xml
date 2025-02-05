@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7dc0a360-3e0f-4273-b965-25f98e1520f8" name="Changes" comment="Reloading commits">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/StudentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/studentadminstator/pages/StudentPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,22 +33,22 @@
     &quot;assignee&quot;: &quot;AGaafar7&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/IbrahimSamir20/student-mangement.git",
-    "accountId": "dd125937-2196-4a25-a92a-c5392ecffc31"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/IbrahimSamir20/student-mangement.git&quot;,
+    &quot;accountId&quot;: &quot;dd125937-2196-4a25-a92a-c5392ecffc31&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "IbrahimSamir20",
-    "repository": "student-mangement"
+    &quot;owner&quot;: &quot;IbrahimSamir20&quot;,
+    &quot;repository&quot;: &quot;student-mangement&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -132,7 +131,8 @@
       <workItem from="1738641617122" duration="3062000" />
       <workItem from="1738644710116" duration="118000" />
       <workItem from="1738670349186" duration="189000" />
-      <workItem from="1738678756328" duration="64000" />
+      <workItem from="1738678756328" duration="164000" />
+      <workItem from="1738686137992" duration="89000" />
     </task>
     <task id="LOCAL-00001" summary="Adding CustomSelect Component and Creating the Register Page">
       <option name="closed" value="true" />
@@ -214,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738670487292</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Reloading commits">
+      <option name="closed" value="true" />
+      <created>1738678846208</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1738678846208</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +250,7 @@
     <MESSAGE value="Edited NavBar" />
     <MESSAGE value="Fixing Files and adding custom tableview with its data showing" />
     <MESSAGE value="Adding hard coded users" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding hard coded users" />
+    <MESSAGE value="Reloading commits" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reloading commits" />
   </component>
 </project>
