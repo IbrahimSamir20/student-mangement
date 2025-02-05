@@ -139,7 +139,11 @@ public class AdministerPage extends BorderPane {
                         ObservableList<Course> tableStudent = FXCollections.observableArrayList();
                         ArrayList<Course> courses= coursesDB.fetch();
                         for(Course c : courses){
-                                tableStudent.add(c);
+                                if(c.getStudents() == null){
+                                        System.out.println("No students");
+                                }else {
+                                        tableStudent.add(c);
+                                }
                         }
                         courseTable.setTableData(tableStudent);
 
