@@ -81,7 +81,7 @@ public class Register extends VBox {
 
                     }else {
                         //Fixed Error
-                        studentDB.createStudent(new Student(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption()));
+                        studentDB.createStudent(new Student(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption(), usernameInput.getInputValue()));
                         Student student = studentDB.fetchOneStudent(usernameInput.getInputValue());
                         primaryStage.setScene(new Scene(new StudentPage(primaryStage,student).getPage()));
                     }

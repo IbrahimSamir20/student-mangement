@@ -82,6 +82,7 @@ public class AdministerPage extends BorderPane {
                                 CustomInput courseInstructorInput = new CustomInput("Enter Course Name","");
                                 CustomButton button = new CustomButton(e->{
                                         coursesDB.createCourse(new Course(courseNameInput.getInputValue(), new Instructor(courseInstructorInput.getInputValue(), courseInstructorInput.getInputValue(), "Instructor")));
+                               primaryStage.setScene(previousScene);
                                 }, "Submit");
 
                                 courseAddBox.getChildren().addAll(courseNameInput,courseInstructorInput,button);
