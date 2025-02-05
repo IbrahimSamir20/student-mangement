@@ -67,7 +67,9 @@ public class AdministerPage extends BorderPane {
                 courseContainer.getChildren().addAll(courseLabel, courseTable);
                 this.setCenter(courseContainer);
 
+                //Empty Table columns before adding new columns
                 handlers[0] = e -> {
+                        courseTable.deleteColumns();
                         System.out.println("Instructor clicked");
                         courseTable.addColumn("Instructor Name", "instructor", 200);
                         courseTable.addColumn("Course", "name", 100);
@@ -82,6 +84,7 @@ public class AdministerPage extends BorderPane {
 
                 };
                 handlers[1] = e -> {
+                        courseTable.deleteColumns();
                         System.out.println("Student clicked");
                         courseTable.addColumn("Student", "students", 200);
                         courseTable.addColumn("Course", "name", 100);
@@ -97,6 +100,7 @@ public class AdministerPage extends BorderPane {
 
                 };
                 handlers[2] = e -> {
+                        courseTable.deleteColumns();
                         System.out.println("Courses clicked");
                         courseTable.addColumn("Course", "name", 100);
                         courseTable.addColumn("Instructor", "instructor", 100);
