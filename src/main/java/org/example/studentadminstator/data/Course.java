@@ -52,6 +52,7 @@ public class Course {
             return grade;
         }
 
+
         // Setter for grade
         public void setGrade(int grade) {
             this.grade = grade;
