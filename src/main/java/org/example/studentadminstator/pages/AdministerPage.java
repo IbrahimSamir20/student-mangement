@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 // import org.example.studentadminstator.components.CustomButton;
 import org.example.studentadminstator.AppData;
+import org.example.studentadminstator.AppStyle;
 import org.example.studentadminstator.components.CustomButton;
 import org.example.studentadminstator.components.CustomTable;
 import org.example.studentadminstator.components.Navbar;
@@ -40,7 +41,7 @@ public class AdministerPage extends BorderPane {
 
         public AdministerPage(Stage primaryStage) {
                 this.primaryStage = primaryStage;
-                this.setStyle("-fx-background-color: black;");
+                this.setBackground(AppStyle.background);
                 EventHandler<ActionEvent> onEdit = event -> {};
                 EventHandler<ActionEvent> onBack = event -> {
                         primaryStage.setScene(new Scene(new Login(primaryStage).getGrid()));

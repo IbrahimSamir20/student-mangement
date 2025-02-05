@@ -24,7 +24,6 @@ public class Course {
                 this.name = name;
                 this.attendant = attendant;
                 this.grade = grade;
-                this.grade = grade;
 
         }
         
