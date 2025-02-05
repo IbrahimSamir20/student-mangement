@@ -5,6 +5,7 @@ import org.example.studentadminstator.data.*;
 public class AppData {
     private static final AppData instance = new AppData();
     private final StudentDB<Student> studentDB;
+    //Reload
     private final InstructorDB<Instructor> instructorDB;
     private final CoursesDB<Course> coursesDB;
     private final UsersDB<User> usersDB;

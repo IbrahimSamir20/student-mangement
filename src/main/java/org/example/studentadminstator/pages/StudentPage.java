@@ -34,6 +34,7 @@ public class StudentPage extends BorderPane {
 
            ObservableList<Course> tableCourses = FXCollections.observableArrayList();
            ArrayList<Course> courses= coursesDB.fetch();
+           //Adding data to tableview list
            for(Course c : courses){
                tableCourses.add(c);
            }

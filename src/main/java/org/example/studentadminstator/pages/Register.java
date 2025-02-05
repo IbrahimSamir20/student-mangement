@@ -17,8 +17,6 @@ import javafx.scene.layout.Background;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-// import javafx.scene.text.Text;
-//use latter for controller
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import org.example.studentadminstator.components.CustomSelect;

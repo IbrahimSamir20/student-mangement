@@ -31,7 +31,7 @@ import java.util.ArrayList;
 public class Login extends VBox {
     //UI
     private final GridPane grid = new GridPane();
-    private Stage primaryStage;
+    private final Stage primaryStage;
     private final CustomInput usernameInput = new CustomInput("Enter your username", "Username");
     private final CustomInput passwordInput = new CustomInput("Enter Password","Password");
     Link link ;
@@ -95,8 +95,7 @@ public class Login extends VBox {
                             primaryStage.setScene(new Scene(new InstructorPage(primaryStage, instructor).getPage()));
                             System.out.println(instructor);
                         }else{
-                            int indexOfStudent = studentDB.getStudentIndex(username);
-                            Student student = studentDB.fetchOneStudent(indexOfStudent);
+                             Student student = studentDB.fetchOneStudent(username);
                             primaryStage.setScene(new Scene(new StudentPage(primaryStage, student).getPage()));
                             System.out.println("from studentPage");
                     
