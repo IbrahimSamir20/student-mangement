@@ -46,14 +46,15 @@ public class AdministerPage extends BorderPane {
         public AdministerPage(Stage primaryStage) {
                 this.primaryStage = primaryStage;
                 this.setBackground(AppStyle.background);
+                EventHandler<ActionEvent> onAdd = event -> {};
                 EventHandler<ActionEvent> onEdit = event -> {};
                 EventHandler<ActionEvent> onBack = event -> {
                         primaryStage.setScene(new Scene(new Login(primaryStage).getGrid()));
                         primaryStage.show();
                 };
-                String[] labels = {"Edit", "Back"};
+                String[] labels = {"Add","Edit", "Back"};
                 EventHandler[] navHandlers = {onEdit, onBack};
-                CustomButton[] buttons = {new CustomButton(), new CustomButton()};
+                CustomButton[] buttons = {new CustomButton(),new CustomButton(), new CustomButton()};
                 Navbar navbar = new Navbar("Admin Dashboard",primaryStage, labels, buttons,navHandlers);
                 this.setTop(navbar);
                 CustomTable<Course> courseTable = new CustomTable<>();
