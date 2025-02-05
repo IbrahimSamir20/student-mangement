@@ -53,7 +53,7 @@ public class AdministerPage extends BorderPane {
                         primaryStage.show();
                 };
                 String[] labels = {"Add","Edit", "Back"};
-                EventHandler[] navHandlers = {onEdit, onBack};
+                EventHandler[] navHandlers = {onAdd,onEdit, onBack};
                 CustomButton[] buttons = {new CustomButton(),new CustomButton(), new CustomButton()};
                 Navbar navbar = new Navbar("Admin Dashboard",primaryStage, labels, buttons,navHandlers);
                 this.setTop(navbar);
