@@ -36,9 +36,6 @@ public class Login extends VBox {
     private final CustomInput passwordInput = new CustomInput("Enter Password","Password");
     Link link ;
     Text header = new Text("Login");
-    String errorUsername = "";
-    String errorPassword = "";
-    Boolean isVisible = false;
     //pages
     StudentPage studentPage ;
     InstructorPage instructorPage ;
@@ -70,11 +67,8 @@ public class Login extends VBox {
             Boolean usernameValid =  usernameInput.getIsValid();
             Boolean passwordValid =  passwordInput.getIsValid();
             System.out.println("Username valid: " + usernameValid.toString() + ", Password valid: " + passwordValid.toString());
-//            String username = usernameInput.getInputValue();
-//            String password = passwordInput.getInputValue();
 
             if(usernameValid && passwordValid){
-
                 //Authorization
                     if(usernameInput.getInputValue().equals("IANEOP") && passwordInput.getInputValue().equals("IANEOP") ){
                         System.out.println("Login successfully");
