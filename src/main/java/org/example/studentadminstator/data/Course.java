@@ -26,6 +26,12 @@ public class Course {
                 this.grade = grade;
 
         }
+        public Course (String name, Instructor instructor){
+
+                this.name = name;
+                this.instructor = instructor;
+
+        }
         
         // Getter for name
         public String getName() {

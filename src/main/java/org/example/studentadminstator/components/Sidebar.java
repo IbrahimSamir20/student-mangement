@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import org.example.studentadminstator.AppStyle;
 
 public class Sidebar extends VBox {
-    private Label label;
+    private final Label label;
     public Sidebar(String title, EventHandler<ActionEvent>[] handler) {
         label = new Label(title);
         label.setFont(AppStyle.font18Bold);

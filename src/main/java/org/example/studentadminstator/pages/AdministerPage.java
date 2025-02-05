@@ -11,10 +11,7 @@ import javafx.scene.control.Label;
 // import org.example.studentadminstator.components.CustomButton;
 import org.example.studentadminstator.AppData;
 import org.example.studentadminstator.AppStyle;
-import org.example.studentadminstator.components.CustomButton;
-import org.example.studentadminstator.components.CustomTable;
-import org.example.studentadminstator.components.Navbar;
-import org.example.studentadminstator.components.Sidebar;
+import org.example.studentadminstator.components.*;
 import org.example.studentadminstator.data.Course;
 import org.example.studentadminstator.data.User;
 import org.example.studentadminstator.data.CoursesDB;
@@ -33,20 +30,58 @@ import java.util.ArrayList;
 
 
 public class AdministerPage extends BorderPane {
-        //TODO: Get Databases from AppData
         AppData data = AppData.getInstance();
         UsersDB<User> usersDB = data.getUsersDB();
         InstructorDB<Instructor> instructorDB = data.getInstructorDB();
         StudentDB<Student> studentDB = data.getStudentDB();
         CoursesDB<Course> coursesDB = data.getCoursesDB();
         private Stage primaryStage;
+        private int index = 0;
 
         private EventHandler[] handlers = new EventHandler[3];
 
         public AdministerPage(Stage primaryStage) {
                 this.primaryStage = primaryStage;
                 this.setBackground(AppStyle.background);
-                EventHandler<ActionEvent> onAdd = event -> {};
+                EventHandler<ActionEvent> onAdd = event -> {
+                        if(index == 0){
+                                //Add in instructor
+                                Scene previousScene = primaryStage.getScene();
+                                VBox instructorAddBox = new VBox();
+                                CustomInput instructorInputName = new CustomInput("Enter instructor name ","Name :" );
+                                CustomInput courseInput = new CustomInput("Enter Course name ","Course Name :" );
+                                CustomButton submit = new CustomButton(e->{
+                                instructorDB.createInstructor(new Instructor(instructorInputName.getInputValue(), instructorInputName.getInputValue(), "Instructor"));
+                                coursesDB.createCourse(new Course(courseInput.getInputValue(),new Instructor(instructorInputName.getInputValue(), instructorInputName.getInputValue(), "Instructor")));
+                                        primaryStage.setScene(previousScene);
+                                },"Save");
+                                instructorAddBox.getChildren().addAll(instructorInputName, courseInput,submit);
+                                primaryStage.setScene(new Scene(instructorAddBox));
+                        }else if (index == 1){
+                                //Add in Student
+                                Scene previousScene = primaryStage.getScene();
+
+                                CustomInput studentName = new CustomInput("Enter student name","Name:");
+                                CustomInput studentCourse= new CustomInput("Enter Course Name","Course:");
+                                CustomInput studentGrade= new CustomInput("Enter Grad","Grade:");
+                                CustomInput studentAttendance= new CustomInput("Enter Attendance","Attendance:");
+                                CustomButton button = new CustomButton(e->{
+
+                                        studentDB.createStudent(new Student(studentName.getInputValue() ,studentName.getInputValue(),"Student", studentName.getInputValue()));
+                                coursesDB.createCourse(new Course(studentCourse.getInputValue(), studentAttendance.getInputValue(),Integer.parseInt(studentGrade.getInputValue())));
+                                primaryStage.setScene(previousScene);
+                                        },"Save");
+
+                        }else{
+                                //Add in Course
+                                Scene previousScene = primaryStage.getScene();
+                                CustomInput curseNameInput = new CustomInput("Enter Course Name","");
+
+
+
+
+                        }
+                };
                 EventHandler<ActionEvent> onEdit = event -> {};
                 EventHandler<ActionEvent> onBack = event -> {
                         primaryStage.setScene(new Scene(new Login(primaryStage).getGrid()));
@@ -69,6 +104,7 @@ public class AdministerPage extends BorderPane {
 
                 //Empty Table columns before adding new columns
                 handlers[0] = e -> {
+                        index = 0;
                         courseTable.deleteColumns();
                         System.out.println("Instructor clicked");
                         courseTable.addColumn("Instructor Name", "instructor", 200);
@@ -77,6 +113,7 @@ public class AdministerPage extends BorderPane {
                         ObservableList<Course> tableInstructor = FXCollections.observableArrayList();
                         ArrayList<Course> courses= coursesDB.fetch();
                         for(Course c : courses){
+
                                 tableInstructor.add(c);
                         }
                         courseTable.setTableData(tableInstructor);
@@ -84,6 +121,7 @@ public class AdministerPage extends BorderPane {
 
                 };
                 handlers[1] = e -> {
+                        index = 1;
                         courseTable.deleteColumns();
                         System.out.println("Student clicked");
                         courseTable.addColumn("Student", "students", 200);
@@ -100,6 +138,7 @@ public class AdministerPage extends BorderPane {
 
                 };
                 handlers[2] = e -> {
+                        index = 2;
                         courseTable.deleteColumns();
                         System.out.println("Courses clicked");
                         courseTable.addColumn("Course", "name", 100);
