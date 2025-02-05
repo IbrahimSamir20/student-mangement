@@ -17,6 +17,8 @@ public class AppData {
         usersDB = new UsersDB<>();
         usersDB.createUser(new User("ibrahim", "abdelrahman aql", "Instructor"));
         usersDB.createUser(new User("ibrahim", "ibrahim", "Student"));
+        studentDB.createStudent(new Student("ibrahim", "ibrahim", "Student"));
+        instructorDB.createInstructor(new Instructor("abdelrahman aql", "ibrahim", "Instructor"));
 
     }
 

@@ -17,8 +17,6 @@ import javafx.scene.layout.Background;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-// import javafx.scene.text.Text;
-//use latter for controller
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import org.example.studentadminstator.components.CustomSelect;
@@ -82,10 +80,10 @@ public class Register extends VBox {
                         primaryStage.setScene(new Scene(new InstructorPage(primaryStage,instructor).getPage()));
 
                     }else {
+                        //Fixed Error
                         studentDB.createStudent(new Student(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption()));
-                        //Here we need backup the student name form database after created
-
-                        Student student= studentDB.fetchOneStudent(username);
+                        int indexOfStudent = studentDB.getStudentIndex(usernameInput.getInputValue());
+                        Student student = studentDB.fetchOneStudent(indexOfStudent);
                         primaryStage.setScene(new Scene(new StudentPage(primaryStage,student).getPage()));
                     }
                 }
