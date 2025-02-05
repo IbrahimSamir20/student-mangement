@@ -22,9 +22,13 @@ public class StudentDB<T> {
         }
         System.err.println("Student not found for update: " + student.getUsername());
     }
-        //TODo :SAME INDEX PROBLEM;
-       public void deleteStudent(int index){
-                studentDB.remove(index);
+
+       public void deleteStudent(Student student){
+           for(int i=0;i< studentDB.size();i++){
+               if(studentDB.get(i).getName().equals(student.getName())){
+                   studentDB.remove(student);
+               }
+           }
        }
 
        public ArrayList<Student> fetchStudent(){

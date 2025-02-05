@@ -16,8 +16,12 @@ public class UsersDB<T> {
                 userDB.remove(user);
         }
 
-        public void updateUser(User user,int index){
-                userDB.set(index, user);
+        public void updateUser(User user,User newUser){
+                for(int i=0;i<userDB.size();i++){
+                        if(userDB.get(i).getUsername().equals(user.getUsername())){
+                                userDB.set(i,newUser);
+                        }
+                }
         }
 
         public ArrayList<User> fetchAllUsers(){
@@ -52,15 +56,6 @@ public class UsersDB<T> {
                 }
                 return type; 
         }
-
-//        public int getIndex(String username){
-//                for(User user:userDB){
-//                        if(user.getUsername().equals(username)){
-//                                return userDB.indexOf(user);
-//                        }
-//                }
-//                return -1;
-//        }
 
         
 }

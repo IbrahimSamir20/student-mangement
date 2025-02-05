@@ -9,9 +9,13 @@ public class InstructorDB<T> {
                 instructorDB.add(instructor);
        }
 
-        //TODO: SAME PROBLEM OF INDEX
-       public void deleteInstructor(int index){
-                instructorDB.remove(index);
+
+       public void delete(Instructor instructor){
+           for(int i=0; i<instructorDB.size(); i++){
+                    if(instructorDB.get(i).getName().equals(instructor.getName())){
+                        instructorDB.remove(instructor);
+                    }
+           }
        }
 
         public ArrayList<Instructor> fetchInstructors() {
