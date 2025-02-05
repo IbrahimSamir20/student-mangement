@@ -1,21 +1,14 @@
 package org.example.studentadminstator.components;
-
 import org.example.studentadminstator.AppStyle;
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-
-import java.util.List;
 
 public class CustomTable<T> extends VBox {
-    private TableView<T> tableView;
-
+    private final TableView<T> tableView;
     public CustomTable() {
         this.tableView = new TableView<>();
         applyCustomStyle();
@@ -26,6 +19,7 @@ public class CustomTable<T> extends VBox {
     private void applyCustomStyle() {
         this.tableView.setBorder(AppStyle.border);
         this.tableView.setBackground(AppStyle.background);
+        this.tableView.setStyle("-fx-font-size: 18px; -fx-font-family: 'Arial';");
     }
 
     public void addColumn(String title, String property, double width) {
@@ -46,7 +40,7 @@ public class CustomTable<T> extends VBox {
     public void setTableData(T[] dataArray) {
         this.tableView.setItems(FXCollections.observableArrayList(dataArray));
     }
-
+    public void deleteColumns(){ this.tableView.getColumns().clear(); }
     public TableView<T> getTableView() {
         return tableView;
     }

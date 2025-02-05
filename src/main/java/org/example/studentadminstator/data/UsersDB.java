@@ -24,8 +24,13 @@ public class UsersDB<T> {
                 return userDB;
         }
 
-        public User fetchOneUser(int index){
-                return userDB.get(index);
+        public User fetchOneUser (String username){
+                for(User user:userDB){
+                        if(user.getUsername().equals(username)){
+                                return user;
+                        }
+                }
+                return null;
         }
 
         public Boolean searchUser(String username, String password) {

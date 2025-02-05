@@ -3,9 +3,10 @@ package org.example.studentadminstator.data;
 public class Student extends User {
         private String name;
         private String gender;
-        public Student(String username, String password, String type) {
+        public Student(String username, String password, String type,String name) {
         super(username, password, type);
-        this.name = username;
+        this.name = name;
+
     }
 
     public String getName() {

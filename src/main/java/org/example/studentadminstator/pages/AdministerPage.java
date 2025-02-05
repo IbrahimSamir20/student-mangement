@@ -1,14 +1,17 @@
 package org.example.studentadminstator.pages;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 // import org.example.studentadminstator.components.CustomButton;
-import org.example.studentadminstator.components.CustomTable;
-import org.example.studentadminstator.components.Navbar;
-import org.example.studentadminstator.components.Sidebar;
+import org.example.studentadminstator.AppData;
+import org.example.studentadminstator.AppStyle;
+import org.example.studentadminstator.components.*;
 import org.example.studentadminstator.data.Course;
 import org.example.studentadminstator.data.User;
 import org.example.studentadminstator.data.CoursesDB;
@@ -23,44 +26,151 @@ import org.example.studentadminstator.data.Student;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
+import java.util.ArrayList;
+
 
 public class AdministerPage extends BorderPane {
-        //TODO: Get Databases from AppData
-        private CoursesDB<Course> coursesDB;
-        private UsersDB<User> userDb;
-        private InstructorDB<Instructor> instructorDB;
-        private StudentDB<Student> studentDB;
+        AppData data = AppData.getInstance();
+        UsersDB<User> usersDB = data.getUsersDB();
+        InstructorDB<Instructor> instructorDB = data.getInstructorDB();
+        StudentDB<Student> studentDB = data.getStudentDB();
+        CoursesDB<Course> coursesDB = data.getCoursesDB();
         private Stage primaryStage;
-        
-        @SuppressWarnings("unchecked") // Suppress unchecked conversion warning
-        EventHandler<ActionEvent>[] handlers = new EventHandler[3];
+        private int index = 0;
 
-        public AdministerPage(CoursesDB<Course> coursesDB, UsersDB<User> userDb, InstructorDB<Instructor> instructorDB, StudentDB<Student> studentDB, Stage primaryStage) {
-                this.coursesDB = coursesDB;
-                this.userDb = userDb;
-                this.instructorDB = instructorDB;
-                this.studentDB = studentDB;
+        private EventHandler[] handlers = new EventHandler[3];
+
+        public AdministerPage(Stage primaryStage) {
                 this.primaryStage = primaryStage;
-                this.setStyle("-fx-background-color: black;");
+                this.setBackground(AppStyle.background);
+                EventHandler<ActionEvent> onAdd = event -> {
+                        if(index == 0){
+                                //Add in instructor
+                                Scene previousScene = primaryStage.getScene();
+                                VBox instructorAddBox = new VBox();
+                                CustomInput instructorInputName = new CustomInput("Enter instructor name ","Name :" );
+                                CustomInput courseInput = new CustomInput("Enter Course name ","Course Name :" );
+                                CustomButton submit = new CustomButton(e->{
+                                instructorDB.createInstructor(new Instructor(instructorInputName.getInputValue(), instructorInputName.getInputValue(), "Instructor"));
+                                coursesDB.createCourse(new Course(courseInput.getInputValue(),new Instructor(instructorInputName.getInputValue(), instructorInputName.getInputValue(), "Instructor")));
+                                        primaryStage.setScene(previousScene);
+                                },"Save");
+                                instructorAddBox.getChildren().addAll(instructorInputName, courseInput,submit);
+                                primaryStage.setScene(new Scene(instructorAddBox));
+                        }else if (index == 1){
+                                //Add in Student
+                                Scene previousScene = primaryStage.getScene();
+                                VBox studentAddBox = new VBox();
+                                CustomInput studentName = new CustomInput("Enter student name","Name:");
+                                CustomInput studentCourse= new CustomInput("Enter Course Name","Course:");
+                                CustomInput studentGrade= new CustomInput("Enter Grad","Grade:");
+                                CustomInput studentAttendance= new CustomInput("Enter Attendance","Attendance:");
+                                CustomButton button = new CustomButton(e->{
 
-                Navbar navbar = new Navbar("Admin Dashboard",primaryStage);
+                                        studentDB.createStudent(new Student(studentName.getInputValue() ,studentName.getInputValue(),"Student", studentName.getInputValue()));
+                                coursesDB.createCourse(new Course(studentCourse.getInputValue(), studentAttendance.getInputValue(),Integer.parseInt(studentGrade.getInputValue())));
+                                primaryStage.setScene(previousScene);
+                                        },"Save");
+                                studentAddBox.getChildren().addAll(studentName,studentCourse,studentGrade,studentAttendance,button);
+                                primaryStage.setScene(new Scene(studentAddBox));
+
+                        }else{
+                                //Add in Course
+                                Scene previousScene = primaryStage.getScene();
+                                VBox courseAddBox = new VBox();
+                                CustomInput courseNameInput = new CustomInput("Enter Course Name","");
+                                CustomInput courseInstructorInput = new CustomInput("Enter Course Name","");
+                                CustomButton button = new CustomButton(e->{
+                                        coursesDB.createCourse(new Course(courseNameInput.getInputValue(), new Instructor(courseInstructorInput.getInputValue(), courseInstructorInput.getInputValue(), "Instructor")));
+                               primaryStage.setScene(previousScene);
+                                }, "Submit");
+
+                                courseAddBox.getChildren().addAll(courseNameInput,courseInstructorInput,button);
+                                primaryStage.setScene(new Scene(courseAddBox));
+                        }
+                };
+                EventHandler<ActionEvent> onEdit = event -> {};
+                EventHandler<ActionEvent> onBack = event -> {
+                        primaryStage.setScene(new Scene(new Login(primaryStage).getGrid()));
+                        primaryStage.show();
+                };
+                String[] labels = {"Add","Edit", "Back"};
+                EventHandler[] navHandlers = {onAdd,onEdit, onBack};
+                CustomButton[] buttons = {new CustomButton(),new CustomButton(), new CustomButton()};
+                Navbar navbar = new Navbar("Admin Dashboard",primaryStage, labels, buttons,navHandlers);
                 this.setTop(navbar);
-
-                Sidebar sidebar = new Sidebar("das",handlers);
-                this.setLeft(sidebar);
-
                 CustomTable<Course> courseTable = new CustomTable<>();
-                courseTable.addColumn("Course Name", "name", 400);
 
                 VBox courseContainer = new VBox();
                 courseContainer.setPadding(new Insets(10));
                 courseContainer.setSpacing(10);
 
-                Label courseLabel = new Label("Course");
+                Label courseLabel = new Label();
                 courseContainer.getChildren().addAll(courseLabel, courseTable);
                 this.setCenter(courseContainer);
+
+                //Empty Table columns before adding new columns
+                handlers[0] = e -> {
+                        index = 0;
+                        courseTable.deleteColumns();
+                        System.out.println("Instructor clicked");
+                        courseTable.addColumn("Instructor Name", "instructor", 200);
+                        courseTable.addColumn("Course", "name", 100);
+
+                        ObservableList<Course> tableInstructor = FXCollections.observableArrayList();
+                        ArrayList<Course> courses= coursesDB.fetch();
+                        for(Course c : courses){
+
+                                tableInstructor.add(c);
+                        }
+                        courseTable.setTableData(tableInstructor);
+
+
+                };
+                handlers[1] = e -> {
+                        index = 1;
+                        courseTable.deleteColumns();
+                        System.out.println("Student clicked");
+                        courseTable.addColumn("Student", "students", 200);
+                        courseTable.addColumn("Course", "name", 100);
+                        courseTable.addColumn("Grade", "grade", 100);
+                        courseTable.addColumn("Attendance", "attendant", 100);
+
+                        ObservableList<Course> tableStudent = FXCollections.observableArrayList();
+                        ArrayList<Course> courses= coursesDB.fetch();
+                        for(Course c : courses){
+                                if(c.getStudents() == null){
+                                        System.out.println("No students");
+                                }else {
+                                        tableStudent.add(c);
+                                }
+                        }
+                        courseTable.setTableData(tableStudent);
+
+                };
+                handlers[2] = e -> {
+                        index = 2;
+                        courseTable.deleteColumns();
+                        System.out.println("Courses clicked");
+                        courseTable.addColumn("Course", "name", 100);
+                        courseTable.addColumn("Instructor", "instructor", 100);
+                        courseTable.addColumn("Student", "students", 100);
+
+                        ObservableList<Course> tableCourse = FXCollections.observableArrayList();
+                        ArrayList<Course> courses= coursesDB.fetch();
+                        for(Course c : courses){
+                                tableCourse.add(c);
+                        }
+                        courseTable.setTableData(tableCourse);
+
+                };
+
+                Sidebar sidebar = new Sidebar("dashboard",handlers);
+                this.setLeft(sidebar);
+
+
         }
-        //Edit Table
+        //TODO: Editable Table and Add Course Button
 
         public BorderPane getPage() {
                 return this;

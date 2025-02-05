@@ -23,18 +23,14 @@ public class AppStyle{
     public static final Font font14 = Font.font("Arial", 14); // Regular 14pt font
     public static final Font font14Bold = Font.font("Arial", FontWeight.BOLD, 14); // Bold 14pt font
     public static final Font font16Bold = Font.font("Arial", FontWeight.BOLD, 16); // Bold 14pt font
-
     public static final Font font24 = new Font("Arial", 24);
     public static final Font font32 = new Font("Arial", 32);
-    
     public static final Color colorBlack = Color.BLACK;
-
     public static final Color colorLightGray = Color.LIGHTGRAY;
     public static final Color colorLight = Color.rgb(198, 33, 0);
     public static final Color textColor = Color.WHITE;
     public static final Color errorColor = Color.RED;
     public static final FontWeight textBold = FontWeight.BOLD;
-    
     public static final Border border = new Border(new BorderStroke(colorBlack, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT));
     public static final Background background = new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY));
     public static final BackgroundImage backgroundImage = new BackgroundImage(

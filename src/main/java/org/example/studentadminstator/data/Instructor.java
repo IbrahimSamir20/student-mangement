@@ -2,7 +2,7 @@ package org.example.studentadminstator.data;
 
 public class Instructor extends User {
        private String name;
-       private String grade ;
+//       private String grade ;
               
     public Instructor(String username, String password, String type) {
         super(username, password, type); 
@@ -18,13 +18,14 @@ public class Instructor extends User {
         this.name = name;
     }
 
-    public String getGrade() {
-        return grade;
-    }
+//    public String getGrade() {
+//        return grade;
+//    }
 
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
+//    public void setGrade(String grade) {
+//        this.grade = grade;
+//    }
+
 
 
 

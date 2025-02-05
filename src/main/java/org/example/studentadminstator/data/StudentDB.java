@@ -13,6 +13,16 @@ public class StudentDB<T> {
                 studentDB.set(index, student);
        }
 
+       public void updateStudentWithoutIndex(Student student) {
+        for (int i = 0; i < studentDB.size(); i++) {
+             if (studentDB.get(i).getUsername().equals(student.getUsername())) {
+                    studentDB.set(i, student);
+                    return;
+             }
+        }
+        System.err.println("Student not found for update: " + student.getUsername());
+    }
+        //TODo :SAME INDEX PROBLEM;
        public void deleteStudent(int index){
                 studentDB.remove(index);
        }
@@ -21,23 +31,14 @@ public class StudentDB<T> {
         return studentDB;
        }
 
-
-//       public Student fetchOneStudent (String username){
-//        for(Student student:studentDB){
-//            if(student.getUsername().equals(username)){
-//                return student;
-//            }
-//        }
-//        return null;
-//       }
-
-        public T fetchOneStudent(String inputValue) {
-           for(Student student:studentDB){
-               if(student.getUsername().equals(inputValue)){
-                   return (T) student;
-               }
-           }
-
+       public Student fetchOneStudent (String username){
+        for(Student student:studentDB){
+            if(student.getUsername().equals(username)){
+                return student;
+            }
+        }
+        System.err.println("Student not found " + username) ;
         return null;
-    }
+       }
+
 }
