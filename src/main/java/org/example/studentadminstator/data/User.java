@@ -1,6 +1,6 @@
 package org.example.studentadminstator.data;
 
-public class User {
+public abstract class User {
         private String password;
         private String username;
         private String type;
@@ -35,4 +35,6 @@ public class User {
         public void setType(String type) {
             this.type = type;   
         }
+
+    public abstract String getUserName();
 }

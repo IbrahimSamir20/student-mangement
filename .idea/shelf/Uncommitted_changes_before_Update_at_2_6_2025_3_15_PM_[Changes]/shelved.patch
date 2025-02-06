@@ -1,0 +1,187 @@
+Index: src/main/java/org/example/studentadminstator/data/CoursesDB.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.studentadminstator.data;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.Arrays;\r\n\r\npublic class CoursesDB<T> {\r\n       ArrayList<Course> coursesDB = new ArrayList<>();\r\n\r\n        public void createCourse(Course course) {\r\n                coursesDB.add(course);\r\n        }\r\n\r\n        public void updateCourseWithoutIndex(Course course, Course newCourse) {\r\n            for (int i = 0; i < coursesDB.size(); i++) {\r\n                if (coursesDB.get(i).getName().equals(course.getName())) {\r\n                    coursesDB.set(i, newCourse);\r\n                    return;\r\n                }\r\n            }\r\n            System.err.println(\"Student not found for update: \" + course.getName());\r\n        }\r\n\r\n        public void deleteCourseWithoutIndex(Course course) {\r\n               for(int i=0; i< coursesDB.size(); i++){\r\n                   if(coursesDB.get(i).getName().equals(course.getName())){\r\n                       coursesDB.remove(course);\r\n                   }\r\n               }\r\n        }\r\n\r\n        public ArrayList<Course> fetch(){\r\n                return coursesDB;\r\n        }\r\n\r\n        public Course fetchOnCourse(Course course){\r\n            for(int i=0; i< coursesDB.size(); i++){\r\n                if(coursesDB.get(i).getName().equals(course.getName())){\r\n                    return course;\r\n                }}\r\n            return null;   //see\r\n        }\r\n\r\n        public Course fetchOnCourseForStudent(String studentName){\r\n                Course oneCourseForStudent = null;\r\n            for (Course course : coursesDB) {\r\n                if (Arrays.stream(course.getStudents()).anyMatch(student -> student.getName().equals(studentName))) {\r\n                    oneCourseForStudent = course;\r\n                    break;\r\n                }\r\n            }\r\n                return oneCourseForStudent;\r\n        }\r\n\r\n        public Course fetchOnCourseForInstructor(String instructorName){\r\n                Course courseForInstructor = null;\r\n                for(Course course : coursesDB){\r\n                        if(course.getInstructor().getName().equals(instructorName)){\r\n                                courseForInstructor = course;\r\n                                break;\r\n                        }\r\n                }\r\n                return courseForInstructor;\r\n        }\r\n        \r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/studentadminstator/data/CoursesDB.java b/src/main/java/org/example/studentadminstator/data/CoursesDB.java
+--- a/src/main/java/org/example/studentadminstator/data/CoursesDB.java	(revision 8ced1c3c5e032e56e8027fd9233316ded975bbb7)
++++ b/src/main/java/org/example/studentadminstator/data/CoursesDB.java	(date 1738847673389)
+@@ -6,6 +6,7 @@
+ public class CoursesDB<T> {
+        ArrayList<Course> coursesDB = new ArrayList<>();
+ 
++
+         public void createCourse(Course course) {
+                 coursesDB.add(course);
+         }
+@@ -40,6 +41,7 @@
+             return null;   //see
+         }
+ 
++
+         public Course fetchOnCourseForStudent(String studentName){
+                 Course oneCourseForStudent = null;
+             for (Course course : coursesDB) {
+Index: src/main/java/org/example/studentadminstator/data/Course.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.studentadminstator.data;\r\n\r\nimport java.util.Arrays;\r\n\r\npublic class Course {\r\n        private String name;\r\n        private String attendant;\r\n        private int grade;\r\n        private Instructor instructor;\r\n        private Student[] students;\r\n        //Course Data Structure\r\n        public Course (String name, String attendant,int grade, Instructor instructor,Student... students){\r\n                \r\n                this.name = name;\r\n                this.attendant = attendant;\r\n                this.grade = grade;\r\n                this.students = students;\r\n                this.instructor = instructor;\r\n\r\n        }\r\n        //Student Table View Data Structure\r\n        public Course (String name, String attendant,int grade){\r\n\r\n                this.name = name;\r\n                this.attendant = attendant;\r\n                this.grade = grade;\r\n\r\n        }\r\n        public Course (String name, Instructor instructor){\r\n\r\n                this.name = name;\r\n                this.instructor = instructor;\r\n\r\n        }\r\n        \r\n        // Getter for name\r\n        public String getName() {\r\n            return name;\r\n        }\r\n\r\n        // Setter for name\r\n        public void setName(String name) {\r\n            this.name = name;\r\n        }\r\n\r\n        // Getter for attendant\r\n        public String getAttendant() {\r\n            return attendant;\r\n        }\r\n\r\n        // Setter for attendant\r\n        public void setAttendant(String attendant) {\r\n            this.attendant = attendant;\r\n        }\r\n\r\n        // Getter for grade\r\n        public int getGrade() {\r\n            return grade;\r\n        }\r\n\r\n\r\n        // Setter for grade\r\n        public void setGrade(int grade) {\r\n            this.grade = grade;\r\n        }\r\n\r\n        // Getter for instructor\r\n        public Instructor getInstructor() {\r\n            return instructor;\r\n        }\r\n\r\n        // Setter for instructor\r\n        public void setInstructor(Instructor instructor) {\r\n            this.instructor = instructor;\r\n        }\r\n\r\n        // Getter for students\r\n        public Student[] getStudents() {\r\n            return students;\r\n        }\r\n\r\n        // Setter for students\r\n        public void setStudents(Student[] students) {\r\n            this.students = students;\r\n        }\r\n\r\n        // toString method\r\n        @Override\r\n        public String toString() {\r\n            return \"Course{\" +\r\n                    \"name='\" + name + '\\'' +\r\n                    \", attendant='\" + attendant + '\\'' +\r\n                    \", grade=\" + grade +\r\n                    \", instructor=\" + instructor +\r\n                    \", students=\" + Arrays.toString(students) +\r\n                    '}';\r\n        }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/studentadminstator/data/Course.java b/src/main/java/org/example/studentadminstator/data/Course.java
+--- a/src/main/java/org/example/studentadminstator/data/Course.java	(revision 8ced1c3c5e032e56e8027fd9233316ded975bbb7)
++++ b/src/main/java/org/example/studentadminstator/data/Course.java	(date 1738847673387)
+@@ -8,6 +8,8 @@
+         private int grade;
+         private Instructor instructor;
+         private Student[] students;
++        //For table object prob
++        private String instructorName;
+         //Course Data Structure
+         public Course (String name, String attendant,int grade, Instructor instructor,Student... students){
+                 
+@@ -30,6 +32,15 @@
+ 
+                 this.name = name;
+                 this.instructor = instructor;
++                this.instructorName = instructor.getName();
++
++        }
++        //For Table view Object Error Viewing
++        public Course (String name, Student[] student, String instructorName){
++
++                this.name = name;
++                this.students = students;
++                this.instructorName = instructorName;
+ 
+         }
+         
+@@ -68,6 +79,10 @@
+         public Instructor getInstructor() {
+             return instructor;
+         }
++        //For tablview prob
++        public String getInstructorName() {
++                return instructorName;
++        }
+ 
+         // Setter for instructor
+         public void setInstructor(Instructor instructor) {
+Index: src/main/java/org/example/studentadminstator/pages/AdministerPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.studentadminstator.pages;\r\n\r\nimport javafx.collections.FXCollections;\r\nimport javafx.collections.ObservableList;\r\nimport javafx.geometry.Insets;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.layout.BorderPane;\r\nimport javafx.scene.layout.VBox;\r\nimport javafx.stage.Stage;\r\nimport javafx.scene.control.Label;\r\n// import org.example.studentadminstator.components.CustomButton;\r\nimport org.example.studentadminstator.AppData;\r\nimport org.example.studentadminstator.AppStyle;\r\nimport org.example.studentadminstator.components.*;\r\nimport org.example.studentadminstator.data.Course;\r\nimport org.example.studentadminstator.data.User;\r\nimport org.example.studentadminstator.data.CoursesDB;\r\nimport org.example.studentadminstator.data.UsersDB;\r\nimport org.example.studentadminstator.data.InstructorDB;\r\nimport org.example.studentadminstator.data.StudentDB;\r\nimport org.example.studentadminstator.data.Instructor;\r\nimport org.example.studentadminstator.data.Student;\r\n\r\n// import java.beans.EventHandler;\r\n// import java.lang.reflect.Array;\r\nimport javafx.event.ActionEvent;\r\nimport javafx.event.EventHandler;\r\n\r\nimport java.util.ArrayList;\r\n\r\n\r\npublic class AdministerPage extends BorderPane {\r\n        AppData data = AppData.getInstance();\r\n        UsersDB<User> usersDB = data.getUsersDB();\r\n        InstructorDB<Instructor> instructorDB = data.getInstructorDB();\r\n        StudentDB<Student> studentDB = data.getStudentDB();\r\n        CoursesDB<Course> coursesDB = data.getCoursesDB();\r\n        private Stage primaryStage;\r\n        private int index = 0;\r\n\r\n        private EventHandler[] handlers = new EventHandler[3];\r\n\r\n        public AdministerPage(Stage primaryStage) {\r\n                this.primaryStage = primaryStage;\r\n                this.setBackground(AppStyle.background);\r\n                EventHandler<ActionEvent> onAdd = event -> {\r\n                        if(index == 0){\r\n                                //Add in instructor\r\n                                Scene previousScene = primaryStage.getScene();\r\n                                VBox instructorAddBox = new VBox();\r\n                                CustomInput instructorInputName = new CustomInput(\"Enter instructor name \",\"Name :\" );\r\n                                CustomInput courseInput = new CustomInput(\"Enter Course name \",\"Course Name :\" );\r\n                                CustomButton submit = new CustomButton(e->{\r\n                                instructorDB.createInstructor(new Instructor(instructorInputName.getInputValue(), instructorInputName.getInputValue(), \"Instructor\"));\r\n                                coursesDB.createCourse(new Course(courseInput.getInputValue(),new Instructor(instructorInputName.getInputValue(), instructorInputName.getInputValue(), \"Instructor\")));\r\n                                        primaryStage.setScene(previousScene);\r\n                                },\"Save\");\r\n                                instructorAddBox.getChildren().addAll(instructorInputName, courseInput,submit);\r\n                                primaryStage.setScene(new Scene(instructorAddBox));\r\n                        }else if (index == 1){\r\n                                //Add in Student\r\n                                Scene previousScene = primaryStage.getScene();\r\n                                VBox studentAddBox = new VBox();\r\n                                CustomInput studentName = new CustomInput(\"Enter student name\",\"Name:\");\r\n                                CustomInput studentCourse= new CustomInput(\"Enter Course Name\",\"Course:\");\r\n                                CustomInput studentGrade= new CustomInput(\"Enter Grad\",\"Grade:\");\r\n                                CustomInput studentAttendance= new CustomInput(\"Enter Attendance\",\"Attendance:\");\r\n                                CustomButton button = new CustomButton(e->{\r\n\r\n                                        studentDB.createStudent(new Student(studentName.getInputValue() ,studentName.getInputValue(),\"Student\", studentName.getInputValue()));\r\n                                coursesDB.createCourse(new Course(studentCourse.getInputValue(), studentAttendance.getInputValue(),Integer.parseInt(studentGrade.getInputValue())));\r\n                                primaryStage.setScene(previousScene);\r\n                                        },\"Save\");\r\n                                studentAddBox.getChildren().addAll(studentName,studentCourse,studentGrade,studentAttendance,button);\r\n                                primaryStage.setScene(new Scene(studentAddBox));\r\n\r\n                        }else{\r\n                                //Add in Course\r\n                                Scene previousScene = primaryStage.getScene();\r\n                                VBox courseAddBox = new VBox();\r\n                                CustomInput courseNameInput = new CustomInput(\"Enter Course Name\",\"\");\r\n                                CustomInput courseInstructorInput = new CustomInput(\"Enter Course Name\",\"\");\r\n                                CustomButton button = new CustomButton(e->{\r\n                                        coursesDB.createCourse(new Course(courseNameInput.getInputValue(), new Instructor(courseInstructorInput.getInputValue(), courseInstructorInput.getInputValue(), \"Instructor\")));\r\n                               primaryStage.setScene(previousScene);\r\n                                }, \"Submit\");\r\n\r\n                                courseAddBox.getChildren().addAll(courseNameInput,courseInstructorInput,button);\r\n                                primaryStage.setScene(new Scene(courseAddBox));\r\n                        }\r\n                };\r\n                EventHandler<ActionEvent> onEdit = event -> {};\r\n                EventHandler<ActionEvent> onBack = event -> {\r\n                        primaryStage.setScene(new Scene(new Login(primaryStage).getGrid()));\r\n                        primaryStage.show();\r\n                };\r\n                String[] labels = {\"Add\",\"Edit\", \"Back\"};\r\n                EventHandler[] navHandlers = {onAdd,onEdit, onBack};\r\n                CustomButton[] buttons = {new CustomButton(),new CustomButton(), new CustomButton()};\r\n                Navbar navbar = new Navbar(\"Admin Dashboard\",primaryStage, labels, buttons,navHandlers);\r\n                this.setTop(navbar);\r\n                CustomTable<Course> courseTable = new CustomTable<>();\r\n\r\n                VBox courseContainer = new VBox();\r\n                courseContainer.setPadding(new Insets(10));\r\n                courseContainer.setSpacing(10);\r\n\r\n                Label courseLabel = new Label();\r\n                courseContainer.getChildren().addAll(courseLabel, courseTable);\r\n                this.setCenter(courseContainer);\r\n\r\n                //Empty Table columns before adding new columns\r\n                handlers[0] = e -> {\r\n                        index = 0;\r\n                        courseTable.deleteColumns();\r\n                        System.out.println(\"Instructor clicked\");\r\n                        courseTable.addColumn(\"Instructor Name\", \"instructor\", 200);\r\n                        courseTable.addColumn(\"Course\", \"name\", 100);\r\n\r\n                        ObservableList<Course> tableInstructor = FXCollections.observableArrayList();\r\n                        ArrayList<Course> courses= coursesDB.fetch();\r\n                        for(Course c : courses){\r\n\r\n                                tableInstructor.add(c);\r\n                        }\r\n                        courseTable.setTableData(tableInstructor);\r\n\r\n\r\n                };\r\n                handlers[1] = e -> {\r\n                        index = 1;\r\n                        courseTable.deleteColumns();\r\n                        System.out.println(\"Student clicked\");\r\n                        courseTable.addColumn(\"Student\", \"students\", 200);\r\n                        courseTable.addColumn(\"Course\", \"name\", 100);\r\n                        courseTable.addColumn(\"Grade\", \"grade\", 100);\r\n                        courseTable.addColumn(\"Attendance\", \"attendant\", 100);\r\n\r\n                        ObservableList<Course> tableStudent = FXCollections.observableArrayList();\r\n                        ArrayList<Course> courses= coursesDB.fetch();\r\n                        for(Course c : courses){\r\n                                if(c.getStudents() == null){\r\n                                        System.out.println(\"No students\");\r\n                                }else {\r\n                                        tableStudent.add(c);\r\n                                }\r\n                        }\r\n                        courseTable.setTableData(tableStudent);\r\n\r\n                };\r\n                handlers[2] = e -> {\r\n                        index = 2;\r\n                        courseTable.deleteColumns();\r\n                        System.out.println(\"Courses clicked\");\r\n                        courseTable.addColumn(\"Course\", \"name\", 100);\r\n                        courseTable.addColumn(\"Instructor\", \"instructor\", 100);\r\n                        courseTable.addColumn(\"Student\", \"students\", 100);\r\n\r\n                        ObservableList<Course> tableCourse = FXCollections.observableArrayList();\r\n                        ArrayList<Course> courses= coursesDB.fetch();\r\n                        for(Course c : courses){\r\n                                tableCourse.add(c);\r\n                        }\r\n                        courseTable.setTableData(tableCourse);\r\n\r\n                };\r\n\r\n                Sidebar sidebar = new Sidebar(\"dashboard\",handlers);\r\n                this.setLeft(sidebar);\r\n\r\n\r\n        }\r\n        //TODO: Editable Table and Add Course Button\r\n\r\n        public BorderPane getPage() {\r\n                return this;\r\n        }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/studentadminstator/pages/AdministerPage.java b/src/main/java/org/example/studentadminstator/pages/AdministerPage.java
+--- a/src/main/java/org/example/studentadminstator/pages/AdministerPage.java	(revision 8ced1c3c5e032e56e8027fd9233316ded975bbb7)
++++ b/src/main/java/org/example/studentadminstator/pages/AdministerPage.java	(date 1738847673390)
+@@ -63,7 +63,7 @@
+                                 VBox studentAddBox = new VBox();
+                                 CustomInput studentName = new CustomInput("Enter student name","Name:");
+                                 CustomInput studentCourse= new CustomInput("Enter Course Name","Course:");
+-                                CustomInput studentGrade= new CustomInput("Enter Grad","Grade:");
++                                CustomInput studentGrade= new CustomInput("Enter Grade","Grade:");
+                                 CustomInput studentAttendance= new CustomInput("Enter Attendance","Attendance:");
+                                 CustomButton button = new CustomButton(e->{
+ 
+@@ -114,14 +114,21 @@
+                         index = 0;
+                         courseTable.deleteColumns();
+                         System.out.println("Instructor clicked");
+-                        courseTable.addColumn("Instructor Name", "instructor", 200);
++                        courseTable.addColumn("Instructor Name", "instructorName", 200);
+                         courseTable.addColumn("Course", "name", 100);
+ 
+                         ObservableList<Course> tableInstructor = FXCollections.observableArrayList();
+                         ArrayList<Course> courses= coursesDB.fetch();
+                         for(Course c : courses){
+-
+-                                tableInstructor.add(c);
++                                System.out.println(c);
++                                if(c.getInstructor() != null){
++                                        Course temp = new Course(c.getName(),c.getStudents(),c.getInstructor().getName());
++                                        System.out.println(temp);
++                                        tableInstructor.add(temp);
++                                }else{
++                                        tableInstructor.add(c);
++                                }
++
+                         }
+                         courseTable.setTableData(tableInstructor);
+ 
+@@ -153,13 +160,21 @@
+                         courseTable.deleteColumns();
+                         System.out.println("Courses clicked");
+                         courseTable.addColumn("Course", "name", 100);
+-                        courseTable.addColumn("Instructor", "instructor", 100);
++                        courseTable.addColumn("Instructor", "instructorName", 100);
+                         courseTable.addColumn("Student", "students", 100);
+ 
+                         ObservableList<Course> tableCourse = FXCollections.observableArrayList();
+                         ArrayList<Course> courses= coursesDB.fetch();
+                         for(Course c : courses){
+-                                tableCourse.add(c);
++
++                                if(c.getInstructorName() != null){
++                                        Course temp = new Course(c.getName(),c.getStudents(),c.getInstructorName());
++                                        System.out.println(temp);
++                                        tableCourse.add(temp);
++                                }else{
++                                        tableCourse.add(c);
++                                }
++
+                         }
+                         courseTable.setTableData(tableCourse);
+ 
+Index: src/main/java/org/example/studentadminstator/components/CustomPopUp.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.studentadminstator.components;\r\nimport javafx.geometry.Insets;\r\nimport javafx.geometry.Pos;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.*;\r\nimport javafx.scene.layout.VBox;\r\nimport javafx.stage.Modality;\r\nimport javafx.stage.Stage;\r\nimport org.example.studentadminstator.AppData;\r\nimport org.example.studentadminstator.data.Instructor;\r\nimport org.example.studentadminstator.data.Student;\r\n\r\npublic class CustomPopUp<T> extends Stage {\r\n\r\n    private String name;\r\n    private Navbar navbar;\r\n    private AppData appData;\r\n    private T data;\r\n    public CustomPopUp(Stage primaryStage,String name,T data, Navbar navbar, AppData appData) {\r\n        this.name = name;\r\n        this.data = data;\r\n        this.navbar = navbar;\r\n        this.appData = appData;\r\n\r\n        initModality(Modality.APPLICATION_MODAL);\r\n        initOwner(primaryStage);\r\n        setTitle(\"Edit Name\");\r\n\r\n        TextField nameField = new TextField(name);\r\n        Button saveButton = new Button(\"Save\");\r\n        Button cancelButton = new Button(\"Cancel\");\r\n\r\n        saveButton.setOnAction(e -> {\r\n            String newName = nameField.getText();\r\n            if (!newName.isEmpty()) {\r\n                nameField.setText(newName);\r\n                //To Handle If the edit is from instructor or from student\r\n                if (data instanceof Student student) {\r\n                    student.setUsername(newName);\r\n                    student.setName(newName);\r\n                    appData.getStudentDB().updateStudentWithoutIndex(student);\r\n                    appData.getUsersDB().fetchOneUser(name).setUsername(newName);\r\n                    if (navbar != null) {\r\n                        navbar.updateStudentName(newName);\r\n                    } else {\r\n                        System.err.println(\"Navbar is null. Cannot update name.\");\r\n                    }\r\n\r\n                } else if (data instanceof Instructor instructor) {\r\n                    instructor.setName(newName);\r\n                    instructor.setUsername(newName);\r\n                    appData.getInstructorDB().updateInstructorWithoutIndex(instructor);\r\n                    appData.getUsersDB().fetchOneUser(name).setUsername(newName);\r\n                    if (navbar != null) {\r\n                        navbar.updateStudentName(newName);\r\n                    } else {\r\n                        System.err.println(\"Navbar is null. Cannot update name.\");\r\n                    }\r\n\r\n                }\r\n\r\n\r\n                close();\r\n            } else {\r\n                Alert alert = new Alert(Alert.AlertType.ERROR, \"Name cannot be empty.\");\r\n                alert.showAndWait();\r\n            }\r\n        });\r\n\r\n        cancelButton.setOnAction(e -> close());\r\n\r\n        VBox popupContent = new VBox(10, nameField, saveButton, cancelButton);\r\n        popupContent.setPadding(new Insets(10));\r\n        popupContent.setAlignment(Pos.CENTER);\r\n\r\n        setScene(new Scene(popupContent));\r\n    }\r\n\r\n    public void showAndWait() {\r\n        super.showAndWait();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/studentadminstator/components/CustomPopUp.java b/src/main/java/org/example/studentadminstator/components/CustomPopUp.java
+--- a/src/main/java/org/example/studentadminstator/components/CustomPopUp.java	(revision 8ced1c3c5e032e56e8027fd9233316ded975bbb7)
++++ b/src/main/java/org/example/studentadminstator/components/CustomPopUp.java	(date 1738847673386)
+@@ -41,7 +41,7 @@
+                     appData.getStudentDB().updateStudentWithoutIndex(student);
+                     appData.getUsersDB().fetchOneUser(name).setUsername(newName);
+                     if (navbar != null) {
+-                        navbar.updateStudentName(newName);
++                        navbar.updateName(newName);
+                     } else {
+                         System.err.println("Navbar is null. Cannot update name.");
+                     }
+@@ -52,7 +52,7 @@
+                     appData.getInstructorDB().updateInstructorWithoutIndex(instructor);
+                     appData.getUsersDB().fetchOneUser(name).setUsername(newName);
+                     if (navbar != null) {
+-                        navbar.updateStudentName(newName);
++                        navbar.updateName(newName);
+                     } else {
+                         System.err.println("Navbar is null. Cannot update name.");
+                     }
+Index: src/main/java/org/example/studentadminstator/components/Navbar.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.studentadminstator.components;\r\n\r\nimport javafx.event.ActionEvent;\r\nimport javafx.event.Event;\r\nimport javafx.event.EventHandler;\r\nimport javafx.event.EventType;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.layout.HBox;\r\n// import javafx.scene.layout.VBox;\r\nimport javafx.scene.layout.VBox;\r\nimport javafx.scene.text.Text;\r\nimport javafx.geometry.Insets;\r\nimport javafx.geometry.Pos;\r\nimport javafx.stage.Stage;\r\nimport javafx.scene.layout.BorderPane;\r\nimport org.example.studentadminstator.AppStyle;\r\nimport org.example.studentadminstator.pages.Login;\r\n/// Make sure that events and buttons and button labels are ordered and does not differ in size\r\npublic class Navbar extends BorderPane {\r\n\r\n    private String username;\r\n    Text hiText;\r\n    Text nameText;\r\n\r\n    public Navbar(String username, Stage stage, String[] buttonLabels,CustomButton[] buttons,EventHandler<ActionEvent>[] handlers) {\r\n\r\n        hiText = new Text(\"Hi \uD83D\uDC4B\");\r\n        nameText = new Text(username);\r\n\r\n        hiText.setFont(AppStyle.font18);\r\n        nameText.setFont(AppStyle.font16Bold);\r\n\r\n        hiText.setFill(AppStyle.textColor);\r\n        nameText.setFill(AppStyle.textColor);\r\n\r\n        VBox leftBox = new VBox(hiText, nameText);\r\n        leftBox.setAlignment(Pos.CENTER_LEFT);\r\n        leftBox.setSpacing(5);\r\n        leftBox.setPadding(new Insets(10, 20, 10, 20));\r\n        HBox hbox = new HBox();\r\n        hbox.setAlignment(Pos.CENTER_RIGHT);\r\n        hbox.setSpacing(10);\r\n        hbox.setPadding(new Insets(20));\r\n        for(int i = 0; i < buttons.length; i++) {\r\n            buttons[i].setText(buttonLabels[i]);\r\n            buttons[i].addEventHandler(ActionEvent.ACTION, handlers[i]);\r\n            leftBox.getChildren().add(buttons[i]);\r\n            hbox.getChildren().add(buttons[i]);\r\n\r\n        }\r\n\r\n\r\n        this.setLeft(leftBox);\r\n        this.setRight(hbox);\r\n    }\r\n   \r\n    public String getUsername(){\r\n        return username;\r\n    }\r\n    public void updateStudentName(String newName) {\r\n        this.username = newName;\r\n        this.nameText.setText(\"Hello, \" + newName + \"!\");\r\n    }\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/studentadminstator/components/Navbar.java b/src/main/java/org/example/studentadminstator/components/Navbar.java
+--- a/src/main/java/org/example/studentadminstator/components/Navbar.java	(revision 8ced1c3c5e032e56e8027fd9233316ded975bbb7)
++++ b/src/main/java/org/example/studentadminstator/components/Navbar.java	(date 1738847673387)
+@@ -58,7 +58,7 @@
+     public String getUsername(){
+         return username;
+     }
+-    public void updateStudentName(String newName) {
++    public void updateName(String newName) {
+         this.username = newName;
+         this.nameText.setText("Hello, " + newName + "!");
+     }

@@ -15,7 +15,6 @@ import org.example.studentadminstator.components.CustomTable;
 import org.example.studentadminstator.components.Navbar;
 import org.example.studentadminstator.data.*;
 
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;

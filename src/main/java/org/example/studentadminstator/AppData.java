@@ -15,10 +15,32 @@ public class AppData {
         instructorDB = new InstructorDB<>();
         coursesDB = new CoursesDB<>();
         usersDB = new UsersDB<>();
-        usersDB.createUser(new User("ibrahim", "abdelrahman aql", "Instructor"));
-        usersDB.createUser(new User("ibrahim", "ibrahim", "Student"));
-        studentDB.createStudent(new Student("ibrahim", "ibrahim", "Student", "ibrahim"));
-        instructorDB.createInstructor(new Instructor("abdelrahman aql", "ibrahim", "Instructor"));
+        usersDB.createUser(new User("ibrahim", "abdelrahman", "Instructor") {
+            @Override
+            public String getUserName() {
+                return "abdelrahman";
+            }
+        });
+        usersDB.createUser(new User("ibrahim", "ibrahim", "Student"){
+            @Override
+            public String getUserName(){
+                return "ibrahim";
+            }
+        });
+        studentDB.createStudent(new Student("ibrahim", "ibrahim", "Student", "ibrahim") {
+            @Override
+            public String getUserName() {
+                return "ibrahim";
+            }
+        });
+        instructorDB.createInstructor(new Instructor("abdelrahman", "ibrahim", "Instructor")
+                                      {
+                                          @Override
+                                          public String getUsername(){
+                                              return "abdelrahman";
+                                          }
+                                      }
+        );
 
     }
 

@@ -19,29 +19,25 @@ import javafx.geometry.Insets;
 public class CustomButton extends VBox {
       private  Button button;
 
-public CustomButton(EventHandler<ActionEvent> eventHandler, String label) {
+public CustomButton(EventHandler<ActionEvent> event, String label) {
         this.button = new Button(label);
-        this.button.setOnAction(eventHandler);
-
+        this.button.setOnAction(event);
         this.getChildren().add(this.button);
-
-
-    button.setTextFill(AppStyle.colorBlack);
+        button.setTextFill(AppStyle.colorBlack);
         button.setFont(Font.font(AppStyle.font18.getFamily(), FontWeight.BOLD, AppStyle.font18.getSize()));
-    button.setPrefWidth(120);
-    button.setPrefHeight(40);
-    button.setBackground(new Background(new BackgroundFill(AppStyle.textColor, new CornerRadii(10), Insets.EMPTY)));
-    button.setBorder(new Border(new BorderStroke(
+        button.setPrefWidth(120);
+        button.setPrefHeight(40);
+        button.setBackground(new Background(new BackgroundFill(AppStyle.textColor, new CornerRadii(10), Insets.EMPTY)));
+        button.setBorder(new Border(new BorderStroke(
             AppStyle.colorBlack,
             BorderStrokeStyle.SOLID,
             new CornerRadii(10),
             new BorderWidths(2)
-    )));
-
-    button.setOnMouseEntered(e -> button.setBackground(
+        )));
+         button.setOnMouseEntered(e -> button.setBackground(
             new Background(new BackgroundFill(AppStyle.colorLightGray, new CornerRadii(10), Insets.EMPTY))
-    ));
-    button.setOnMouseExited(e -> button.setBackground(
+         ));
+        button.setOnMouseExited(e -> button.setBackground(
             new Background(new BackgroundFill(AppStyle.textColor, new CornerRadii(10), Insets.EMPTY))
     ));
 
@@ -61,8 +57,6 @@ public CustomButton(EventHandler<ActionEvent> eventHandler, String label) {
     public CustomButton() {
         this.button = new Button();
         this.getChildren().add(this.button);
-
-
         button.setTextFill(AppStyle.colorBlack);
         button.setFont(Font.font(AppStyle.font18.getFamily(), FontWeight.BOLD, AppStyle.font18.getSize()));
         button.setPrefWidth(120);
@@ -93,6 +87,7 @@ public CustomButton(EventHandler<ActionEvent> eventHandler, String label) {
         });
 
     }
+    //TODO :Review this method -> Ahmed
     public void setText(String label) {
         this.button.setText(label);
     }

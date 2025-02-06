@@ -11,11 +11,13 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
+import java.util.Objects;
+
 public class CustomInput extends VBox {
-        private TextField input ;
-        private Label label ;
-        private Text errorMessage;
-        private Boolean isValid=false;
+        private  TextField input ;
+        private  Label label ;
+        private  Text errorMessage;
+        private  Boolean isValid=false;
 
         public CustomInput(String placeholder, String labelText){
               
@@ -43,7 +45,7 @@ public class CustomInput extends VBox {
                                 if (newValue.trim().isEmpty()) {
                                          setErrorMessage(labelText + " is required");
                                          isValid=false;
-                                         if(labelText=="Password"){
+                                         if(Objects.equals(labelText, "Password")){
                                                 isValid=false;
                                                 if(input.getText().length() < 6){
 

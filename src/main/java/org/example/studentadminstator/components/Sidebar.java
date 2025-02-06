@@ -29,3 +29,6 @@ public class Sidebar extends VBox {
         //Add Logout button
     }
 }
+
+
+

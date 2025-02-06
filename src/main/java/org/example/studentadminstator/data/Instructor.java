@@ -1,15 +1,13 @@
 package org.example.studentadminstator.data;
 
 public class Instructor extends User {
-       private String name;
-//       private String grade ;
-              
-    public Instructor(String username, String password, String type) {
-        super(username, password, type); 
-        this.name=username;
+    private String name;
 
+    public Instructor(String username, String password, String type) {
+        super(username, password, type);
+        this.name = username;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -18,19 +16,17 @@ public class Instructor extends User {
         this.name = name;
     }
 
-//    public String getGrade() {
-//        return grade;
-//    }
+    @Override
+    public String getUserName() {
+        return super.getUsername();
+    }
 
-//    public void setGrade(String grade) {
-//        this.grade = grade;
-//    }
-
-
-
-
+    @Override
+    public String toString() {
+        return "Instructor{" +
+                "username='" + getUsername() + '\'' +
+                ", password='" + getPassword() + '\'' +
+                ", type='" + getType() + '\'' +
+                '}';
+    }
 }
-
-
-
-

@@ -1,5 +1,4 @@
 package org.example.studentadminstator;
-
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.layout.Border;

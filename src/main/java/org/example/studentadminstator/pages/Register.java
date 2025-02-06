@@ -8,22 +8,17 @@ import org.example.studentadminstator.components.CustomButton;
 import org.example.studentadminstator.components.CustomInput;
 
 import javafx.scene.layout.VBox;
-import javafx.scene.control.Button;
 import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
 import javafx.scene.layout.Background;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import org.example.studentadminstator.components.CustomSelect;
 import org.example.studentadminstator.components.Link;
 import org.example.studentadminstator.data.*;
-
-import java.util.ArrayList;
 
 public class Register extends VBox {
     Text header = new Text();
@@ -41,9 +36,7 @@ public class Register extends VBox {
     Text loginAlert = new Text();
     Stage primaryStage;
     Link link;
-
     public Register(Stage primaryStage) {
-
         grid.setVgap(15);
         grid.setHgap(15);
         grid.setAlignment(Pos.CENTER);
@@ -55,14 +48,11 @@ public class Register extends VBox {
         header.setFont(AppStyle.font32);
         header.setFill(AppStyle.textColor);
         this.link= new Link("if you have an account", this::handleEvent, "Signin");
-
         EventHandler<ActionEvent> handelSubmit = e -> {
             Boolean usernameValid =  usernameInput.getIsValid();
             Boolean passwordValid =  passwordInput.getIsValid();
-            //Boolean courseValid =  courseInput.getIsValid();
             Boolean genderValid = genderGroup.isValid();
             Boolean jobValid = jobGroup.isValid();
-           
             System.out.println("Username valid: " + usernameValid.toString() + ", Password valid: " + passwordValid.toString());
             //Register
             if(usernameValid && passwordValid && genderValid && jobValid ) {
@@ -72,23 +62,25 @@ public class Register extends VBox {
                     loginAlert.setFill(AppStyle.textColor);
                     System.out.println("Found user successful"+ usernameInput.getInputValue());
                 }else{
-                    usersDB.createUser(new User(usernameInput.getInputValue(), passwordInput.getInputValue(), jobGroup.getSelectedOption()));
+                    usersDB.createUser(new User(usernameInput.getInputValue(), passwordInput.getInputValue(), jobGroup.getSelectedOption()) {
+                        @Override
+                        public String getUserName() {
+                            return usernameInput.getInputValue();
+                        }
+                    });
                     System.out.println("Created successful"+ usernameInput.getInputValue() + "Created Type" + jobGroup.getSelectedOption());
                     if(jobGroup.getSelectedOption().equals("Instructor")) {
                         instructorDB.createInstructor(new Instructor(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption()));
                         Instructor instructor = instructorDB.fetchOneInstructor(usernameInput.getInputValue());
                         primaryStage.setScene(new Scene(new InstructorPage(primaryStage,instructor).getPage()));
-
                     }else {
                         //Fixed Error
-                        studentDB.createStudent(new Student(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption(), usernameInput.getInputValue()));
-                        Student student = studentDB.fetchOneStudent(usernameInput.getInputValue());
+                        studentDB.createStudent(new Student(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption(), usernameInput.getInputValue()) {
+                        });
+                        Student student = studentDB.fetchOneStudentByName(usernameInput.getInputValue());
                         primaryStage.setScene(new Scene(new StudentPage(primaryStage,student).getPage()));
                     }
                 }
-
-
-
             }
         };
 

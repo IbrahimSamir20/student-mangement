@@ -63,11 +63,16 @@ public class AdministerPage extends BorderPane {
                                 VBox studentAddBox = new VBox();
                                 CustomInput studentName = new CustomInput("Enter student name","Name:");
                                 CustomInput studentCourse= new CustomInput("Enter Course Name","Course:");
-                                CustomInput studentGrade= new CustomInput("Enter Grade","Grade:");
+                                CustomInput studentGrade= new CustomInput("Enter Grad","Grade:");
                                 CustomInput studentAttendance= new CustomInput("Enter Attendance","Attendance:");
                                 CustomButton button = new CustomButton(e->{
 
-                                        studentDB.createStudent(new Student(studentName.getInputValue() ,studentName.getInputValue(),"Student", studentName.getInputValue()));
+                                        studentDB.createStudent(new Student(studentName.getInputValue(), studentName.getInputValue(), "Student", studentName.getInputValue()) {
+                                                @Override
+                                                public String getUserName() {
+                                                        return "";
+                                                }
+                                        });
                                 coursesDB.createCourse(new Course(studentCourse.getInputValue(), studentAttendance.getInputValue(),Integer.parseInt(studentGrade.getInputValue())));
                                 primaryStage.setScene(previousScene);
                                         },"Save");
@@ -114,21 +119,14 @@ public class AdministerPage extends BorderPane {
                         index = 0;
                         courseTable.deleteColumns();
                         System.out.println("Instructor clicked");
-                        courseTable.addColumn("Instructor Name", "instructorName", 200);
+                        courseTable.addColumn("Instructor Name", "instructor", 200);
                         courseTable.addColumn("Course", "name", 100);
 
                         ObservableList<Course> tableInstructor = FXCollections.observableArrayList();
                         ArrayList<Course> courses= coursesDB.fetch();
                         for(Course c : courses){
-                                System.out.println(c);
-                                if(c.getInstructor() != null){
-                                        Course temp = new Course(c.getName(),c.getStudents(),c.getInstructor().getName());
-                                        System.out.println(temp);
-                                        tableInstructor.add(temp);
-                                }else{
-                                        tableInstructor.add(c);
-                                }
 
+                                tableInstructor.add(c);
                         }
                         courseTable.setTableData(tableInstructor);
 
@@ -160,21 +158,13 @@ public class AdministerPage extends BorderPane {
                         courseTable.deleteColumns();
                         System.out.println("Courses clicked");
                         courseTable.addColumn("Course", "name", 100);
-                        courseTable.addColumn("Instructor", "instructorName", 100);
+                        courseTable.addColumn("Instructor", "instructor", 100);
                         courseTable.addColumn("Student", "students", 100);
 
                         ObservableList<Course> tableCourse = FXCollections.observableArrayList();
                         ArrayList<Course> courses= coursesDB.fetch();
                         for(Course c : courses){
-
-                                if(c.getInstructorName() != null){
-                                        Course temp = new Course(c.getName(),c.getStudents(),c.getInstructorName());
-                                        System.out.println(temp);
-                                        tableCourse.add(temp);
-                                }else{
-                                        tableCourse.add(c);
-                                }
-
+                                tableCourse.add(c);
                         }
                         courseTable.setTableData(tableCourse);
 
