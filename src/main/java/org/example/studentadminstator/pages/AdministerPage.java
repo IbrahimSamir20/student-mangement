@@ -67,7 +67,12 @@ public class AdministerPage extends BorderPane {
                                 CustomInput studentAttendance= new CustomInput("Enter Attendance","Attendance:");
                                 CustomButton button = new CustomButton(e->{
 
-                                        studentDB.createStudent(new Student(studentName.getInputValue() ,studentName.getInputValue(),"Student", studentName.getInputValue()));
+                                        studentDB.createStudent(new Student(studentName.getInputValue(), studentName.getInputValue(), "Student", studentName.getInputValue()) {
+                                                @Override
+                                                public String getUserName() {
+                                                        return "";
+                                                }
+                                        });
                                 coursesDB.createCourse(new Course(studentCourse.getInputValue(), studentAttendance.getInputValue(),Integer.parseInt(studentGrade.getInputValue())));
                                 primaryStage.setScene(previousScene);
                                         },"Save");
