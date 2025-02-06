@@ -9,32 +9,36 @@ public class CoursesDB<T> {
         public void createCourse(Course course) {
                 coursesDB.add(course);
         }
-//TODO : UPDATE SEARCH BY NAME -> Administrator
-        public void updateCourse(Course newCourse, int index) {
-                coursesDB.set(index, newCourse);
+
+        public void updateCourseWithoutIndex(Course course, Course newCourse) {
+            for (int i = 0; i < coursesDB.size(); i++) {
+                if (coursesDB.get(i).getName().equals(course.getName())) {
+                    coursesDB.set(i, newCourse);
+                    return;
+                }
+            }
+            System.err.println("Student not found for update: " + course.getName());
         }
-//TODO : Remove by name ;-> Administrator
-        public void deleteCourse(int index) {
-                coursesDB.remove(index);
+
+        public void deleteCourseWithoutIndex(Course course) {
+               for(int i=0; i< coursesDB.size(); i++){
+                   if(coursesDB.get(i).getName().equals(course.getName())){
+                       coursesDB.remove(course);
+                   }
+               }
         }
 
         public ArrayList<Course> fetch(){
                 return coursesDB;
         }
-    //TODO : SEARCH BY NAME
-        public Course fetchOnCourse(int index){
-               return coursesDB.get(index);
-        }
 
-//        public int getIndex(String courseName){
-//               int courseIndex = -1;
-//                for(Course course: coursesDB){
-//                        if(course.getName().equals(courseName)){
-//                                return coursesDB.indexOf(course);
-//                        }
-//                }
-//                return courseIndex;
-//        }
+        public Course fetchOnCourse(Course course){
+            for(int i=0; i< coursesDB.size(); i++){
+                if(coursesDB.get(i).getName().equals(course.getName())){
+                    return course;
+                }}
+            return null;   //see
+        }
 
         public Course fetchOnCourseForStudent(String studentName){
                 Course oneCourseForStudent = null;
