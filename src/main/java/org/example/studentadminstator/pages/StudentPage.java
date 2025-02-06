@@ -28,28 +28,40 @@ public class StudentPage extends BorderPane {
                CustomPopUp popup = new CustomPopUp(primaryStage, student.getName(),student, (Navbar) this.getTop(), appData);
                popup.showAndWait();
            };
+
            EventHandler<ActionEvent> onBack = event -> {
                primaryStage.setScene(new Scene(new Login(primaryStage).getGrid()));
                primaryStage.show();
            };
+
            String[] labels = {"Edit", "Back"};
+
            EventHandler[] navHandlers = {onEdit, onBack};
+
            CustomButton[] buttons = {new CustomButton(), new CustomButton()};
+
            Navbar navbar = new Navbar(student.getName(), primaryStage, labels, buttons,navHandlers);
+
            this.setTop(navbar);
+
            this.setMinSize(1024,900);
+
             this.setBackground(AppStyle.background);
+
             CustomTable<Course> studentTable = new CustomTable<Course>();
+
             studentTable.addColumn("Name", "name", 250);
             studentTable.addColumn("Attendance", "attendant", 250);
             studentTable.addColumn("Grade", "grade", 250);
 
            ObservableList<Course> tableCourses = FXCollections.observableArrayList();
            ArrayList<Course> courses= coursesDB.fetch();
+           System.out.print(courses);
            //Adding data to tableview list
-           for(Course c : courses){
-               tableCourses.add(c);
+           for(Course course : courses){
+               tableCourses.add(course);
            }
+
            studentTable.setTableData(tableCourses);
            VBox studentContainer = new VBox();
             studentContainer.setSpacing(10);

@@ -27,6 +27,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 
 public class Login extends VBox {
+
     //UI
     private final GridPane grid = new GridPane();
     private final Stage primaryStage;
@@ -37,10 +38,12 @@ public class Login extends VBox {
     String errorUsername = "";
     String errorPassword = "";
     Boolean isVisible = false;
+
     //pages
     StudentPage studentPage ;
     InstructorPage instructorPage ;
     AdministerPage administerPage ;
+
     //DB
     AppData data = AppData.getInstance();
     CoursesDB<Course> coursesDB = data.getCoursesDB();
@@ -48,7 +51,7 @@ public class Login extends VBox {
     InstructorDB<Instructor> instructorDB = data.getInstructorDB();
     StudentDB<Student> studentDB = data.getStudentDB();
     
-// Start Logic
+    // Start Logic
     public Login(Stage primaryStage) {
         this.primaryStage=primaryStage;
         
@@ -61,7 +64,7 @@ public class Login extends VBox {
         grid.setBackground(background);
         header.setFont(AppStyle.font32);
         header.setFill(AppStyle.textColor);
-        this.link= new Link("if you not have account", this::handleEvent, "Signup");
+        this.link= new Link("if you don't have account", this::handleEvent, "Signup");
 
     //Action
         EventHandler<ActionEvent> onSubmit = e -> {
@@ -85,15 +88,19 @@ public class Login extends VBox {
                         alert.showAndWait();
                     }else{
                         if(userDb.getUserType(usernameInput.getInputValue()).equals("Instructor")){
+
                             Instructor instructor = instructorDB.fetchOneInstructor(usernameInput.getInputValue());
                             primaryStage.setScene(new Scene(new InstructorPage(primaryStage, instructor).getPage()));
                             System.out.println(instructor);
+
                         }else{
+
                             System.out.println(usernameInput.getInputValue());
                             Student student = studentDB.fetchOneStudentByName(usernameInput.getInputValue());
                             System.out.println(student.getName());
                             primaryStage.setScene(new Scene(new StudentPage(primaryStage, student).getPage()));
                             System.out.println("from studentPage");
+
                         }
                     }
                 }

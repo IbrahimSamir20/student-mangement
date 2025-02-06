@@ -8,6 +8,7 @@ public class Course {
         private int grade;
         private Instructor instructor;
         private Student[] students;
+
         public Course (String name, String attendant,int grade, Instructor instructor,Student... students){
                 
                 this.name = name;
@@ -17,6 +18,7 @@ public class Course {
                 this.instructor = instructor;
 
         }
+
         public Course (String name, String attendant,int grade){
 
                 this.name = name;
