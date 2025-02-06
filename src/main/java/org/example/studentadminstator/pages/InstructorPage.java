@@ -10,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Insets;
 import org.example.studentadminstator.AppData;
+import org.example.studentadminstator.components.CustomAttendanceBox;
 import org.example.studentadminstator.components.CustomButton;
 import org.example.studentadminstator.components.CustomTable;
 import org.example.studentadminstator.components.Navbar;
@@ -56,8 +57,10 @@ public class InstructorPage extends BorderPane {
                 instructorContainer.setSpacing(10);
 
                 Label courseLabel = new Label("Course");
-                instructorContainer.getChildren().addAll(courseLabel, instructorTable);
+                CustomAttendanceBox attendBox = new CustomAttendanceBox(30);
+                instructorContainer.getChildren().addAll(courseLabel, instructorTable, attendBox);
                 this.setCenter(instructorContainer);
+
                 
         }
 
