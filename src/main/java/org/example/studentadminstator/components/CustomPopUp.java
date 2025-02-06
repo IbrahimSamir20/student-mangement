@@ -41,7 +41,7 @@ public class CustomPopUp<T> extends Stage {
                     appData.getStudentDB().updateStudentWithoutIndex(student);
                     appData.getUsersDB().fetchOneUser(name).setUsername(newName);
                     if (navbar != null) {
-                        navbar.updateStudentName(newName);
+                        navbar.updateName(newName);
                     } else {
                         System.err.println("Navbar is null. Cannot update name.");
                     }
@@ -52,7 +52,7 @@ public class CustomPopUp<T> extends Stage {
                     appData.getInstructorDB().updateInstructorWithoutIndex(instructor);
                     appData.getUsersDB().fetchOneUser(name).setUsername(newName);
                     if (navbar != null) {
-                        navbar.updateStudentName(newName);
+                        navbar.updateName(newName);
                     } else {
                         System.err.println("Navbar is null. Cannot update name.");
                     }

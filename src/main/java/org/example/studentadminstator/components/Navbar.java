@@ -58,7 +58,7 @@ public class Navbar extends BorderPane {
     public String getUsername(){
         return username;
     }
-    public void updateStudentName(String newName) {
+    public void updateName(String newName) {
         this.username = newName;
         this.nameText.setText("Hello, " + newName + "!");
     }
