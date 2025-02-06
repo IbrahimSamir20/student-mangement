@@ -8,6 +8,8 @@ public class Course {
         private int grade;
         private Instructor instructor;
         private Student[] students;
+        //For table object prob
+        private String instructorName;
         //Course Data Structure
         public Course (String name, String attendant,int grade, Instructor instructor,Student... students){
                 
@@ -30,6 +32,15 @@ public class Course {
 
                 this.name = name;
                 this.instructor = instructor;
+                this.instructorName = instructor.getName();
+
+        }
+        //For Table view Object Error Viewing
+        public Course (String name, Student[] student, String instructorName){
+
+                this.name = name;
+                this.students = students;
+                this.instructorName = instructorName;
 
         }
         
@@ -67,6 +78,10 @@ public class Course {
         // Getter for instructor
         public Instructor getInstructor() {
             return instructor;
+        }
+        //For tablview prob
+        public String getInstructorName() {
+                return instructorName;
         }
 
         // Setter for instructor
