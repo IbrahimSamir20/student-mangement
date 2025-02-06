@@ -78,19 +78,14 @@ public class Login extends VBox {
                 //Authorization
                     if(usernameInput.getInputValue().equals("IANEOP") && passwordInput.getInputValue().equals("IANEOP") ){
                         System.out.println("Login successfully");
-
                         primaryStage.setScene(new Scene(new AdministerPage(primaryStage).getPage(),1024,900));
-
                     }else if(!userDb.searchUser(username, password)){
-                        
                         javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
                         alert.setTitle("Login Error");
                         alert.setHeaderText("Invalid Credentials");
                         alert.setContentText("Username or password is incorrect.");
                         alert.showAndWait();
-                    
                     }else{
-                    
                         if(userDb.getUserType(username).equals("Instructor")){
                             Instructor instructor = instructorDB.fetchOneInstructor(username);
                             primaryStage.setScene(new Scene(new InstructorPage(primaryStage, instructor).getPage()));
@@ -98,16 +93,14 @@ public class Login extends VBox {
                         }else{
                             System.out.println(username);
                             Student student = studentDB.fetchOneStudent(username);
-System.out.println(student.getName());
+                            System.out.println(student.getName());
                             primaryStage.setScene(new Scene(new StudentPage(primaryStage, student).getPage()));
                             System.out.println("from studentPage");
-                    
                         }
                     }
                 }
                 
             };
-
         CustomButton button = new CustomButton(onSubmit, "Login");
             grid.add(header, 0, 0, 1, 1);
             grid.add(usernameInput, 0, 2, 1, 1);

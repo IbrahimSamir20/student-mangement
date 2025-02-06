@@ -41,9 +41,7 @@ public class Register extends VBox {
     Text loginAlert = new Text();
     Stage primaryStage;
     Link link;
-
     public Register(Stage primaryStage) {
-
         grid.setVgap(15);
         grid.setHgap(15);
         grid.setAlignment(Pos.CENTER);
@@ -55,14 +53,11 @@ public class Register extends VBox {
         header.setFont(AppStyle.font32);
         header.setFill(AppStyle.textColor);
         this.link= new Link("if you have an account", this::handleEvent, "Signin");
-
         EventHandler<ActionEvent> handelSubmit = e -> {
             Boolean usernameValid =  usernameInput.getIsValid();
             Boolean passwordValid =  passwordInput.getIsValid();
-            //Boolean courseValid =  courseInput.getIsValid();
             Boolean genderValid = genderGroup.isValid();
             Boolean jobValid = jobGroup.isValid();
-           
             System.out.println("Username valid: " + usernameValid.toString() + ", Password valid: " + passwordValid.toString());
             //Register
             if(usernameValid && passwordValid && genderValid && jobValid ) {
@@ -78,7 +73,6 @@ public class Register extends VBox {
                         instructorDB.createInstructor(new Instructor(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption()));
                         Instructor instructor = instructorDB.fetchOneInstructor(usernameInput.getInputValue());
                         primaryStage.setScene(new Scene(new InstructorPage(primaryStage,instructor).getPage()));
-
                     }else {
                         //Fixed Error
                         studentDB.createStudent(new Student(usernameInput.getInputValue(), passwordInput.getInputValue(), genderGroup.getSelectedOption(), usernameInput.getInputValue()));
@@ -86,9 +80,6 @@ public class Register extends VBox {
                         primaryStage.setScene(new Scene(new StudentPage(primaryStage,student).getPage()));
                     }
                 }
-
-
-
             }
         };
 

@@ -9,11 +9,11 @@ public class CoursesDB<T> {
         public void createCourse(Course course) {
                 coursesDB.add(course);
         }
-//TODO : UPDATE SEARCH BY NAME -> Administrator
+        //TODO : UPDATE SEARCH BY NAME -> Administrator
         public void updateCourse(Course newCourse, int index) {
                 coursesDB.set(index, newCourse);
         }
-//TODO : Remove by name ;-> Administrator
+        //TODO : Remove by name ;-> Administrator
         public void deleteCourse(int index) {
                 coursesDB.remove(index);
         }
@@ -21,7 +21,7 @@ public class CoursesDB<T> {
         public ArrayList<Course> fetch(){
                 return coursesDB;
         }
-    //TODO : SEARCH BY NAME
+        //TODO : SEARCH BY NAME
         public Course fetchOnCourse(int index){
                return coursesDB.get(index);
         }
