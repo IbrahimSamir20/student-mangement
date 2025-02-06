@@ -43,6 +43,7 @@ public class CoursesDB<T> {
             return null;   //see
         }
 
+        //checking if course exists
     public boolean checkCourse(String name){
         for(int i=0; i< coursesDB.size(); i++){
             if(coursesDB.get(i).getName().equalsIgnoreCase(name)){
