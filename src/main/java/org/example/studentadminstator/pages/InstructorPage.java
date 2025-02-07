@@ -19,6 +19,7 @@ import org.example.studentadminstator.data.*;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class InstructorPage extends BorderPane {
         AppData appData = AppData.getInstance();
@@ -47,9 +48,18 @@ public class InstructorPage extends BorderPane {
                 instructorTable.addColumn("Grade", "grade", 350);
                 ObservableList<Course> tableCourses = FXCollections.observableArrayList();
                 ArrayList<Course> courses= coursesDB.fetch();
-                //TODO: add the courses that this instructor teach
-                for(Course c : courses){
-                        tableCourses.add(c);
+                for (Course c : courses) {
+                        if (c.getInstructor() == instructor) {
+                                Student[] students = c.getStudents();
+                                List<String> studentNames = new ArrayList<>();
+                                if (students != null) {
+                                        for (Student student : students) {
+                                                studentNames.add(student.getName());
+                                        }
+                                }
+                                //TODO: add student to view
+                                tableCourses.add(c);
+                        }
                 }
 
                 VBox instructorContainer = new VBox();

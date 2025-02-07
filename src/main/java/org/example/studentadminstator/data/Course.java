@@ -10,6 +10,8 @@ public class Course {
         private Instructor instructor;
         private Student[] students;
 
+        private String instructorName;
+
         public Course (String name, String attendant,int grade, Instructor instructor,Student... students){
                 
                 this.name = name;
@@ -17,6 +19,7 @@ public class Course {
                 this.grade = grade;
                 this.students = students;
                 this.instructor = instructor;
+                this.instructorName = instructor.getName();
 
         }
 
@@ -31,10 +34,17 @@ public class Course {
 
                 this.name = name;
                 this.instructor = instructor;
+                this.instructorName = instructor.getName();
 
         }
-        
-        public String getName() {
+    public Course (String name, String instructorName){
+
+        this.name = name;
+        this.instructorName = instructorName;
+
+    }
+
+    public String getName() {
             return name;
         }
 
@@ -63,6 +73,10 @@ public class Course {
             return instructor;
         }
 
+    public String getInstructorName() {
+        return instructorName;
+    }
+
         public void setInstructor(Instructor instructor) {
             this.instructor = instructor;
         }
@@ -70,6 +84,7 @@ public class Course {
         public Student[] getStudents() {
             return students;
         }
+
 
         public void setStudents(Student[] students) {
             this.students = students;

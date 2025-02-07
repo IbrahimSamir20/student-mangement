@@ -1,7 +1,10 @@
 package org.example.studentadminstator.data;
 
+import com.almasb.fxgl.core.collection.Array;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class CoursesDB<T> {
        ArrayList<Course> coursesDB = new ArrayList<>();
@@ -39,6 +42,35 @@ public class CoursesDB<T> {
                 }}
             return null;   //see
         }
+
+        //checking if course exists
+    public boolean checkCourse(String name){
+        for(int i=0; i< coursesDB.size(); i++){
+            if(coursesDB.get(i).getName().equalsIgnoreCase(name)){
+                return true;
+            }}
+        return false;   //see
+    }
+
+    public void updateCourseAddStudents(String name, Student student){
+        for(int i=0; i< coursesDB.size(); i++){
+            if(coursesDB.get(i).getName().equalsIgnoreCase(name)){
+                Course course = coursesDB.get(i);
+                Student[] students = course.getStudents();
+
+                Student[] newStudents;
+                if (students == null) {
+                    newStudents = new Student[1];
+                } else {
+                    newStudents = Arrays.copyOf(students, students.length + 1);
+                }
+                newStudents[newStudents.length - 1] = student;
+                course.setStudents(newStudents);
+                coursesDB.set(i, course);
+                return;
+            }}
+    }
+
 
         public Course fetchOnCourseForStudent(String studentName){
                 Course oneCourseForStudent = null;
