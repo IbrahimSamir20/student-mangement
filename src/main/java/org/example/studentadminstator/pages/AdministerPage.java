@@ -63,7 +63,7 @@ public class AdministerPage extends BorderPane {
                                 VBox studentAddBox = new VBox();
                                 CustomInput studentName = new CustomInput("Enter student name","Name:");
                                 CustomInput studentCourse= new CustomInput("Enter Course Name","Course:");
-                                CustomInput studentGrade= new CustomInput("Enter Grad","Grade:");
+                                CustomInput studentGrade= new CustomInput("Enter Grade","Grade:");
                                 CustomInput studentAttendance= new CustomInput("Enter Attendance","Attendance:");
                                 CustomButton button = new CustomButton(e->{
 

@@ -2,6 +2,7 @@ package org.example.studentadminstator.data;
 
 import java.util.Arrays;
 
+//TODO : عايزن نعمل معادلة بتضيف الطالب الواحد جوه المصفوفة
 public class Course {
         private String name;
         private String attendant;

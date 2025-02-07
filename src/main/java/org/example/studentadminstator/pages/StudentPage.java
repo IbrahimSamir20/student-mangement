@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.example.studentadminstator.AppData;
 import org.example.studentadminstator.AppStyle;
+import org.example.studentadminstator.Controls.StudentPageControls;
 import org.example.studentadminstator.components.CustomButton;
 import org.example.studentadminstator.components.CustomPopUp;
 import org.example.studentadminstator.components.CustomTable;
@@ -22,6 +23,8 @@ public class StudentPage extends BorderPane {
     AppData appData = AppData.getInstance();
     CoursesDB<Course> coursesDB = appData.getCoursesDB();
     InstructorDB<Instructor> instructorDB = appData.getInstructorDB();
+    VBox studentContainer ;
+    CustomButton buttonAddCourse;
 
        public StudentPage(Stage primaryStage,Student student){
            EventHandler<ActionEvent> onEdit = event -> {
@@ -34,7 +37,7 @@ public class StudentPage extends BorderPane {
                primaryStage.show();
            };
 
-           String[] labels = {"Edit", "Back"};
+           String[] labels = {"Edit Profile", "Back"};
 
            EventHandler[] navHandlers = {onEdit, onBack};
 
@@ -63,11 +66,12 @@ public class StudentPage extends BorderPane {
            }
 
            studentTable.setTableData(tableCourses);
-           VBox studentContainer = new VBox();
+           this.studentContainer = new VBox();
+           this.buttonAddCourse= new CustomButton((EventHandler<ActionEvent>) new StudentPageControls().openSubscripe(),"Subscribe");
             studentContainer.setSpacing(10);
            studentContainer.setPadding(new Insets(10));
             this.setCenter(studentContainer);
-           studentContainer.getChildren().add(studentTable);
+           studentContainer.getChildren().addAll(buttonAddCourse,studentTable);
 
 
        }
