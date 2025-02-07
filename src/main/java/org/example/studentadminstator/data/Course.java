@@ -1,103 +1,99 @@
 package org.example.studentadminstator.data;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
-//TODO : عايزن نعمل معادلة بتضيف الطالب الواحد جوه المصفوفة
 public class Course {
-        private String name;
-        private String attendant;
-        private int grade;
-        private Instructor instructor;
-        private Student[] students;
+    private String name;
+    private String attendant;
+    private int grade;
+    private Instructor instructor;
+    private String instructorName;
+    private ArrayList<Student> studentsAtCourse;
 
-        private String instructorName;
+    public Course(String name, String attendant, int grade, Instructor instructor) {
+        this.name = name;
+        this.attendant = attendant;
+        this.grade = grade;
+        this.instructor = instructor;
+        this.instructorName = instructor.getInstructorName();
+        this.studentsAtCourse = new ArrayList<>();
+    }
 
-        public Course (String name, String attendant,int grade, Instructor instructor,Student... students){
-                
-                this.name = name;
-                this.attendant = attendant;
-                this.grade = grade;
-                this.students = students;
-                this.instructor = instructor;
-                this.instructorName = instructor.getName();
+    public Course(String name, String attendant, int grade) {
+        this.name = name;
+        this.attendant = attendant;
+        this.grade = grade;
+        this.studentsAtCourse = new ArrayList<>();
+    }
 
-        }
+    public Course(String name, Instructor instructor) {
+        this.name = name;
+        this.instructor = instructor;
+        this.instructorName = instructor.getInstructorName();
+        this.studentsAtCourse = new ArrayList<>();
+    }
 
-        public Course (String name, String attendant,int grade){
-
-                this.name = name;
-                this.attendant = attendant;
-                this.grade = grade;
-
-        }
-        public Course (String name, Instructor instructor){
-
-                this.name = name;
-                this.instructor = instructor;
-                this.instructorName = instructor.getName();
-
-        }
-    public Course (String name, String instructorName){
-
+    public Course(String name, String instructorName) {
         this.name = name;
         this.instructorName = instructorName;
-
+        this.studentsAtCourse = new ArrayList<>();
     }
 
     public String getName() {
-            return name;
-        }
+        return name;
+    }
 
-        public void setName(String name) {
-            this.name = name;
-        }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-        public String getAttendant() {
-            return attendant;
-        }
+    public String getAttendant() {
+        return attendant;
+    }
 
-        public void setAttendant(String attendant) {
-            this.attendant = attendant;
-        }
+    public void setAttendant(String attendant) {
+        this.attendant = attendant;
+    }
 
-        public int getGrade() {
-            return grade;
-        }
+    public int getGrade() {
+        return grade;
+    }
 
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
 
-        public void setGrade(int grade) {
-            this.grade = grade;
-        }
-
-        public Instructor getInstructor() {
-            return instructor;
-        }
+    public Instructor getInstructor() {
+        return instructor;
+    }
 
     public String getInstructorName() {
         return instructorName;
     }
 
-        public void setInstructor(Instructor instructor) {
-            this.instructor = instructor;
-        }
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
+        this.instructorName = instructor.getInstructorName();
+    }
 
-        public Student[] getStudents() {
-            return students;
+    public void addStudentToCourse(Student student) {
+        if (student != null) {
+            studentsAtCourse.add(student);
         }
+    }
 
+    public ArrayList<Student> getStudentsAtCourse() {
+        return studentsAtCourse;
+    }
 
-        public void setStudents(Student[] students) {
-            this.students = students;
-        }
-
-        @Override
-        public String toString() {
-            return "Course{" +
-                    "name='" + name + '\'' +
-                    ", attendant='" + attendant + '\'' +
-                    ", grade=" + grade +
-                    ", instructor=" + instructor +
-                    ", students=" + Arrays.toString(students) +
-                    '}';
-        }
+    @Override
+    public String toString() {
+        return "Course{" +
+                "name='" + name + '\'' +
+                ", attendant='" + attendant + '\'' +
+                ", grade=" + grade +
+                ", instructor=" + (instructor != null ? instructor.getInstructorName() : "N/A") +
+                ", studentsAtCourse=" + studentsAtCourse.size() +
+                '}';
+    }
 }

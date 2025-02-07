@@ -39,7 +39,7 @@ public class StudentDB<S extends User> {
     public Student fetchOneStudentByName(String name) {
         for (Student student : studentDB) {
 
-            if (student.getName().equals(name)) {
+            if (student.getStudentName().equals(name)) {
 
                 return student;
 

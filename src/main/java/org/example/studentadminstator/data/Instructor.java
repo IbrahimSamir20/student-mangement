@@ -8,9 +8,10 @@ public class Instructor extends User {
         this.name = username;
     }
 
-    public String getName() {
+    public String getInstructorName() {
         return name;
     }
+
 
     public void setName(String name) {
         this.name = name;

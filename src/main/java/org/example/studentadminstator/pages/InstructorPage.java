@@ -36,7 +36,7 @@ public class InstructorPage extends BorderPane {
                 String[] labels = {"Edit", "Back"};
                 EventHandler[] navHandlers = {onEdit, onBack};
                 CustomButton[] buttons = {new CustomButton(), new CustomButton()};
-                Navbar navbar = new Navbar(instructor.getName(), primaryStage, labels, buttons, navHandlers);
+                Navbar navbar = new Navbar(instructor.getInstructorName(), primaryStage, labels, buttons, navHandlers);
                 this.setTop(navbar);
                 this.setMinSize(1024,900);
 
@@ -47,14 +47,14 @@ public class InstructorPage extends BorderPane {
                 instructorTable.addColumn("Attendance", "attendant", 350);
                 instructorTable.addColumn("Grade", "grade", 350);
                 ObservableList<Course> tableCourses = FXCollections.observableArrayList();
-                ArrayList<Course> courses= coursesDB.fetch();
+                ArrayList<Course> courses= (ArrayList<Course>) coursesDB.getAllCourses();
                 for (Course c : courses) {
                         if (c.getInstructor() == instructor) {
-                                Student[] students = c.getStudents();
+                                ArrayList<Student> students = c.getStudentsAtCourse();
                                 List<String> studentNames = new ArrayList<>();
                                 if (students != null) {
                                         for (Student student : students) {
-                                                studentNames.add(student.getName());
+                                                studentNames.add(student.getStudentName());
                                         }
                                 }
                                 //TODO: add student to view

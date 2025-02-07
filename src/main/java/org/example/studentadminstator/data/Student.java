@@ -10,7 +10,7 @@ public class Student extends User {
 //        this.gender = gender;
     }
 
-    public String getName() {
+    public String getStudentName() {
         return name;
     }
 

@@ -45,6 +45,16 @@ public class AppData {
                                       }
         );
 
+
+
+
+        coursesDB.createCourse(new Course("SoftwareTesting", "ahim"));
+        coursesDB.createCourse(new Course("AI", "ahim"));
+        coursesDB.createCourse(new Course("Soft Skills", "ahim"));
+        coursesDB.createCourse(new Course("Software", "ahim"));
+        coursesDB.createCourse(new Course("Software", "ahim"));
+        coursesDB.createCourse(new Course("Software", "ahim"));
+
     }
 
     public static AppData getInstance() {

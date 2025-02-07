@@ -74,11 +74,11 @@ public class AdministerPage extends BorderPane {
                                                         return "";
                                                 }
                                         });
-                                if(coursesDB.checkCourse(studentCourse.getInputValue())){
-                                        coursesDB.updateCourseAddStudents(studentCourse.getInputValue(), new Student(studentName.getInputValue(), studentName.getInputValue(), "Student", studentName.getInputValue()));
-                                }else{
-                                        coursesDB.createCourse(new Course(studentCourse.getInputValue(), studentAttendance.getInputValue(),Integer.parseInt(studentGrade.getInputValue())));
-                                }
+//                                if(coursesDB.getOneCourseByStudentName(studentCourse.getInputValue())){
+//                                        coursesDB.updateCourseAddStudents(studentCourse.getInputValue(), new Student(studentName.getInputValue(), studentName.getInputValue(), "Student", studentName.getInputValue()));
+//                                }else{
+//                                        coursesDB.createCourse(new Course(studentCourse.getInputValue(), studentAttendance.getInputValue(),Integer.parseInt(studentGrade.getInputValue())));
+//                                }
                                 primaryStage.setScene(previousScene);
                                         },"Save");
                                 studentAddBox.getChildren().addAll(studentName,studentCourse,studentGrade,studentAttendance,button);
@@ -128,7 +128,7 @@ public class AdministerPage extends BorderPane {
                         courseTable.addColumn("Course", "name", 100);
 
                         ObservableList<Course> tableInstructor = FXCollections.observableArrayList();
-                        ArrayList<Course> courses= coursesDB.fetch();
+                        ArrayList<Course> courses= (ArrayList<Course>) coursesDB.getAllCourses();
                         for(Course c : courses){
 
                                 tableInstructor.add(new Course(c.getName(),c.getInstructorName()));
@@ -147,12 +147,12 @@ public class AdministerPage extends BorderPane {
                         courseTable.addColumn("Attendance", "attendant", 100);
 
                         ObservableList<Course> tableStudent = FXCollections.observableArrayList();
-                        ArrayList<Course> courses= coursesDB.fetch();
+                        ArrayList<Course> courses= (ArrayList<Course>) coursesDB.getAllCourses();
                         for (Course c : courses) {
-                                if (c.getStudents() != null) {
+                                if (c.getStudentsAtCourse() != null) {
                                         List<String> studentNames = new ArrayList<>();
-                                        for (Student student : c.getStudents()) {
-                                                studentNames.add(student.getName());
+                                        for (Student student : c.getStudentsAtCourse()) {
+                                                studentNames.add(student.getStudentName());
                                         }
                                         //TODO(Nancy): Add Student to Tableview
                                         tableStudent.add(c);
@@ -170,7 +170,7 @@ public class AdministerPage extends BorderPane {
                         courseTable.addColumn("Student", "students", 100);
 
                         ObservableList<Course> tableCourse = FXCollections.observableArrayList();
-                        ArrayList<Course> courses= coursesDB.fetch();
+                        List<Course> courses= coursesDB.getAllCourses();
                         for(Course c : courses){
                                 tableCourse.add(c);
                         }

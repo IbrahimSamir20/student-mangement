@@ -25,14 +25,16 @@ public class StudentPage extends BorderPane {
     InstructorDB<Instructor> instructorDB = appData.getInstructorDB();
     VBox studentContainer ;
     CustomButton buttonAddCourse;
-
+ StudentPageControls createCourse ;
        public StudentPage(Stage primaryStage,Student student){
+           this.createCourse = new StudentPageControls(student);
            EventHandler<ActionEvent> onEdit = event -> {
-               CustomPopUp popup = new CustomPopUp(primaryStage, student.getName(),student, (Navbar) this.getTop(), appData);
+               CustomPopUp popup = new CustomPopUp(primaryStage, student.getStudentName(),student, (Navbar) this.getTop(), appData);
                popup.showAndWait();
            };
 
            EventHandler<ActionEvent> onBack = event -> {
+
                primaryStage.setScene(new Scene(new Login(primaryStage).getGrid()));
                primaryStage.show();
            };
@@ -43,7 +45,7 @@ public class StudentPage extends BorderPane {
 
            CustomButton[] buttons = {new CustomButton(), new CustomButton()};
 
-           Navbar navbar = new Navbar(student.getName(), primaryStage, labels, buttons,navHandlers);
+           Navbar navbar = new Navbar(student.getStudentName(), primaryStage, labels, buttons,navHandlers);
 
            this.setTop(navbar);
 
@@ -58,16 +60,23 @@ public class StudentPage extends BorderPane {
             studentTable.addColumn("Grade", "grade", 250);
 
            ObservableList<Course> tableCourses = FXCollections.observableArrayList();
-           ArrayList<Course> courses= coursesDB.fetch();
+           ArrayList<Course> courses= (ArrayList<Course>) coursesDB.getAllCourses();
+
            System.out.print(courses);
            //Adding data to tableview list
-           for(Course course : courses){
-               tableCourses.add(course);
-           }
+//           for(Course course : courses){
+//               tableCourses.add(course);
+//           }
+           Course course = coursesDB.getOneCourseByStudentName(student.getStudentName(),createCourse.getValue());
+           if (course == null) {
+               System.out.println("now course yet");
+           } else{
 
+           tableCourses.add(course);
+           }
            studentTable.setTableData(tableCourses);
            this.studentContainer = new VBox();
-           this.buttonAddCourse= new CustomButton((EventHandler<ActionEvent>) new StudentPageControls().openSubscripe(),"Subscribe");
+           this.buttonAddCourse= new CustomButton((EventHandler<ActionEvent>) createCourse.openSubscripe(),"Subscribe");
             studentContainer.setSpacing(10);
            studentContainer.setPadding(new Insets(10));
             this.setCenter(studentContainer);

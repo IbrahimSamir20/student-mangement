@@ -97,7 +97,7 @@ public class Login extends VBox {
 
                             System.out.println(usernameInput.getInputValue());
                             Student student = studentDB.fetchOneStudentByName(usernameInput.getInputValue());
-                            System.out.println(student.getName());
+                            System.out.println(student.getStudentName());
                             primaryStage.setScene(new Scene(new StudentPage(primaryStage, student).getPage()));
                             System.out.println("from studentPage");
 
